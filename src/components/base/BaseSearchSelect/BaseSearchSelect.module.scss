@@ -1,0 +1,152 @@
+.SelectContainer {
+  position: relative;
+}
+
+.SelectHeader {
+  $size: 12px;
+  width: 100%;
+  height: 100%;
+  background: $input;
+  font-size: em($size);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: em(10px, $size);
+  padding: 0 em(17px, $size);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: em(44px, $size);
+
+  p {
+    font-weight: normal;
+    line-height: 120%;
+    color: $placeholder;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .NotEmpty {
+    color: $black;
+  }
+}
+
+.SelectHeaderFocus {
+  border: 2px solid $yellow;
+}
+
+.IconArrow {
+  width: em(12px);
+  height: em(12px);
+  position: absolute;
+  right: em(19px);
+}
+
+.IconArrowTop {
+  top: calc(45% - em(12px));
+}
+
+.IconArrowBottom {
+  bottom: calc(45% - em(12px));
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+
+.SelectList {
+  position: absolute;
+  top: em(50px);
+  z-index: 1000;
+  width: 100%;
+  background: #f2f5f6;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: em(10px);
+  overflow: hidden;
+  min-width: em(270px);
+}
+
+.Ul {
+  max-height: em(166px);
+  overflow-y: scroll;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.Ul::-webkit-scrollbar {
+  display: none;
+  width: 0px; /* For Chrome, Safari, and Opera */
+}
+
+.Li {
+  cursor: pointer;
+  width: 100%;
+  height: em(44px);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  color: $placeholder;
+  padding: 0 em(17px);
+  &:hover {
+    background: $light_grey;
+  }
+  span {
+    font-size: em(12px);
+    font-weight: normal;
+    line-height: 120%;
+  }
+}
+
+.SelectSearch {
+  min-height: em(44px);
+  position: relative;
+  padding-left: em(40px);
+  display: flex;
+  align-items: center;
+}
+
+.IconSearch {
+  position: absolute;
+  top: calc(50% - em(8px));
+  left: em(16px);
+  width: em(16px);
+  height: em(16px);
+  path {
+    stroke: rgba(0, 0, 0, 0.39);
+  }
+}
+
+.Input {
+  width: 90%;
+  font-size: em(12px);
+  line-height: 120%;
+  font-weight: 400;
+  color: $black2;
+  outline: none;
+  box-sizing: border-box;
+  position: relative;
+  background: $input;
+  font-family: $font-Termina;
+  border: none;
+}
+
+.Input::placeholder {
+  color: rgba(0, 0, 0, 0.39);
+}
+
+.CountryCode {
+  $size: 12px;
+  font-size: $size;
+  color: $black;
+  min-width: em(50px, $size);
+  margin-right: em(24px);
+}
+
+.Error {
+  border: 2px solid $error;
+}
+
+.ErrorText {
+  display: block;
+  font-size: em(12px);
+  line-height: 120%;
+  color: $error;
+  margin-top: em(20px);
+}

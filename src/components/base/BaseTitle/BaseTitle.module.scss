@@ -1,0 +1,51 @@
+.Title {
+  margin: 0;
+  color: $yellow;
+  line-height: 120%;
+  font-weight: 700;
+
+  &_h1 {
+    @include ifdesktop {
+      font-size: em(54px);
+      // font-size: em(69px);
+    }
+
+    @include iftablet {
+      font-size: em(50px);
+    }
+
+    @include ifmobile {
+      font-size: em(33px);
+    }
+  }
+  &_h2 {
+    color: $white;
+    text-decoration: underline;
+    font-weight: bold;
+    @include ifdesktop {
+      font-size: em(40px);
+      // font-size: em(50px);
+      font-weight: 700;
+    }
+
+    @include iftablet {
+      font-size: em(40px);
+    }
+
+    @include ifmobile {
+      font-size: em(24px);
+    }
+  }
+  &_h3 {
+    font-weight: 400;
+    font-size: em(16px);
+
+    @include iftablet {
+      font-size: em(14px);
+    }
+
+    @include ifmobile {
+      font-size: em(12px);
+    }
+  }
+}

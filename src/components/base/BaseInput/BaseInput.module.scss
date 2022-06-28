@@ -1,0 +1,54 @@
+.BaseInputWrapper {
+  position: relative;
+}
+.BaseInput {
+  position: relative;
+}
+
+.Input {
+  $size: 12px;
+  width: 100%;
+  height: 100%;
+  font-size: em($size);
+  font-weight: 400;
+  color: $black;
+  outline: none;
+  box-sizing: border-box;
+  position: relative;
+  background: $input;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: em(10px, $size);
+  vertical-align: middle;
+  padding: 0 em(17px, $size);
+  height: em(44px, $size);
+  border: none;
+  @include placeholder-color($placeholder);
+  font-family: $font-Termina;
+  &:focus {
+    border: 2px solid $yellow;
+  }
+
+  &[type='password'] {
+    font-family: $font-stars;
+  }
+}
+
+.Error {
+  border: 2px solid $error;
+}
+
+.ErrorText {
+  display: block;
+  font-size: em(12px);
+  line-height: 120%;
+  color: $error;
+  margin-top: em(20px);
+}
+
+.Label {
+  font-size: em(12px);
+  line-height: 120%;
+  color: $white;
+  text-transform: uppercase;
+  margin-bottom: em(19px);
+}

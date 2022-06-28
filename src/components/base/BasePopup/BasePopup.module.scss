@@ -1,0 +1,81 @@
+.BasePopup {
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10000;
+  background: rgba(30, 30, 30, 0.9);
+  min-height: 100%;
+  overflow: auto;
+  overflow-y: scroll;
+}
+
+.BasePopupContent {
+  position: relative;
+  background: $black;
+  margin: em(78px) auto;
+  width: 100%;
+  max-width: em(1303px);
+  min-height: em(765px);
+  padding: em(104px) em(18px) em(113px) em(105px);
+  border-radius: 10px;
+  overflow: hidden;
+  @include iftablet {
+    max-width: em(874px);
+    min-height: em(638px);
+    padding: em(90px) em(50px) em(68px);
+    margin: em(60px) auto;
+  }
+  @include ifmobile {
+    max-width: em(300px);
+    min-height: em(567px);
+    padding: em(69px) em(19px) em(19px);
+    margin: em(35px) auto;
+  }
+}
+
+.Mini {
+  width: 100%;
+  max-width: em(860px);
+  min-height: auto;
+  padding: em(110px) em(153px) em(126px);
+  margin: em(78px) auto;
+  @include iftablet {
+    max-width: em(874px);
+    padding: em(119px) em(68px) em(68px);
+    margin: em(60px) auto;
+  }
+  @include ifmobile {
+    max-width: em(300px);
+    padding: em(69px) em(19px) em(19px);
+    margin: em(35px) auto;
+  }
+}
+
+.BasePopupClose {
+  width: em(24px);
+  height: em(32px);
+  position: absolute;
+  top: em(34px);
+  right: em(34px);
+  cursor: pointer;
+  z-index: 100;
+  @include iftablet {
+    width: em(19px);
+    height: em(26px);
+    top: em(30px);
+    right: em(34px);
+  }
+  @include ifmobile {
+    width: em(11px);
+    height: em(15px);
+    top: em(20px);
+    right: em(20px);
+  }
+}
+
+.Visible {
+  display: block;
+}

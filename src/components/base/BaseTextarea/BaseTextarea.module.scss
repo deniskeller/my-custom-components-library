@@ -1,0 +1,71 @@
+.BaseTextarea {
+  position: relative;
+}
+
+.Textarea {
+  $size: 12px;
+  line-height: 120%;
+  width: 100%;
+  height: 100%;
+  font-size: em($size);
+  font-weight: 400;
+  color: $black;
+  outline: none;
+  box-sizing: border-box;
+  position: relative;
+  background: $input;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: em(10px, $size);
+  vertical-align: middle;
+  padding: em(23px) em(10px, $size) em(23px) em(17px, $size);
+  border: none;
+  @include placeholder-color($placeholder);
+  font-family: $font-Termina;
+  direction: ltr;
+  scrollbar-color: #d4aa70 #e4e4e4;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: em(5px);
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $black;
+    border-radius: 10px;
+  }
+  &:focus {
+    border: 2px solid $yellow;
+  }
+}
+
+.Error {
+  border: 2px solid $error;
+}
+
+.ErrorText {
+  display: block;
+  font-size: em(16px);
+  line-height: 120%;
+  color: $error;
+  margin-top: em(20px);
+  @include iftablet {
+    font-size: em(12px);
+  }
+  @include ifmobile {
+    font-size: em(9px);
+  }
+}
+
+.Label {
+  font-size: em(19px);
+  line-height: 120%;
+  color: $white;
+  text-transform: uppercase;
+  margin-bottom: em(19px);
+  @include iftablet {
+  }
+  @include ifmobile {
+    font-size: em(12px);
+  }
+}

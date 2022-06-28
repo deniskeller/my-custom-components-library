@@ -1,0 +1,128 @@
+@use 'sass:math';
+
+html {
+  color: $black;
+  font-family: $font-Termina;
+  font-size: math.div(18, 720) * 100vh;
+  min-height: 100%;
+  // line-height: 1.8;
+  line-height: 120%;
+  scroll-behavior: smooth;
+}
+
+@media screen and (max-aspect-ratio: 1735/720) {
+  html {
+    font-size: math.div(18, 1735) * 100vw;
+  }
+}
+
+@media only screen and (min-width: 1735px) and (max-aspect-ratio: 1735/720) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-height: 720px) and (min-aspect-ratio: 1735/720) {
+  html {
+    font-size: 18px;
+  }
+}
+
+html {
+  @include iftablet {
+    font-size: math.div(18, 1024) * 100vw;
+  }
+
+  @include ifmobile {
+    font-size: math.div(18, 360) * 100vw;
+  }
+
+  @include if4k {
+    font-size: math.div(36, 3840) * 100vw;
+  }
+
+  @include if8k {
+    font-size: math.div(76, 7680) * 100vw;
+  }
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // border: 1px solid red;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// Это для браузера Chrome:
+// input[type='number']::-webkit-outer-spin-button,
+// input[type='number']::-webkit-inner-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }
+
+// Это для браузера Firefox:
+input[type='number'] {
+  -moz-appearance: textfield;
+  &:hover,
+  &:focus {
+    -moz-appearance: button;
+  }
+}
+
+// Это для остальных браузеров
+// input[type='number']:hover,
+// input[type='number']:focus {
+//   -moz-appearance: number-input;
+// }
+
+textarea::placeholder {
+  line-height: 120%;
+}
+
+.slick-slide {
+  width: em(356px) !important;
+  margin: 0 em(71px) !important;
+  @include iftablet {
+    width: em(266px) !important;
+    margin: 0 em(10px) !important;
+  }
+  @include ifmobile {
+    width: 100%;
+    width: em(144px) !important;
+    margin: 0 em(6px) !important;
+  }
+}
+.slick-list {
+  margin-left: em(-71px) !important;
+  margin-right: em(-71px) !important;
+  @include iftablet {
+    margin-left: em(-10px) !important;
+    margin-right: em(-10px) !important;
+  }
+  @include ifmobile {
+    margin-left: em(-6px) !important;
+    margin-right: em(-6px) !important;
+  }
+}
+
+.slick-arrow {
+  z-index: 1000;
+}

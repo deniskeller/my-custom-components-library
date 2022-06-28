@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Circe";
+  src: url("~assets/fonts/Circe-Regular.woff2") format("woff2"),
+    url("~assets/fonts/Circe-Regular.woff") format("woff");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("~assets/fonts/Circe-Bold.woff2") format("woff2"),
+    url("~assets/fonts/Circe-Bold.woff") format("woff");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("~assets/fonts/Calibri-Regular.woff2") format("woff2"),
+    url("~assets/fonts/Calibri-Regular.woff") format("woff");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("~assets/fonts/Calibri-Bold.woff2") format("woff2"),
+    url("~assets/fonts/Calibri-Bold.woff") format("woff");
+  font-weight: bold;
+}
+
+@import url("https://p.typekit.net/p.css?s=1&k=vbo8gbx&ht=tk&f=28977.28991&a=7072596&app=typekit&e=css");
+
+@font-face {
+  font-family: "termina";
+  src: url("https://use.typekit.net/af/1d76ab/00000000000000007735b21c/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/1d76ab/00000000000000007735b21c/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/1d76ab/00000000000000007735b21c/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "termina";
+  src: url("https://use.typekit.net/af/574117/00000000000000007735b222/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/574117/00000000000000007735b222/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/574117/00000000000000007735b222/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "fontstars";
+  src: url("~assets/fonts/fontstars/fontello.eot?60047270");
+  src: url("~assets/fonts/fontstars/fontello.eot?60047270#iefix")
+      format("embedded-opentype"),
+    url("~assets/fonts/fontstars/fontello.woff2?60047270") format("woff2"),
+    url("~assets/fonts/fontstars/fontello.woff?60047270") format("woff"),
+    url("~assets/fonts/fontstars/fontello.ttf?60047270") format("truetype"),
+    url("~assets/fonts/fontstars/fontello.svg?60047270#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
