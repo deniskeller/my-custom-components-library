@@ -1,0 +1,40 @@
+.Container {
+  width: 100%;
+  box-shadow: 0 2px 8px #f0f1f2;
+
+  .Navbar {
+    width: 100%;
+    max-width: em(1180px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+
+    .NavbarLogo {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .LogoImage {
+        width: em(40px);
+        height: em(40px);
+      }
+
+      .LogoTitle {
+        font-size: em(12px);
+        color: $black;
+        font-weight: 700;
+        line-height: 100%;
+        margin-left: em(10px);
+      }
+    }
+
+    .NavbarNav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

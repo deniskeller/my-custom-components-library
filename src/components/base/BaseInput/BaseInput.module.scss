@@ -23,7 +23,6 @@
   height: em(44px, $size);
   border: none;
   @include placeholder-color($placeholder);
-  font-family: $font-Termina;
   &:focus {
     border: 2px solid $yellow;
   }

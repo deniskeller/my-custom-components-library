@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './BaseIcon.module.scss';
-
 import icons, { ALL_ICONS } from '@constants/icons';
 
 interface Props {
