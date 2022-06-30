@@ -1,0 +1,21 @@
+.Li {
+  list-style: none;
+  min-width: em(60px);
+  padding: 0 em(12px);
+}
+
+.Link {
+  font-size: em(18px);
+  color: $black;
+
+  @include iftablet {
+    font-size: em(14px);
+  }
+}
+
+.Link:hover {
+  color: $green;
+}
+.Active {
+  color: $green;
+}

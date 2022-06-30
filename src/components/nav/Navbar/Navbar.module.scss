@@ -1,6 +1,8 @@
 .Container {
   width: 100%;
   box-shadow: 0 2px 8px #f0f1f2;
+  position: relative;
+  z-index: 1000;
 
   .Navbar {
     width: 100%;
@@ -36,5 +38,10 @@
       flex-direction: row;
       align-items: center;
     }
+  }
+
+  .MaxWidth {
+    max-width: 100%;
+    padding: 0 em(30px);
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Main.module.scss';
 
-import { Navbar } from '@nav/index';
+import { Navbar, Sidebar } from '@nav/index';
 // import { Footer } from "components/footer";
 
 interface Props {
@@ -10,11 +10,16 @@ interface Props {
 
 const Main: React.FC<Props> = ({ children }) => {
   return (
-    <div className={styles.content}>
+    <>
       <Navbar />
-      {children}
-      {/* <Footer /> */}
-    </div>
+      <div className={styles.Section}>
+        <Sidebar />
+        <div>
+          <div className={styles.Content}>{children}</div>
+          {/* <Footer /> */}
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,18 @@
+.LayoutSidebar {
+  padding: em(40px) 0 0;
+  height: calc(100vh - $header-height);
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+.Sidebar {
+  flex: 0 0 256px;
+  max-width: 256px;
+  min-width: 256px;
+  width: 256px;
+}
+
+.Collapsed {
+  // flex: 0 0 60px !important;
+  // max-width: 60px !important;
+  // min-width: 60px !important;
+  // width: 60px !important;
+}

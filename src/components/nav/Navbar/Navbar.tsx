@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { BaseIcon } from '@base/index';
-import { NavbarLink } from '@nav/index';
-
+import { NavbarLink2 } from '@nav/index';
 import { ALL_ICONS } from '@constants/icons';
 
 interface Props {}
@@ -21,6 +21,7 @@ const links = [
 ];
 
 const Navbar: React.FC<Props> = () => {
+  const router = useRouter();
   const [modal, setModal] = React.useState(false);
 
   const menuOpen = () => {
@@ -37,9 +38,15 @@ const Navbar: React.FC<Props> = () => {
     }
   }, [modal]);
 
+  console.log('kek');
+
   return (
     <div className={styles.Container}>
-      <div className={styles.Navbar}>
+      <div
+        className={`${styles.Navbar} ${
+          router.pathname !== '/' ? styles.MaxWidth : ''
+        }`}
+      >
         <Link href="/">
           <a>
             <div className={styles.NavbarLogo}>
@@ -61,7 +68,7 @@ const Navbar: React.FC<Props> = () => {
         <ul className={styles.NavbarNav}>
           {links.map((link, index) => {
             return (
-              <NavbarLink
+              <NavbarLink2
                 href={link.href}
                 title={link.title}
                 index={index}
