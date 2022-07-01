@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import styles from './NavbarLink.module.scss';
+import styles from './SidebarLink.module.scss';
 
 interface Props {
   href: string;
@@ -9,18 +9,16 @@ interface Props {
   index: number;
 }
 
-const NavbarLink2: React.FC<Props> = ({ href, title, index }) => {
+const SidebarLink: React.FC<Props> = ({ href, title, index }) => {
   const router = useRouter();
 
   return (
     <li key={index} className={styles.Li}>
       <Link href={href}>
         <a
-          className={`${
-            router.pathname.split('/')[1] === href.split('/')[1]
-              ? styles.Active
-              : ''
-          } ${styles.Link}`}
+          className={`${router.pathname === href ? styles.Active : ''} ${
+            styles.Link
+          }`}
         >
           {title}
         </a>
@@ -29,4 +27,4 @@ const NavbarLink2: React.FC<Props> = ({ href, title, index }) => {
   );
 };
 
-export default NavbarLink2;
+export default SidebarLink;

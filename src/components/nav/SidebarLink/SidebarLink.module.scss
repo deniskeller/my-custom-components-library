@@ -1,0 +1,40 @@
+.Li {
+  list-style: none;
+}
+
+.Link {
+  font-size: em(14px);
+  line-height: 100%;
+  color: $black;
+  padding: em(15px) em(10px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-right: 3px solid #1890ff;
+    transform: scaleY(0.0001);
+    opacity: 0;
+    transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+      opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}
+
+.Link:hover {
+  color: $blue;
+}
+.Active {
+  color: $blue;
+  background-color: #e6f7ff;
+  &:after {
+    transform: scaleY(1);
+    opacity: 1;
+    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1),
+      opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}

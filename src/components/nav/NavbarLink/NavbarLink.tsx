@@ -16,9 +16,11 @@ const NavbarLink: React.FC<Props> = ({ href, title, index }) => {
     <li key={index} className={styles.Li}>
       <Link href={href}>
         <a
-          className={`${router.pathname === href ? styles.Active : ''} ${
-            styles.Link
-          }`}
+          className={`${
+            router.pathname.split('/')[1] === href.split('/')[1]
+              ? styles.Active
+              : ''
+          } ${styles.Link}`}
         >
           {title}
         </a>

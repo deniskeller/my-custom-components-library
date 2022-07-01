@@ -7,15 +7,33 @@
 .Link {
   font-size: em(18px);
   color: $black;
+  position: relative;
 
-  @include iftablet {
-    font-size: em(14px);
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: em(-3px);
+    left: 0;
+    height: 2px;
+    background: $blue;
   }
 }
 
 .Link:hover {
-  color: $green;
+  color: $blue;
+  &::after {
+    animation: bottomLine 0.3s linear forwards;
+  }
 }
 .Active {
-  color: $green;
+  color: $blue;
+}
+
+@keyframes bottomLine {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
