@@ -1,7 +1,11 @@
 .LayoutSidebar {
-  padding: em(40px) 0 0;
-  height: calc(100vh - $header-height);
+  padding: 0 0 em(40px) 0;
+  height: calc((100vh - em(30px)) - $header-height);
+  overflow: hidden;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
+  &:hover {
+    overflow-y: auto;
+  }
 }
 .Sidebar {
   flex: 0 0 256px;

@@ -1,4 +1,12 @@
 .Section {
   display: grid;
   grid-template-columns: 256px 1fr;
+  padding-top: em(30px);
+
+  .Content {
+    padding: 0 em(15px) em(15px);
+    height: calc((100vh - em(30px)) - $header-height);
+    overflow: hidden;
+    overflow-y: auto;
+  }
 }
