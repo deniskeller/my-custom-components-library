@@ -1,21 +1,12 @@
-import React, { ReactNode } from "react";
-import styles from "./BaseContainer.module.scss";
+import React, { ReactNode } from 'react';
+import styles from './BaseContainer.module.scss';
 
 interface Props {
-  children: ReactNode;
-  appContent?: String;
+  children: ReactNode | ReactNode[];
 }
 
-const BaseContainer: React.FC<Props> = ({ children, appContent }) => {
-  return (
-    <div
-      className={` ${styles.BaseContainer} ${
-        appContent ? styles.appContent : ""
-      }`}
-    >
-      {children}
-    </div>
-  );
+const BaseContainer: React.FC<Props> = ({ children }) => {
+  return <div className={styles.BaseContainer}>{children}</div>;
 };
 
 export default BaseContainer;

@@ -20,6 +20,12 @@
   justify-content: center;
 }
 
+%inlinecenter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 %button {
   position: relative;
   box-sizing: border-box;
@@ -29,6 +35,7 @@
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 }
 
 %background-cover {

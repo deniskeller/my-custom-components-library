@@ -1,14 +1,16 @@
 //общие
 .Button {
-  width: 100%;
-  height: 100%;
+  $size: 14px;
+  font-size: em($size);
+  min-width: em(150px, $size);
+  min-height: em(32px, $size);
+  border-radius: em(10px, $size);
   @extend %button;
-  border-radius: em(10px);
-  font-size: em(16px);
-  font-weight: 600;
-  white-space: nowrap;
-  @include ifmobile {
-    font-size: em(12px);
+  span {
+    font-family: $font-Circe;
+    font-weight: 600;
+    text-transform: uppercase;
+    @extend %center;
   }
 }
 
@@ -83,14 +85,10 @@
 }
 
 .IconLoading {
-  width: em(38px);
-  height: em(38px);
+  width: em(20px);
+  height: em(20px);
   transition: all 0.5s ease;
   animation: rotate 1s linear infinite;
-  @include ifmobile {
-    width: em(30px);
-    height: em(30px);
-  }
 }
 
 @keyframes rotate {
