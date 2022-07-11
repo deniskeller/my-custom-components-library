@@ -101,14 +101,6 @@
     font-weight: normal;
     line-height: 120%;
   }
-
-  // @include iftablet {
-  //   height: em(61px);
-  // }
-  // @include ifmobile {
-  //   height: em(44px);
-  //   padding: 0 em(25px);
-  // }
 }
 
 .Error {
@@ -144,12 +136,6 @@
   .IconArrowBottom {
     top: calc((100% - em(17px)) / 2);
     right: em(15px);
-    @include iftablet {
-      top: calc(50% - em(13px));
-    }
-    @include ifmobile {
-      top: calc(45% - em(7px));
-    }
   }
   .IconArrowTop {
     display: none;
@@ -177,12 +163,6 @@
   .IconArrowBottom {
     top: calc((100% - em(17px)) / 2);
     right: em(15px);
-    @include iftablet {
-      top: calc(50% - em(13px));
-    }
-    @include ifmobile {
-      top: calc(45% - em(7px));
-    }
   }
   .IconArrowTop {
     display: none;

@@ -19,10 +19,6 @@
     .BaseRadioButtonTick {
       top: 20%;
       left: 20%;
-      @include iftablet {
-      }
-      @include ifmobile {
-      }
     }
   }
   .BaseRadioButtonTitle {
@@ -51,14 +47,6 @@
     background: $input;
     position: relative;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    @include iftablet {
-      width: em(22px);
-      height: em(22px);
-    }
-    @include ifmobile {
-      width: em(20px);
-      height: em(20px);
-    }
   }
 
   .BaseRadioButtonTick {
@@ -71,14 +59,6 @@
     left: 35%;
     visibility: hidden;
     transform: scale(1.5);
-    @include iftablet {
-      width: em(8px);
-      height: em(8px);
-    }
-    @include ifmobile {
-      width: em(8px);
-      height: em(8px);
-    }
   }
 
   .isError {
@@ -92,12 +72,6 @@
       transition: transform $speed;
       top: 33%;
       left: 33%;
-      @include iftablet {
-      }
-      @include ifmobile {
-        top: 30%;
-        left: 30%;
-      }
     }
   }
 }

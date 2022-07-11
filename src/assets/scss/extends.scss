@@ -31,11 +31,11 @@
   box-sizing: border-box;
   border: none;
   outline: none;
-  @extend %center;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
+  @extend %center;
 }
 
 %background-cover {

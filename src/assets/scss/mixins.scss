@@ -1,38 +1,26 @@
 @mixin ifmobile {
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     @content;
   }
 }
 
 @mixin ifmobileL {
-  @media only screen and (max-width: 767px) and (orientation: landscape) {
+  @media only screen and (max-width: 768px) and (orientation: landscape) {
     @content;
   }
 }
 
 @mixin ifdesktop {
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 769px) {
     @content;
   }
 }
 
-@mixin iftablet {
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin if4k {
-  @media only screen and (min-width: 1736px) {
-    @content;
-  }
-}
-
-@mixin if8k {
-  @media only screen and (min-width: 3841px) {
-    @content;
-  }
-}
+// @mixin iftablet {
+//   @media only screen and (min-width: 769px) and (max-width: 1024px) {
+//     @content;
+//   }
+// }
 
 @mixin respondH($media) {
   @media only screen and (min-height: $media) {

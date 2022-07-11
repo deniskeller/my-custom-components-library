@@ -2,7 +2,12 @@
   display: flex;
 }
 .Button {
-  // width: em(300px);
-  // height: em(50px);
-  margin-right: 20px;
+  // width: em(150px);
+  height: em(40px);
+  margin-right: em(20px);
+
+  .Icon {
+    width: em(15px);
+    height: em(15px);
+  }
 }

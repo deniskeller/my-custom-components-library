@@ -48,12 +48,6 @@
   line-height: 120%;
   color: $error;
   margin-top: em(20px);
-  @include iftablet {
-    font-size: em(12px);
-  }
-  @include ifmobile {
-    font-size: em(9px);
-  }
 }
 
 .Label {
@@ -62,9 +56,4 @@
   color: $white;
   text-transform: uppercase;
   margin-bottom: em(19px);
-  @include iftablet {
-  }
-  @include ifmobile {
-    font-size: em(12px);
-  }
 }

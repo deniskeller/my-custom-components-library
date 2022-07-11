@@ -4,7 +4,8 @@ import { BaseIcon } from '../..';
 import styles from './BaseButton.module.scss';
 
 interface Props {
-  children: ReactNode | ReactNode[];
+  children?: ReactNode | ReactNode[];
+  title?: string;
   onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
   type?: string;
   disabled?: boolean;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const BaseButton: React.FC<Props> = ({
+  title = '',
   children,
   onClick,
   type = 'default',
@@ -22,21 +24,20 @@ const BaseButton: React.FC<Props> = ({
 }) => {
   return (
     <button
+      onClick={onClick}
       disabled={disabled}
       className={`${className} ${styles.Button} ${styles['Button_' + type]}`}
-      onClick={onClick}
     >
       {loading ? (
-        <span>
-          <BaseIcon
-            icon={ALL_ICONS.LOADING}
-            viewBox="0 0 38 38"
-            className={styles.IconLoading}
-          />
+        <span className={styles.IconLoader}>
+          <BaseIcon icon={ALL_ICONS.LOADING} viewBox="0 0 38 38" />
         </span>
       ) : (
-        <span>{children}</span>
+        ''
       )}
+
+      {children}
+      <span className={styles.Title}>{title}</span>
     </button>
   );
 };
