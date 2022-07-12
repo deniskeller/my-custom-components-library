@@ -1,10 +1,11 @@
-import { Default } from '@layouts/index';
 import React from 'react';
+import { Default } from '@layouts/index';
+import { Home } from '@view/index';
 
 const HomePage = () => {
   return (
     <Default>
-      <div className="">Главная</div>
+      <Home />
     </Default>
   );
 };

@@ -1,1 +1,26 @@
 @import './../src/assets/scss/core.scss';
+
+.Container {
+  width: 100%;
+  max-width: em(1180px);
+  margin: 0 auto;
+}
+
+.Mb {
+  margin-bottom: em(10px);
+}
+
+.Mr {
+  margin-right: em(10px);
+}
+
+.Headline {
+  display: flex;
+  align-items: center;
+}
+
+.Icon {
+  display: flex;
+  width: em(15px);
+  height: em(15px);
+}

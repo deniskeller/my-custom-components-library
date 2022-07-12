@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./BaseInput.module.scss";
+import React from 'react';
+import styles from './BaseInput.module.scss';
 
 interface Props {
   type: string;
@@ -28,27 +28,29 @@ const BaseInput: React.FC<Props> = ({
   required = false,
   placeholder,
   className,
-  autocomplete = "off",
+  autocomplete = 'off',
   onChange,
   onKeyDown,
 }) => {
   return (
     <div className={`${styles.BaseInput} ${className}`}>
-      {label ? <label className={styles.Label}>{label}</label> : ""}
+      {label ? <label className={styles.Label}>{label}</label> : ''}
       <input
         value={value}
         type={type}
-        className={`${styles.Input} ${styles.Input} ${error ? styles.Error : ""}`}
+        className={`${styles.Input} ${error ? styles.Error : ''}`}
         name={name}
         min={min}
         max={max}
         placeholder={placeholder}
         required={required}
         autoComplete={autocomplete}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange(e.target.value)
+        }
         onKeyDown={onKeyDown}
       />
-      {error ? <div className={styles.ErrorText}>{error}</div> : ""}
+      {error ? <div className={styles.ErrorText}>{error}</div> : ''}
     </div>
   );
 };

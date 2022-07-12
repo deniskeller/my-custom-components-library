@@ -3,10 +3,11 @@
 }
 
 .Link {
-  font-size: em(14px);
+  $size: 14px;
+  font-size: em($size);
   line-height: 100%;
   color: $black;
-  padding: em(15px) em(10px);
+  padding: em(15px, $size) em(10px, $size) em(15px, $size) em(30px, $size);
   display: flex;
   align-items: center;
   position: relative;
@@ -17,7 +18,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    border-right: 3px solid #1890ff;
+    border-right: em(3px, $size) solid #1890ff;
     transform: scaleY(0.0001);
     opacity: 0;
     transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),

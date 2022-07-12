@@ -1,23 +1,16 @@
 .Title {
-  margin: 0;
-  color: $yellow;
+  color: $black;
   line-height: 120%;
   font-weight: 700;
 
   &_h1 {
-    @include ifdesktop {
-      font-size: em(54px);
-    }
+    font-size: em(32px);
   }
   &_h2 {
-    color: $white;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: em(40px);
-    font-weight: 700;
+    font-size: em(26px);
   }
   &_h3 {
+    font-size: em(22px);
     font-weight: 400;
-    font-size: em(16px);
   }
 }

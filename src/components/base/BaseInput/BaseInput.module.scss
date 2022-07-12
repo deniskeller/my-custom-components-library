@@ -1,30 +1,31 @@
-.BaseInputWrapper {
-  position: relative;
-}
 .BaseInput {
+  font-size: 100%;
   position: relative;
 }
 
 .Input {
-  $size: 12px;
   width: 100%;
   height: 100%;
+  $size: 12px;
   font-size: em($size);
-  font-weight: 400;
-  color: $black;
-  outline: none;
+  font-family: $font-Circe;
+  padding: em(10px, $size) em(20px, $size);
   box-sizing: border-box;
-  position: relative;
-  background: $input;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: em(10px, $size);
-  vertical-align: middle;
-  padding: 0 em(17px, $size);
-  height: em(44px, $size);
-  border: none;
+  border: 2px solid $grey;
+  border-radius: 2px;
+  background-color: $white;
+  outline: none;
   @include placeholder-color($placeholder);
+  border: 1px solid $grey;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: $blue;
+  }
+
   &:focus {
-    border: 2px solid $yellow;
+    border-color: $blue;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   }
 
   &[type='password'] {
@@ -33,21 +34,20 @@
 }
 
 .Error {
-  border: 2px solid $error;
+  border: 1px solid $red;
 }
 
 .ErrorText {
-  display: block;
   font-size: em(12px);
-  line-height: 120%;
-  color: $error;
-  margin-top: em(20px);
+  line-height: 100%;
+  color: $red;
+  display: block;
+  margin-top: em(5px);
 }
 
 .Label {
   font-size: em(12px);
-  line-height: 120%;
-  color: $white;
+  line-height: 100%;
+  color: $grey;
   text-transform: uppercase;
-  margin-bottom: em(19px);
 }

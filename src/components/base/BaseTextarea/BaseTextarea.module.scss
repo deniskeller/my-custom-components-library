@@ -39,14 +39,14 @@
 }
 
 .Error {
-  border: 2px solid $error;
+  border: 2px solid $red;
 }
 
 .ErrorText {
   display: block;
   font-size: em(16px);
   line-height: 120%;
-  color: $error;
+  color: $red;
   margin-top: em(20px);
 }
 

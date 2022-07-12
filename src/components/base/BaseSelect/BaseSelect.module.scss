@@ -93,7 +93,7 @@
     border-bottom-right-radius: em(10px);
   }
   &:hover {
-    background: $light_grey;
+    background: $grey;
   }
 
   .ListItemTitle {
@@ -104,14 +104,14 @@
 }
 
 .Error {
-  border: 2px solid $error;
+  border: 2px solid $red;
 }
 
 .ErrorText {
   display: block;
   font-size: em(12px);
   line-height: 120%;
-  color: $error;
+  color: $red;
   margin-top: em(20px);
 }
 

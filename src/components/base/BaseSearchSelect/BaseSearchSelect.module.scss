@@ -85,7 +85,7 @@
   color: $placeholder;
   padding: 0 em(17px);
   &:hover {
-    background: $light_grey;
+    background: $grey;
   }
   span {
     font-size: em(12px);
@@ -118,7 +118,7 @@
   font-size: em(12px);
   line-height: 120%;
   font-weight: 400;
-  color: $black2;
+  color: $black;
   outline: none;
   box-sizing: border-box;
   position: relative;
@@ -139,13 +139,13 @@
 }
 
 .Error {
-  border: 2px solid $error;
+  border: 2px solid $red;
 }
 
 .ErrorText {
   display: block;
   font-size: em(12px);
   line-height: 120%;
-  color: $error;
+  color: $red;
   margin-top: em(20px);
 }

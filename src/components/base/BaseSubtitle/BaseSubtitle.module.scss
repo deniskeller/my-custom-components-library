@@ -1,27 +1,12 @@
 .Subtitle {
-  color: $white;
-  line-height: 100%;
+  color: $black;
+  font-weight: normal;
+  line-height: 120%;
 
   &_h1 {
-    font-weight: bold;
-    @include ifdesktop {
-      font-size: em(18px);
-    }
-    @include ifmobile {
-      font-size: em(16px);
-    }
+    font-size: em(18px);
   }
   &_h2 {
-    font-size: em(50px);
-    color: $white;
-    text-decoration: underline;
-    font-weight: bold;
-  }
-  &_h3 {
-    font-size: em(18px);
-    font-weight: normal;
-    @include ifmobile {
-      font-size: em(16px);
-    }
+    font-size: em(14px);
   }
 }
