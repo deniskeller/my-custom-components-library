@@ -18,13 +18,14 @@
   width: max-content;
   min-width: em(120px, $size);
   max-width: em(200px, $size);
-  min-height: 100%;
+  height: max-content;
   position: absolute;
   @extend %center;
   font-size: em($size);
   line-height: 120%;
   font-weight: 500;
   text-align: center;
+  word-wrap: break-word;
   color: $white;
   padding: em(6px, $size) em(8px, $size);
   background: rgba(0, 0, 0, 0.8);
@@ -35,27 +36,25 @@
 }
 
 .Title[data-position='top'] {
-  bottom: 130%;
+  bottom: calc(100% + em(10px, 14px));
   transform: translateX(-50%);
   left: 50%;
 }
 
 .Title[data-position='right'] {
-  left: 110%;
+  left: calc(100% + em(10px, 14px));
   top: 50%;
   transform: translateY(-50%);
-  height: max-content;
 }
 
 .Title[data-position='bottom'] {
-  top: 130%;
+  top: calc(100% + em(10px, 14px));
   transform: translateX(-50%);
   left: 50%;
 }
 
 .Title[data-position='left'] {
-  right: 110%;
+  right: calc(100% + em(10px, 14px));
   top: 50%;
   transform: translateY(-50%);
-  height: max-content;
 }

@@ -1,0 +1,23 @@
+.Tooltips {
+  margin-bottom: em(40px);
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: em(700px);
+  .ButtonsTop,
+  .ButtonsMiddle {
+    margin-bottom: em(30px);
+  }
+
+  .ButtonsMiddle {
+    display: flex;
+    width: 100%;
+    max-width: em(280px);
+    justify-content: space-between;
+  }
+}

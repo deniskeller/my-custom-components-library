@@ -23,18 +23,35 @@ const Tooltip: React.FC<Props> = () => {
       </div>
 
       <div className={styles.Buttons}>
-        <BaseTooltip title="Top">
-          <BaseButton title="Top" />
-        </BaseTooltip>
-        <BaseTooltip position="right" title="Right">
-          <BaseButton title="right" />
-        </BaseTooltip>
-        <BaseTooltip position="bottom" title="Bottom">
-          <BaseButton title="bottom" />
-        </BaseTooltip>
-        <BaseTooltip position="left" title="Left">
-          <BaseButton title="left" />
-        </BaseTooltip>
+        <div className={styles.ButtonsTop}>
+          <BaseTooltip title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptatibus?">
+            <BaseButton title="Top" />
+          </BaseTooltip>
+        </div>
+
+        <div className={styles.ButtonsMiddle}>
+          <BaseTooltip
+            position="left"
+            title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus modi impedit, et perferendis vitae unde laborum. Ullam at ipsa sit."
+          >
+            <BaseButton title="left" />
+          </BaseTooltip>
+          <BaseTooltip
+            position="right"
+            title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptatibus? "
+          >
+            <BaseButton title="right" />
+          </BaseTooltip>
+        </div>
+
+        <div className={styles.ButtonsBottom}>
+          <BaseTooltip
+            position="bottom"
+            title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptatibus?"
+          >
+            <BaseButton title="bottom" />
+          </BaseTooltip>
+        </div>
       </div>
     </BaseContainer>
   );
