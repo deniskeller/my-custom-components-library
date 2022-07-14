@@ -1,15 +1,7 @@
 import React from 'react';
-import {
-  BaseContainer,
-  BaseIcon,
-  BaseInput,
-  BaseSubtitle,
-  BaseTitle,
-  BaseTooltip,
-} from '@base/index';
+import { BaseContainer, BaseInput, BaseTitle } from '@base/index';
 import styles from './Input.module.scss';
-import { ALL_ICONS } from '@constants/icons';
-import Link from 'next/link';
+import { LinkToViewCode } from '@nav/index';
 
 interface Props {}
 
@@ -26,17 +18,10 @@ const Input: React.FC<Props> = () => {
       <BaseTitle className="Mb">Input</BaseTitle>
 
       <div className="Headline Mb">
-        <BaseSubtitle className="Mr">Basic usage</BaseSubtitle>
-
-        <BaseTooltip title="Open in Github" position="top">
-          <Link href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput">
-            <a target="_blank" rel="noreferrer">
-              <div className="Icon">
-                <BaseIcon icon={ALL_ICONS.GITHUB} />
-              </div>
-            </a>
-          </Link>
-        </BaseTooltip>
+        <LinkToViewCode
+          title="Basic usage"
+          href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+        />
       </div>
       <div className={styles.Inputs}>
         <BaseInput

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { BaseButton, BaseContainer, BaseIcon } from '@base/index';
+import { BaseButton, BaseContainer, BaseIcon, BaseTitle } from '@base/index';
 import styles from './Button.module.scss';
 import { ALL_ICONS } from '@constants/icons';
+import { LinkToViewCode } from '@nav/index';
 
 interface Props {}
 
@@ -26,6 +27,15 @@ const Button: React.FC<Props> = () => {
 
   return (
     <BaseContainer>
+      <BaseTitle className="Mb">Button</BaseTitle>
+
+      <div className="Headline Mb">
+        <LinkToViewCode
+          title="Button"
+          href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseButton"
+        />
+      </div>
+
       <div className={styles.Buttons}>
         <BaseButton title="Default button" className={styles.Button} />
 

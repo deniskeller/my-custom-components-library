@@ -4,22 +4,19 @@ import styles from './BaseTooltip.module.scss';
 interface Props {
   children?: ReactNode | ReactNode[];
   title?: string;
-  className?: string;
   position?: string;
 }
 
 const BaseTooltip: React.FC<Props> = ({
   children,
-  title,
+  title = '',
   position = 'top',
-  className = '',
 }) => {
   return (
-    <div
-      className={styles.tooltip}
-      data-position={position}
-      data-tool-tip={title}
-    >
+    <div className={styles.Tooltip}>
+      <p data-position={position} className={styles.Title}>
+        {title}
+      </p>
       {children}
     </div>
   );
