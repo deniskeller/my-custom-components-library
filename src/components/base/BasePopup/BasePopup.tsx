@@ -49,17 +49,17 @@
 //     }
 //   }, [popup, id]);
 
-//   const keyUp = (e: React.KeyboardEvent<Element>) => {
-//     if (e.keyCode == 27) {
-//       hidePopup();
-//     }
-//   };
+// const keyUp = (e: React.KeyboardEvent<Element>) => {
+//   if (e.keyCode == 27) {
+//     hidePopup();
+//   }
+// };
 
-//   //убрать @ts-nocheck  и разобратсья почему ругается на keyUp
-//   const showPopup = () => {
-//     document.body.classList.add(bodyClassName);
-//     document.addEventListener("keyup", keyUp);
-//   };
+// //убрать @ts-nocheck  и разобратсья почему ругается на keyUp
+// const showPopup = () => {
+//   document.body.classList.add(bodyClassName);
+//   document.addEventListener('keyup', keyUp);
+// };
 
 //   const hidePopup = () => {
 //     document.body.classList.remove(bodyClassName);

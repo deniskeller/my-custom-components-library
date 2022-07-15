@@ -13,7 +13,7 @@ const Tooltip: React.FC<Props> = () => {
       <div className="Headline Mb">
         <LinkToViewCode
           title="A simple text popup tip."
-          href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+          href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseTooltip"
         />
       </div>
       <div className={styles.Tooltips}>
@@ -24,7 +24,7 @@ const Tooltip: React.FC<Props> = () => {
 
       <div className={styles.Buttons}>
         <div className={styles.ButtonsTop}>
-          <BaseTooltip title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptatibus?">
+          <BaseTooltip title="Top">
             <BaseButton title="Top" />
           </BaseTooltip>
         </div>

@@ -5,12 +5,23 @@ import { LinkToViewCode } from '@nav/index';
 
 interface Props {}
 
+interface IValue {
+  text1: string;
+  text2: string;
+  text3: string;
+  password: string;
+}
+
 const Input: React.FC<Props> = () => {
-  const [password, setPassword] = React.useState<string>('');
-  // Password
-  const changePassword = (val: string) => {
-    console.log('val: ', val);
-    setPassword(val);
+  const [value, setValue] = React.useState<IValue>({
+    text1: '',
+    text2: '',
+    text3: '',
+    password: '',
+  });
+
+  const setNewValue = (val: string, key: string) => {
+    setValue((prev) => ({ ...prev, [key]: val }));
   };
 
   return (
@@ -19,45 +30,50 @@ const Input: React.FC<Props> = () => {
 
       <div className="Headline Mb">
         <LinkToViewCode
-          title="Basic usage"
+          title="Basic usage example."
           href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
         />
       </div>
       <div className={styles.Inputs}>
         <BaseInput
           name="password"
-          placeholder="input password"
-          type="password"
-          required
-          autocomplete="on"
-          value={password}
-          onChange={changePassword}
-          className={styles.Input}
+          placeholder="Basic usage"
+          type="text"
+          value={value.text1}
+          onChange={(val: string) => setNewValue(val, 'text1')}
+          className="Mb mw300"
         />
 
         <BaseInput
-          label="Password"
-          name="password"
-          placeholder="input password"
-          type="password"
-          required
-          autocomplete="on"
-          value={password}
-          onChange={changePassword}
-          className={styles.Input}
+          label="Label"
+          name="text"
+          placeholder="Basic usage"
+          type="text"
+          value={value.text2}
+          onChange={(val: string) => setNewValue(val, 'text2')}
+          className="Mb mw300"
         />
 
         <BaseInput
-          label="Password"
+          label="Input with error"
+          name="text"
+          error="Some text of error"
+          placeholder="Basic usage"
+          type="text"
+          value={value.text3}
+          onChange={(val: string) => setNewValue(val, 'text3')}
+          className="Mb mw300"
+        />
+
+        <BaseInput
+          label="Input password"
           name="password"
-          error="werwer"
-          placeholder="input password"
+          placeholder="Input password"
           type="password"
-          required
-          autocomplete="on"
-          value={password}
-          onChange={changePassword}
-          className={styles.Input}
+          icon="eye-off"
+          value={value.password}
+          onChange={(val: string) => setNewValue(val, 'password')}
+          className="Mb mw300"
         />
       </div>
     </BaseContainer>

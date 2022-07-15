@@ -17,12 +17,7 @@ const BaseIcon: React.FC<Props> = ({
   fill = 'none',
   onClick,
 }) => (
-  <svg
-    className={`${!className ? styles.default : ''} ${className}`}
-    viewBox={viewBox}
-    fill={fill}
-    onClick={onClick}
-  >
+  <svg className={className} viewBox={viewBox} fill={fill} onClick={onClick}>
     {icons[icon]}
   </svg>
 );
