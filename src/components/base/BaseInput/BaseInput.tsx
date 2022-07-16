@@ -11,6 +11,7 @@ interface Props {
   max?: number;
   placeholder?: string;
   required?: boolean;
+  iconPosition?: string;
   icon?: string | boolean;
   className?: string;
   autocomplete?: string;
@@ -29,6 +30,7 @@ const BaseInput: React.FC<Props> = ({
   min,
   max,
   icon,
+  iconPosition,
   required = false,
   placeholder,
   className = '',
@@ -59,7 +61,13 @@ const BaseInput: React.FC<Props> = ({
         <input
           value={value}
           type={newType || type}
-          className={`${styles.Input} ${error ? styles.Error : ''}`}
+          className={`${styles.Input} ${error ? styles.Error : ''} ${
+            iconPosition === 'right' || type === 'password'
+              ? styles.InputIconRight
+              : iconPosition === 'left'
+              ? styles.InputIconLeft
+              : ''
+          }`}
           name={name}
           min={min}
           max={max}
@@ -89,6 +97,28 @@ const BaseInput: React.FC<Props> = ({
             icon={ALL_ICONS.EYE_OFF}
             className={`${styles.Icon} ${styles.IconPassword}`}
             onClick={() => changeType('eye')}
+          />
+        ) : null}
+
+        {icon === 'save' ? (
+          <BaseIcon
+            viewBox="0 0 18 18"
+            fill="grey"
+            icon={ALL_ICONS.SAVE}
+            className={`${styles.Icon} ${
+              iconPosition === 'right' ? styles.IconRight : styles.IconLeft
+            }`}
+          />
+        ) : null}
+
+        {icon === 'user' ? (
+          <BaseIcon
+            viewBox="0 0 18 18"
+            fill="grey"
+            icon={ALL_ICONS.USER}
+            className={`${styles.Icon} ${
+              iconPosition === 'right' ? styles.IconRight : styles.IconLeft
+            }`}
           />
         ) : null}
       </span>

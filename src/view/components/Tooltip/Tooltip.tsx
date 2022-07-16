@@ -8,9 +8,9 @@ interface Props {}
 const Tooltip: React.FC<Props> = () => {
   return (
     <BaseContainer>
-      <BaseTitle className="Mb">Tooltip</BaseTitle>
+      <BaseTitle className="Mb20">Tooltip</BaseTitle>
 
-      <div className="Headline Mb">
+      <div className="Headline Mb20">
         <LinkToViewCode
           title="A simple text popup tip."
           href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseTooltip"

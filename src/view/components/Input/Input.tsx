@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseContainer, BaseInput, BaseTitle } from '@base/index';
+import { BaseContainer, BaseInput, BaseSubtitle, BaseTitle } from '@base/index';
 import styles from './Input.module.scss';
 import { LinkToViewCode } from '@nav/index';
 
@@ -10,6 +10,8 @@ interface IValue {
   text2: string;
   text3: string;
   password: string;
+  text4: string;
+  user: string;
 }
 
 const Input: React.FC<Props> = () => {
@@ -18,6 +20,8 @@ const Input: React.FC<Props> = () => {
     text2: '',
     text3: '',
     password: '',
+    text4: '',
+    user: '',
   });
 
   const setNewValue = (val: string, key: string) => {
@@ -25,58 +29,96 @@ const Input: React.FC<Props> = () => {
   };
 
   return (
-    <BaseContainer>
-      <BaseTitle className="Mb">Input</BaseTitle>
+    <>
+      <BaseContainer className="Mb20">
+        <BaseTitle className="Mb20">Input</BaseTitle>
 
-      <div className="Headline Mb">
-        <LinkToViewCode
-          title="Basic usage example."
-          href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
-        />
-      </div>
-      <div className={styles.Inputs}>
-        <BaseInput
-          name="password"
-          placeholder="Basic usage"
-          type="text"
-          value={value.text1}
-          onChange={(val: string) => setNewValue(val, 'text1')}
-          className="Mb mw300"
-        />
+        <div className="Headline Mb20">
+          <LinkToViewCode
+            title="Basic usage example."
+            href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+          />
+        </div>
+        <div className={styles.Inputs}>
+          <BaseInput
+            name="password"
+            placeholder="Basic usage"
+            type="text"
+            value={value.text1}
+            onChange={(val: string) => setNewValue(val, 'text1')}
+            className="Mb20 mw300"
+          />
 
-        <BaseInput
-          label="Label"
-          name="text"
-          placeholder="Basic usage"
-          type="text"
-          value={value.text2}
-          onChange={(val: string) => setNewValue(val, 'text2')}
-          className="Mb mw300"
-        />
+          <BaseInput
+            label="Label"
+            name="text"
+            placeholder="Basic usage"
+            type="text"
+            value={value.text2}
+            onChange={(val: string) => setNewValue(val, 'text2')}
+            className="Mb20 mw300"
+          />
 
-        <BaseInput
-          label="Input with error"
-          name="text"
-          error="Some text of error"
-          placeholder="Basic usage"
-          type="text"
-          value={value.text3}
-          onChange={(val: string) => setNewValue(val, 'text3')}
-          className="Mb mw300"
-        />
+          <BaseInput
+            label="Input with error"
+            name="text"
+            error="Some text of error"
+            placeholder="Basic usage"
+            type="text"
+            value={value.text3}
+            onChange={(val: string) => setNewValue(val, 'text3')}
+            className="Mb20 mw300"
+          />
 
-        <BaseInput
-          label="Input password"
-          name="password"
-          placeholder="Input password"
-          type="password"
-          icon="eye-off"
-          value={value.password}
-          onChange={(val: string) => setNewValue(val, 'password')}
-          className="Mb mw300"
-        />
-      </div>
-    </BaseContainer>
+          <BaseInput
+            label="Input password"
+            name="password"
+            placeholder="Input password"
+            type="password"
+            icon="eye-off"
+            value={value.password}
+            onChange={(val: string) => setNewValue(val, 'password')}
+            className="Mb20 mw300"
+          />
+
+          <BaseInput
+            label="Input with icon left"
+            name="text"
+            placeholder="Basic usage"
+            type="text"
+            icon="save"
+            iconPosition="left"
+            value={value.text4}
+            onChange={(val: string) => setNewValue(val, 'text4')}
+            className="Mb20 mw300"
+          />
+
+          <BaseInput
+            label="Input with icon right"
+            name="text"
+            placeholder="Basic usage"
+            type="text"
+            icon="user"
+            iconPosition="right"
+            value={value.user}
+            onChange={(val: string) => setNewValue(val, 'user')}
+            className="mw300"
+          />
+        </div>
+      </BaseContainer>
+
+      <BaseContainer>
+        <BaseSubtitle className="Mb20">TextArea</BaseSubtitle>
+
+        <div className="Headline Mb20">
+          <LinkToViewCode
+            title="Basic usage example."
+            href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+          />
+        </div>
+        <div className={styles.Inputs}></div>
+      </BaseContainer>
+    </>
   );
 };
 

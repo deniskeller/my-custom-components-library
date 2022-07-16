@@ -13,7 +13,7 @@
   $size: 14px;
   font-size: em($size);
   font-family: $font-Circe;
-  padding: em(10px, $size) em(20px, $size);
+  padding: em(6px, $size) em(12px, $size);
   box-sizing: border-box;
   border: 2px solid $grey;
   border-radius: 2px;
@@ -33,13 +33,35 @@
   }
 }
 
+.InputIconRight {
+  $size: 14px;
+  padding: em(6px, $size) em(30px, $size) em(6px, $size) em(12px, $size);
+}
+
+.InputIconLeft {
+  $size: 14px;
+  padding: em(6px, $size) em(12px, $size) em(6px, $size) em(30px, $size);
+}
+
 .Icon {
   position: absolute;
-  right: em(10px);
-  top: calc(50% - em(7px));
+  top: 50%;
+  transform: translateY(-50%);
   width: em(14px);
   height: em(14px);
+}
+
+.IconPassword {
+  right: em(10px);
   cursor: pointer;
+}
+
+.IconRight {
+  right: em(10px);
+}
+
+.IconLeft {
+  left: em(10px);
 }
 
 .Error {
