@@ -19,6 +19,8 @@ interface IValue {
   text4: string;
   user: string;
   textarea1: string;
+  textarea2: string;
+  number: number;
 }
 
 const Input: React.FC<Props> = () => {
@@ -30,9 +32,11 @@ const Input: React.FC<Props> = () => {
     text4: '',
     user: '',
     textarea1: '',
+    textarea2: '',
+    number: 0,
   });
 
-  const setNewValue = (val: string, key: string) => {
+  const setNewValue = (val: string | number, key: string) => {
     setValue((prev) => ({ ...prev, [key]: val }));
   };
 
@@ -110,25 +114,52 @@ const Input: React.FC<Props> = () => {
             iconPosition="right"
             value={value.user}
             onChange={(val: string) => setNewValue(val, 'user')}
+            className="Mb20 mw300"
+          />
+
+          <BaseInput
+            label="Input number"
+            name="number"
+            placeholder="Input number"
+            type="number"
+            value={value.number === 0 ? '' : value.number}
+            onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
           />
         </div>
       </BaseContainer>
 
-      <BaseContainer>
-        <div className="Headline Mb20">
-          <LinkToViewCode
-            title="TextArea."
-            href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
-          />
-        </div>
+      <div className={styles.Textareas}>
+        <BaseContainer>
+          <div className="Headline Mb20">
+            <LinkToViewCode
+              title="TextArea."
+              href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+            />
+          </div>
 
-        <BaseTextarea
-          placeholder="Textarea"
-          value={value.textarea1}
-          onChange={(val: string) => setNewValue(val, 'textarea1')}
-        />
-      </BaseContainer>
+          <BaseSubtitle className="Mb20">For multi-line input.</BaseSubtitle>
+
+          <BaseTextarea
+            className="mw400"
+            placeholder="Some text"
+            value={value.textarea1}
+            onChange={(val: string) => setNewValue(val, 'textarea1')}
+          />
+        </BaseContainer>
+        <BaseContainer>
+          <BaseSubtitle className="Mb20">With character counting</BaseSubtitle>
+
+          <BaseTextarea
+            placeholder="Some text"
+            showCount
+            maxLength={100}
+            label="Label for textarea with counter"
+            value={value.textarea2}
+            onChange={(val: string) => setNewValue(val, 'textarea2')}
+          />
+        </BaseContainer>
+      </div>
     </>
   );
 };

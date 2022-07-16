@@ -7,21 +7,24 @@ interface Props {
   label?: string;
   placeholder?: string;
   required?: boolean;
+  showCount?: boolean;
   className?: string;
   error?: string | boolean;
-  value: string | number;
+  value: string;
+  maxLength?: number;
   onChange(value: string): void;
 }
 
 const BaseTextarea: React.FC<Props> = ({
   value,
   label,
-  type = 'Landing',
+  showCount = false,
   error,
   name,
   required,
   placeholder,
   className = '',
+  maxLength,
   onChange,
 }) => {
   return (
@@ -31,6 +34,7 @@ const BaseTextarea: React.FC<Props> = ({
       <textarea
         value={value}
         name={name}
+        maxLength={maxLength}
         placeholder={placeholder}
         required={required}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -38,7 +42,12 @@ const BaseTextarea: React.FC<Props> = ({
         }
         className={`${styles.Textarea} ${error ? styles.Error : ''}`}
       />
-      {error ? <div className={styles.ErrorText}>{error}</div> : ''}
+      {showCount ? (
+        <div className={styles.ShowCount}>
+          {value.length} / {maxLength}
+        </div>
+      ) : null}
+      {error ? <div className={styles.ErrorText}>{error}</div> : null}
     </div>
   );
 };

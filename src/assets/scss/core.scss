@@ -79,6 +79,11 @@ input[type='number'] {
 //   -moz-appearance: number-input;
 // }
 
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
 textarea::placeholder {
   line-height: 120%;
 }

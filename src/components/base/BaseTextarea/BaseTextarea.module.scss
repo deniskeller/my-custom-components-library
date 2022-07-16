@@ -1,28 +1,33 @@
 .BaseTextarea {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .Textarea {
   $size: 14px;
+  font-size: em($size);
+  font-family: $font-Circe;
+  color: $black;
   line-height: 120%;
   width: 100%;
   height: 100%;
-  font-size: em($size);
-  font-weight: 400;
-  color: $black;
+  min-height: em(34px, $size);
   outline: none;
   box-sizing: border-box;
   position: relative;
   background: $input;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: em(10px, $size);
   vertical-align: middle;
-  padding: em(23px) em(10px, $size) em(23px) em(17px, $size);
   border: none;
-  @include placeholder-color($placeholder);
+  padding: em(6px, $size) em(12px, $size);
   direction: ltr;
   scrollbar-color: #d4aa70 #e4e4e4;
   scrollbar-width: thin;
+  position: relative;
+  border: 1px solid $grey;
+  border-radius: 2px;
+  background-color: $white;
+
   &::-webkit-scrollbar {
     width: em(5px);
   }
@@ -31,29 +36,46 @@
   }
   &::-webkit-scrollbar-thumb {
     background: $black;
-    border-radius: 10px;
+    border-radius: em(10px, 14px);
   }
+
+  &:hover {
+    border-color: $blue;
+  }
+
   &:focus {
-    border: 2px solid $yellow;
+    border-color: $blue;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   }
 }
 
 .Error {
-  border: 2px solid $red;
+  border: 1px solid $red;
 }
 
 .ErrorText {
   display: block;
-  font-size: em(16px);
-  line-height: 120%;
+  font-size: em(12px);
+  line-height: 100%;
   color: $red;
-  margin-top: em(20px);
+  margin-top: em(10px);
 }
 
 .Label {
-  font-size: em(19px);
+  font-size: em(12px);
   line-height: 120%;
-  color: $white;
+  color: $grey;
   text-transform: uppercase;
-  margin-bottom: em(19px);
+  margin-bottom: em(10px);
+}
+
+.ShowCount {
+  font-size: em(12px);
+  line-height: 120%;
+  color: $grey;
+  margin-top: em(10px);
+  display: flex;
+  align-self: end;
+  // position: relative;
+  // right: 0;
 }

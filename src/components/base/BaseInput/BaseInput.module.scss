@@ -15,12 +15,11 @@
   font-family: $font-Circe;
   padding: em(6px, $size) em(12px, $size);
   box-sizing: border-box;
-  border: 2px solid $grey;
-  border-radius: 2px;
   background-color: $white;
   outline: none;
   @include placeholder-color($placeholder);
   border: 1px solid $grey;
+  border-radius: 2px;
   transition: all 0.3s;
 
   &:hover {
