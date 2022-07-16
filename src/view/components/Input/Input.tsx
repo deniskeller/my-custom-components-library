@@ -1,5 +1,11 @@
 import React from 'react';
-import { BaseContainer, BaseInput, BaseSubtitle, BaseTitle } from '@base/index';
+import {
+  BaseContainer,
+  BaseInput,
+  BaseSubtitle,
+  BaseTextarea,
+  BaseTitle,
+} from '@base/index';
 import styles from './Input.module.scss';
 import { LinkToViewCode } from '@nav/index';
 
@@ -12,6 +18,7 @@ interface IValue {
   password: string;
   text4: string;
   user: string;
+  textarea1: string;
 }
 
 const Input: React.FC<Props> = () => {
@@ -22,6 +29,7 @@ const Input: React.FC<Props> = () => {
     password: '',
     text4: '',
     user: '',
+    textarea1: '',
   });
 
   const setNewValue = (val: string, key: string) => {
@@ -108,15 +116,18 @@ const Input: React.FC<Props> = () => {
       </BaseContainer>
 
       <BaseContainer>
-        <BaseSubtitle className="Mb20">TextArea</BaseSubtitle>
-
         <div className="Headline Mb20">
           <LinkToViewCode
-            title="Basic usage example."
+            title="TextArea."
             href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
           />
         </div>
-        <div className={styles.Inputs}></div>
+
+        <BaseTextarea
+          placeholder="Textarea"
+          value={value.textarea1}
+          onChange={(val: string) => setNewValue(val, 'textarea1')}
+        />
       </BaseContainer>
     </>
   );
