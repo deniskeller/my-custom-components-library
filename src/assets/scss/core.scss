@@ -50,34 +50,7 @@ a {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // border: 1px solid red;
 }
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-// Это для браузера Chrome:
-// input[type='number']::-webkit-outer-spin-button,
-// input[type='number']::-webkit-inner-spin-button {
-//   -webkit-appearance: none;
-//   margin: 0;
-// }
-
-// Это для браузера Firefox:
-input[type='number'] {
-  -moz-appearance: textfield;
-  &:hover,
-  &:focus {
-    -moz-appearance: button;
-  }
-}
-
-// Это для остальных браузеров
-// input[type='number']:hover,
-// input[type='number']:focus {
-//   -moz-appearance: number-input;
-// }
 
 textarea {
   overflow: auto;
@@ -86,4 +59,27 @@ textarea {
 
 textarea::placeholder {
   line-height: 120%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+//remove arrows in all browser
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='number']:hover,
+input[type='number']:focus {
+  -moz-appearance: number-input;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
