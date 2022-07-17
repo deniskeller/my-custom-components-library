@@ -8,6 +8,7 @@ import {
 } from '@base/index';
 import styles from './Input.module.scss';
 import { LinkToViewCode } from '@nav/index';
+import useDebounce from '@hooks/useDebounce';
 
 interface Props {}
 
@@ -35,6 +36,16 @@ const Input: React.FC<Props> = () => {
     textarea2: '',
     number: 0,
   });
+
+  // const debouncedSearchTerm = useDebounce(value, 500);
+
+  // React.useEffect(() => {
+  //   if (debouncedSearchTerm) {
+  //     console.log('debouncedSearchTerm: ', debouncedSearchTerm);
+  //     console.log('value: ', value);
+  //   } else {
+  //   }
+  // }, [debouncedSearchTerm, value]);
 
   const setNewValue = (val: string | number, key: string) => {
     setValue((prev) => ({ ...prev, [key]: val }));

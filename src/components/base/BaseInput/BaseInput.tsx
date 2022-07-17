@@ -53,13 +53,18 @@ const BaseInput: React.FC<Props> = ({
   };
   //for button type password end
 
+  const computedInputType = (value: string | number) => {
+    // console.log('value: ', value);
+    return value;
+  };
+
   return (
     <div className={`${styles.BaseInput} ${className}`}>
       {label ? <label className={styles.Label}>{label}</label> : ''}
 
       <span className={styles.InputWrapper}>
         <input
-          value={value}
+          value={computedInputType(value)}
           type={newType || type}
           className={`${styles.Input} ${error ? styles.Error : ''} ${
             iconPosition === 'right' || type === 'password'
@@ -127,4 +132,4 @@ const BaseInput: React.FC<Props> = ({
     </div>
   );
 };
-export default BaseInput;
+export default React.memo(BaseInput);
