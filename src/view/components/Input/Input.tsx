@@ -40,12 +40,8 @@ const Input: React.FC<Props> = () => {
   // const debouncedSearchTerm = useDebounce(value, 500);
 
   // React.useEffect(() => {
-  //   if (debouncedSearchTerm) {
-  //     console.log('debouncedSearchTerm: ', debouncedSearchTerm);
-  //     console.log('value: ', value);
-  //   } else {
-  //   }
-  // }, [debouncedSearchTerm, value]);
+  //   console.log('value: ', value);
+  // }, []);
 
   const setNewValue = (val: string | number, key: string) => {
     setValue((prev) => ({ ...prev, [key]: val }));

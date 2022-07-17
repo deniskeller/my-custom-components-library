@@ -53,9 +53,15 @@ const BaseInput: React.FC<Props> = ({
   };
   //for button type password end
 
-  const computedInputType = (value: string | number) => {
-    // console.log('value: ', value);
-    return value;
+  const onKeyPress = (event: React.KeyboardEvent) => {
+    if (type === 'number') {
+      const regex = /[0-9]|\./;
+      if (!regex.test(event.key)) {
+        event.preventDefault();
+      } else {
+        return true;
+      }
+    }
   };
 
   return (
@@ -64,7 +70,7 @@ const BaseInput: React.FC<Props> = ({
 
       <span className={styles.InputWrapper}>
         <input
-          value={computedInputType(value)}
+          value={value}
           type={newType || type}
           className={`${styles.Input} ${error ? styles.Error : ''} ${
             iconPosition === 'right' || type === 'password'
@@ -80,9 +86,10 @@ const BaseInput: React.FC<Props> = ({
           required={required}
           autoComplete={autocomplete}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onChange(e.target.value)
+            onChange(e.target.value.trim())
           }
           onKeyDown={onKeyDown}
+          onKeyPress={onKeyPress}
         />
 
         {typeIcon === 'eye' ? (
