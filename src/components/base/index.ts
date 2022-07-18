@@ -3,6 +3,7 @@ export { default as BaseTooltip } from "./BaseTooltip/BaseTooltip";
 // export { default as BasePopup } from "./BasePopup/BasePopup";
 export { default as BaseContainer } from "./BaseContainer/BaseContainer";
 export { default as BaseInput } from "./BaseInput/BaseInput";
+export { default as BaseInputNumber } from "./BaseInputNumber/BaseInputNumber";
 export { default as BaseTitle } from "./BaseTitle/BaseTitle";
 export { default as BaseSubtitle } from "./BaseSubtitle/BaseSubtitle";
 export { default as BaseText } from "./BaseText/BaseText";

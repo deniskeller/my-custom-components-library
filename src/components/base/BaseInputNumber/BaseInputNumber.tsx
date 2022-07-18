@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './BaseInput.module.scss';
+import styles from './BaseInputNumber.module.scss';
 import { BaseIcon } from '..';
 import { ALL_ICONS } from '@constants/icons';
 
 interface Props {
-  type: string;
-  name: string;
+  type?: string;
+  name?: string;
   label?: string;
   min?: number;
   max?: number;
@@ -21,10 +21,10 @@ interface Props {
   onKeyDown?: React.KeyboardEventHandler;
 }
 
-const BaseInput: React.FC<Props> = ({
+const BaseInputNumber: React.FC<Props> = ({
   value,
   label,
-  type,
+  type = 'number',
   error,
   name,
   min,
@@ -38,20 +38,28 @@ const BaseInput: React.FC<Props> = ({
   onChange,
   onKeyDown,
 }) => {
-  //for button type password start
-  const [typeIcon, setTypeIcon] = React.useState<string>('eye-off');
-  const [newType, setType] = React.useState<string>(type);
-
-  const changeType = (value: string) => {
-    if (value == 'eye') {
-      setTypeIcon('eye');
-      setType('text');
-    } else {
-      setTypeIcon('eye-off');
-      setType('password');
+  const onKeyPress = (event: React.KeyboardEvent) => {
+    if (name === 'number') {
+      const regex = /[0-9]|\./;
+      if (!regex.test(event.key)) {
+        event.preventDefault();
+      } else {
+        return true;
+      }
     }
   };
-  //for button type password end
+
+  function inc() {
+    let number = document.querySelector('[name="number"]');
+    number.value = parseInt(number.value) + 1;
+  }
+
+  function dec() {
+    let number = document.querySelector('[name="number"]');
+    if (parseInt(number.value) > 0) {
+      number.value = parseInt(number.value) - 1;
+    }
+  }
 
   return (
     <div className={`${styles.BaseInput} ${className}`}>
@@ -60,7 +68,7 @@ const BaseInput: React.FC<Props> = ({
       <span className={`${styles.InputWrapper} ${error ? styles.Error : ''}`}>
         <input
           value={value}
-          type={newType || type}
+          type={type}
           className={`${styles.Input}  ${
             iconPosition === 'right' || type === 'password'
               ? styles.InputIconRight
@@ -78,26 +86,45 @@ const BaseInput: React.FC<Props> = ({
             onChange(e.target.value.trim())
           }
           onKeyDown={onKeyDown}
+          onKeyPress={onKeyPress}
         />
 
-        {typeIcon === 'eye' ? (
-          <BaseIcon
-            fill="#1890ff"
-            viewBox="64 64 896 896"
-            icon={ALL_ICONS.EYE}
-            className={`${styles.Icon} ${styles.IconPassword}`}
-            onClick={() => changeType('eye-off')}
-          />
-        ) : null}
+        {name === 'number' ? (
+          <>
+            <div className={styles.InputNumberHandlerWrap}>
+              <div
+                className={`${styles.InputNumberHandler} ${styles.InputNumberHandlerUp}`}
+                onClick={inc}
+              >
+                <div
+                  className={`${styles.Anticon} ${styles.InputNumberHandlerUpInner}`}
+                >
+                  <BaseIcon
+                    viewBox="64 64 896 896"
+                    fill="black"
+                    icon={ALL_ICONS.INPUT_NUMBER_ARROW}
+                    className={`${styles.IconArrow} ${styles.IconArrowUp}`}
+                  />
+                </div>
+              </div>
 
-        {icon === 'eye-off' && typeIcon === 'eye-off' ? (
-          <BaseIcon
-            viewBox="64 64 896 896"
-            fill="grey"
-            icon={ALL_ICONS.EYE_OFF}
-            className={`${styles.Icon} ${styles.IconPassword}`}
-            onClick={() => changeType('eye')}
-          />
+              <div
+                className={`${styles.InputNumberHandler} ${styles.InputNumberHandlerDown}`}
+                onClick={dec}
+              >
+                <div
+                  className={`${styles.Anticon} ${styles.InputNumberHandlerDownInner}`}
+                >
+                  <BaseIcon
+                    viewBox="64 64 896 896"
+                    fill="black"
+                    icon={ALL_ICONS.INPUT_NUMBER_ARROW}
+                    className={`${styles.IconArrow} ${styles.IconArrowDown}`}
+                  />
+                </div>
+              </div>
+            </div>
+          </>
         ) : null}
 
         {icon === 'save' ? (
@@ -127,4 +154,4 @@ const BaseInput: React.FC<Props> = ({
     </div>
   );
 };
-export default BaseInput;
+export default BaseInputNumber;

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BaseContainer,
   BaseInput,
+  BaseInputNumber,
   BaseSubtitle,
   BaseTextarea,
   BaseTitle,
@@ -124,11 +125,10 @@ const Input: React.FC<Props> = () => {
             className="Mb20 mw300"
           />
 
-          <BaseInput
+          <BaseInputNumber
             label="Input number"
             name="number"
             placeholder="Input number"
-            type="number"
             value={value.number}
             onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
@@ -141,7 +141,7 @@ const Input: React.FC<Props> = () => {
           <div className="Headline Mb20">
             <LinkToViewCode
               title="TextArea."
-              href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+              href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseTextarea"
             />
           </div>
 
