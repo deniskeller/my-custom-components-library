@@ -22,7 +22,7 @@ interface Props {
 }
 
 const BaseInputNumber: React.FC<Props> = ({
-  value,
+  value = 0,
   label,
   type = 'number',
   error,
@@ -38,6 +38,10 @@ const BaseInputNumber: React.FC<Props> = ({
   onChange,
   onKeyDown,
 }) => {
+  // const inputRef = React.useRef(null);
+  const [count, setCount] = React.useState(value);
+  // console.log('inputRef: ', inputRef.current.value);
+
   const onKeyPress = (event: React.KeyboardEvent) => {
     if (name === 'number') {
       const regex = /[0-9]|\./;
@@ -49,17 +53,15 @@ const BaseInputNumber: React.FC<Props> = ({
     }
   };
 
-  function inc() {
-    let number = document.querySelector('[name="number"]');
-    number.value = parseInt(number.value) + 1;
-  }
+  const plusCount = () => {
+    setCount(Number(count) + 1);
+  };
 
-  function dec() {
-    let number = document.querySelector('[name="number"]');
-    if (parseInt(number.value) > 0) {
-      number.value = parseInt(number.value) - 1;
+  const minusCount = () => {
+    if (Number(count) > 0) {
+      setCount(Number(count) - 1);
     }
-  }
+  };
 
   return (
     <div className={`${styles.BaseInput} ${className}`}>
@@ -87,6 +89,7 @@ const BaseInputNumber: React.FC<Props> = ({
           }
           onKeyDown={onKeyDown}
           onKeyPress={onKeyPress}
+          // ref={inputRef}
         />
 
         {name === 'number' ? (
@@ -94,7 +97,7 @@ const BaseInputNumber: React.FC<Props> = ({
             <div className={styles.InputNumberHandlerWrap}>
               <div
                 className={`${styles.InputNumberHandler} ${styles.InputNumberHandlerUp}`}
-                onClick={inc}
+                onClick={plusCount}
               >
                 <div
                   className={`${styles.Anticon} ${styles.InputNumberHandlerUpInner}`}
@@ -110,7 +113,7 @@ const BaseInputNumber: React.FC<Props> = ({
 
               <div
                 className={`${styles.InputNumberHandler} ${styles.InputNumberHandlerDown}`}
-                onClick={dec}
+                onClick={minusCount}
               >
                 <div
                   className={`${styles.Anticon} ${styles.InputNumberHandlerDownInner}`}

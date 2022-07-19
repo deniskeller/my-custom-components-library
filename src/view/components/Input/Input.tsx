@@ -50,16 +50,16 @@ const Input: React.FC<Props> = () => {
 
   return (
     <>
-      <BaseContainer className="Mb20">
-        <BaseTitle className="Mb20">Input</BaseTitle>
+      <div className={styles.Inputs}>
+        <BaseContainer>
+          <BaseTitle className="Mb20">Input</BaseTitle>
 
-        <div className="Headline Mb20">
-          <LinkToViewCode
-            title="Basic usage example."
-            href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
-          />
-        </div>
-        <div className={styles.Inputs}>
+          <div className="Headline Mb20">
+            <LinkToViewCode
+              title="Basic usage example."
+              href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+            />
+          </div>
           <BaseInput
             name="password"
             placeholder="Basic usage"
@@ -124,6 +124,15 @@ const Input: React.FC<Props> = () => {
             onChange={(val: string) => setNewValue(val, 'user')}
             className="Mb20 mw300"
           />
+        </BaseContainer>
+
+        <BaseContainer>
+          <div className="Headline Mb20">
+            <LinkToViewCode
+              title="Input number"
+              href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+            />
+          </div>
 
           <BaseInputNumber
             label="Input number"
@@ -133,8 +142,8 @@ const Input: React.FC<Props> = () => {
             onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
           />
-        </div>
-      </BaseContainer>
+        </BaseContainer>
+      </div>
 
       <div className={styles.Textareas}>
         <BaseContainer>

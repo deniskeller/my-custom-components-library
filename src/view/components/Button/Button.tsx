@@ -27,9 +27,9 @@ const Button: React.FC<Props> = () => {
 
   return (
     <BaseContainer>
-      <BaseTitle className="Mb">Button</BaseTitle>
+      <BaseTitle className="Mb20">Button</BaseTitle>
 
-      <div className="Headline Mb">
+      <div className="Headline Mb20">
         <LinkToViewCode
           title="Button"
           href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseButton"

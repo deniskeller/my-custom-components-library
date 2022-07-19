@@ -1,5 +1,10 @@
-.Textareas {
+.Textareas,
+.Inputs {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: em(20px);
+}
+
+.Inputs {
+  margin-bottom: em(20px);
 }
