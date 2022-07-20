@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import styles from './BaseInputNumber.module.scss';
 import { BaseIcon } from '..';
@@ -93,7 +94,7 @@ const BaseInputNumber: React.FC<Props> = ({
   };
 
   React.useEffect(() => {
-    console.log('value: ', value);
+    console.log('inside value: ', value);
   }, [value]);
 
   return (

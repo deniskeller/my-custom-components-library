@@ -9,7 +9,6 @@ import {
 } from '@base/index';
 import styles from './Input.module.scss';
 import { LinkToViewCode } from '@nav/index';
-import useDebounce from '@hooks/useDebounce';
 
 interface Props {}
 
@@ -38,10 +37,8 @@ const Input: React.FC<Props> = () => {
     number: 0,
   });
 
-  // const debouncedSearchTerm = useDebounce(value, 500);
-
   React.useEffect(() => {
-    console.log('value: ', value.number);
+    console.log('outside value: ', value.number);
   }, [value]);
 
   const setNewValue = (val: string | number, key: string) => {
