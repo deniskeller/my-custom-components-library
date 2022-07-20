@@ -9,6 +9,7 @@ interface Props {
   label?: string;
   min?: number;
   max?: number;
+  step?: number;
   placeholder?: string;
   required?: boolean;
   iconPosition?: string;
@@ -24,11 +25,12 @@ interface Props {
 const BaseInputNumber: React.FC<Props> = ({
   value = 0,
   label,
-  type = 'number',
+  type,
   error,
   name,
-  min,
-  max,
+  min = 0,
+  max = 10,
+  step = 1,
   icon,
   iconPosition,
   required = false,
@@ -38,10 +40,6 @@ const BaseInputNumber: React.FC<Props> = ({
   onChange,
   onKeyDown,
 }) => {
-  // const inputRef = React.useRef(null);
-  const [count, setCount] = React.useState(value);
-  // console.log('inputRef: ', inputRef.current.value);
-
   const onKeyPress = (event: React.KeyboardEvent) => {
     if (name === 'number') {
       const regex = /[0-9]|\./;
@@ -53,15 +51,50 @@ const BaseInputNumber: React.FC<Props> = ({
     }
   };
 
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const plusCount = () => {
-    setCount(Number(count) + 1);
+    if (inputRef && inputRef.current) {
+      if (Number(inputRef.current.value) < max!) {
+        // inputRef.current.stepUp();
+        inputRef.current.value = String(Number(inputRef.current.value) + step);
+      }
+    }
+  };
+
+  const computedArrow = (event: React.KeyboardEvent) => {
+    if (event.code === 'ArrowUp') {
+      plusCount();
+    }
+    if (event.code === 'ArrowDown') {
+      minusCount();
+    }
   };
 
   const minusCount = () => {
-    if (Number(count) > 0) {
-      setCount(Number(count) - 1);
+    if (inputRef && inputRef.current) {
+      if (Number(inputRef.current.value) > min!) {
+        // inputRef.current.stepDown();
+        inputRef.current.value = String(Number(inputRef.current.value) - step);
+      }
     }
   };
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', computedArrow);
+    return function cleanup() {
+      document.removeEventListener('keydown', computedArrow);
+    };
+  });
+
+  const computedValue = () => {
+    console.log('value: ', value);
+    // value = `${value}%`;
+    return value;
+  };
+
+  React.useEffect(() => {
+    console.log('value: ', value);
+  }, [value]);
 
   return (
     <div className={`${styles.BaseInput} ${className}`}>
@@ -81,15 +114,16 @@ const BaseInputNumber: React.FC<Props> = ({
           name={name}
           min={min}
           max={max}
+          step={step}
           placeholder={placeholder}
           required={required}
           autoComplete={autocomplete}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onChange(e.target.value.trim())
+            onChange(e.target.value)
           }
           onKeyDown={onKeyDown}
           onKeyPress={onKeyPress}
-          // ref={inputRef}
+          ref={inputRef}
         />
 
         {name === 'number' ? (

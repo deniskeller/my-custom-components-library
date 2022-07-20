@@ -40,9 +40,9 @@ const Input: React.FC<Props> = () => {
 
   // const debouncedSearchTerm = useDebounce(value, 500);
 
-  // React.useEffect(() => {
-  //   console.log('value: ', value);
-  // }, []);
+  React.useEffect(() => {
+    console.log('value: ', value.number);
+  }, [value]);
 
   const setNewValue = (val: string | number, key: string) => {
     setValue((prev) => ({ ...prev, [key]: val }));
@@ -130,7 +130,7 @@ const Input: React.FC<Props> = () => {
           <div className="Headline Mb20">
             <LinkToViewCode
               title="Input number"
-              href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInput"
+              href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseInputNumber"
             />
           </div>
 
@@ -139,6 +139,7 @@ const Input: React.FC<Props> = () => {
             name="number"
             placeholder="Input number"
             value={value.number}
+            step={0.5}
             onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
           />
