@@ -136,7 +136,6 @@ const Input: React.FC<Props> = () => {
             name="number"
             placeholder="Input number"
             value={value.number}
-            step={0.5}
             onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
           />
