@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from 'react';
 import styles from './BaseInputNumber.module.scss';
 import { BaseIcon } from '..';
