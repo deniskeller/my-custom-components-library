@@ -135,28 +135,29 @@ const Input: React.FC<Props> = () => {
             label="Input number"
             placeholder="Input number"
             value={value.number}
-            name="phone"
+            // name="phone"
+            min={-10}
             onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
-            formatter={(value) => {
-              return value
-                .toString()
-                .slice(0, 15)
-                .replace(/\D/g, '')
-                .replace(/(\d{3})(\d)/, '($1) $2')
-                .replace(/(\d{3})(\d)/, '$1-$2')
-                .replace(/(\d{2})(\d{2})/, '$1-$2');
-            }}
-            // formatter={(value) => `${value}%`}
-            // formatter={(value) =>
-            //   `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-            // }
+            //phone format "(111) 111-11-11"
             // formatter={(value) => {
-            //   return (
-            //     value.toString().replace(/\D/g, '').replace(/(\d)/, '$ $1') ||
-            //     '$ '
-            //   );
+            //   return value
+            //     .toString()
+            //     .slice(0, 15)
+            //     .replace(/\D/g, '')
+            //     .replace(/(\d{3})(\d)/, '($1) $2')
+            //     .replace(/(\d{3})(\d)/, '$1-$2')
+            //     .replace(/(\d{2})(\d{2})/, '$1-$2');
             // }}
+            //percent format "100%""
+            // formatter={(value) => `${value}%`}
+            //currency format "$ 100"
+            formatter={(value) => {
+              return (
+                value.toString().replace(/\D/g, '').replace(/(\d)/, '$ $1') ||
+                '$ '
+              );
+            }}
           />
         </BaseContainer>
       </div>
