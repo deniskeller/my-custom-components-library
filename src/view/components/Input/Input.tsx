@@ -135,9 +135,28 @@ const Input: React.FC<Props> = () => {
             label="Input number"
             placeholder="Input number"
             value={value.number}
+            name="phone"
             onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
-            formatter={`$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            formatter={(value) => {
+              return value
+                .toString()
+                .slice(0, 15)
+                .replace(/\D/g, '')
+                .replace(/(\d{3})(\d)/, '($1) $2')
+                .replace(/(\d{3})(\d)/, '$1-$2')
+                .replace(/(\d{2})(\d{2})/, '$1-$2');
+            }}
+            // formatter={(value) => `${value}%`}
+            // formatter={(value) =>
+            //   `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+            // }
+            // formatter={(value) => {
+            //   return (
+            //     value.toString().replace(/\D/g, '').replace(/(\d)/, '$ $1') ||
+            //     '$ '
+            //   );
+            // }}
           />
         </BaseContainer>
       </div>

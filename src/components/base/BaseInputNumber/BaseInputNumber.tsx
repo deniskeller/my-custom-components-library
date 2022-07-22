@@ -20,7 +20,7 @@ interface Props {
   value: string | number;
   onChange(value: string | number): void;
   onKeyDown?: React.KeyboardEventHandler;
-  // formatter?:
+  formatter?: (value: string | number) => string | number;
 }
 
 const BaseInputNumber: React.FC<Props> = ({
@@ -42,17 +42,13 @@ const BaseInputNumber: React.FC<Props> = ({
   onChange,
   onKeyDown,
 }) => {
+  const [price, setPrice] = React.useState(value);
+  const [blur, setBlur] = React.useState<boolean | null>(null);
   //lead to a numeric value
   const toNumber = (value: string | number) => {
-    if (typeof value === 'number') return value;
+    const parsedValue = parseInt(value.toString().replace(/[^\d]+/g, ''));
 
-    return parseInt(value.replace(/[^\d]+/g, ''));
-  };
-  //value formatting
-  const formatValue = (value: string | number, formatter = '') => {
-    return `${value}%`;
-    // return `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    // return `${formatter}`;
+    return isNaN(parsedValue) ? '' : parsedValue;
   };
 
   // only number
@@ -67,8 +63,6 @@ const BaseInputNumber: React.FC<Props> = ({
     }
   };
 
-  const [price, setPrice] = React.useState(value);
-  const [blur, setBlur] = React.useState<boolean | null>(null);
   //change the value using the buttons of the input itself - start
   const plusCount = () => {
     if (Number(price) < max!) {
@@ -86,7 +80,7 @@ const BaseInputNumber: React.FC<Props> = ({
   //change the value using the buttons of the input itself - end
 
   //listen to keyboard button press event - start
-  const computedArrow = (event: React.KeyboardEvent) => {
+  const computedArrow = (event: KeyboardEvent) => {
     if (event.code === 'ArrowUp' && blur) {
       plusCount();
     }
@@ -101,15 +95,15 @@ const BaseInputNumber: React.FC<Props> = ({
       document.removeEventListener('keydown', computedArrow);
     };
   });
-  //listen to keyboard button press event - end
+  // listen to keyboard button press event - end
 
   React.useEffect(() => {
     // console.log('inside value: ', value);
-    console.log('blur: ', blur);
+    // console.log('blur: ', blur);
     // console.log('price: ', price);
-    if (price > max) setPrice(max);
-    if (price <= min || isNaN(Number(price))) setPrice(0);
-  }, [value, price, max, min, blur]);
+    if (price > max && name != 'phone') setPrice(max);
+    if (price <= min && isNaN(Number(price)) && name != 'phone') setPrice(0);
+  }, [value, price, max, min, blur, name]);
 
   return (
     <div className={`${styles.BaseInput} ${className}`}>
@@ -117,7 +111,7 @@ const BaseInputNumber: React.FC<Props> = ({
 
       <span className={`${styles.InputWrapper} ${error ? styles.Error : ''}`}>
         <input
-          value={formatValue(price)}
+          value={formatter ? formatter(price) : price}
           placeholder={placeholder}
           type={type}
           name={name}
@@ -128,15 +122,19 @@ const BaseInputNumber: React.FC<Props> = ({
           autoComplete={autocomplete}
           onKeyDown={onKeyDown}
           onKeyPress={onKeyPress}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setPrice(toNumber(e.target.value));
-            onChange(e.target.value);
-          }}
           onFocus={() => setBlur(true)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            const number = toNumber(e.target.value);
+            const formatted = formatter ? formatter(number) : number;
+            setPrice(formatted);
+            onChange(formatted);
+          }}
           onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
             const numberValue = toNumber(e.target.value);
             setPrice(numberValue);
-            e.target.value = formatValue(numberValue);
+            e.target.value = formatter
+              ? formatter(numberValue).toString()
+              : numberValue.toString();
             onChange(e.target.value);
             setBlur(false);
           }}
