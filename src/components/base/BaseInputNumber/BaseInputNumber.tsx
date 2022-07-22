@@ -68,6 +68,7 @@ const BaseInputNumber: React.FC<Props> = ({
   };
 
   const [price, setPrice] = React.useState(value);
+  const [blur, setBlur] = React.useState<boolean | null>(null);
   //change the value using the buttons of the input itself - start
   const plusCount = () => {
     if (Number(price) < max!) {
@@ -85,33 +86,30 @@ const BaseInputNumber: React.FC<Props> = ({
   //change the value using the buttons of the input itself - end
 
   //listen to keyboard button press event - start
-  const refInput = React.useRef(null);
   const computedArrow = (event: React.KeyboardEvent) => {
-    if (event.code === 'ArrowUp') {
+    if (event.code === 'ArrowUp' && blur) {
       plusCount();
     }
-    if (event.code === 'ArrowDown') {
+    if (event.code === 'ArrowDown' && blur) {
       minusCount();
     }
   };
 
   React.useEffect(() => {
-    if (refInput.onFocus()) {
-      console.log('refInput: ', refInput.onFocus());
-    }
     document.addEventListener('keydown', computedArrow);
     return function cleanup() {
       document.removeEventListener('keydown', computedArrow);
     };
-  }, [refInput.current]);
+  });
   //listen to keyboard button press event - end
 
   React.useEffect(() => {
     // console.log('inside value: ', value);
+    console.log('blur: ', blur);
     // console.log('price: ', price);
     if (price > max) setPrice(max);
     if (price <= min || isNaN(Number(price))) setPrice(0);
-  }, [value, price, max, min]);
+  }, [value, price, max, min, blur]);
 
   return (
     <div className={`${styles.BaseInput} ${className}`}>
@@ -130,16 +128,17 @@ const BaseInputNumber: React.FC<Props> = ({
           autoComplete={autocomplete}
           onKeyDown={onKeyDown}
           onKeyPress={onKeyPress}
-          ref={refInput}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setPrice(toNumber(e.target.value));
             onChange(e.target.value);
           }}
+          onFocus={() => setBlur(true)}
           onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
             const numberValue = toNumber(e.target.value);
             setPrice(numberValue);
             e.target.value = formatValue(numberValue);
             onChange(e.target.value);
+            setBlur(false);
           }}
           className={`${styles.Input} ${
             iconPosition === 'right' || type === 'password'
