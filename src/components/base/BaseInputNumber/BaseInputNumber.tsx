@@ -1,13 +1,9 @@
-// @ts-nocheck
-
 import React from 'react';
 import styles from './BaseInputNumber.module.scss';
 import { BaseIcon } from '..';
 import { ALL_ICONS } from '@constants/icons';
 
-type ValueType = string | number;
-
-interface Props<T extends ValueType = ValueType> {
+interface Props {
   type?: string;
   name?: string;
   label?: string;
@@ -24,16 +20,17 @@ interface Props<T extends ValueType = ValueType> {
   value: string | number;
   onChange(value: string | number): void;
   onKeyDown?: React.KeyboardEventHandler;
+  // formatter?:
 }
 
 const BaseInputNumber: React.FC<Props> = ({
   value = 0,
   label,
-  type,
+  type = 'text',
   error,
-  name,
+  name = 'number',
   min = 0,
-  max = 10,
+  max = 100,
   step = 1,
   icon,
   iconPosition,
@@ -41,48 +38,24 @@ const BaseInputNumber: React.FC<Props> = ({
   placeholder,
   className = '',
   autocomplete = 'off',
+  formatter,
   onChange,
   onKeyDown,
 }) => {
-  //change the value using the buttons of the input itself - start
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const plusCount = () => {
-    if (inputRef && inputRef.current) {
-      if (Number(inputRef.current.value) < max!) {
-        // inputRef.current.stepUp();
-        inputRef.current.value = String(Number(inputRef.current.value) + step);
-      }
-    }
-  };
-  const minusCount = () => {
-    if (inputRef && inputRef.current) {
-      if (Number(inputRef.current.value) > min!) {
-        // inputRef.current.stepDown();
-        inputRef.current.value = String(Number(inputRef.current.value) - step);
-      }
-    }
-  };
-  //change the value using the buttons of the input itself - end
+  //lead to a numeric value
+  const toNumber = (value: string | number) => {
+    if (typeof value === 'number') return value;
 
-  //listen to keyboard button press event - start
-  const computedArrow = (event: React.KeyboardEvent) => {
-    if (event.code === 'ArrowUp') {
-      plusCount();
-    }
-    if (event.code === 'ArrowDown') {
-      minusCount();
-    }
+    return parseInt(value.replace(/[^\d]+/g, ''));
+  };
+  //value formatting
+  const formatValue = (value: string | number, formatter = '') => {
+    return `${value}%`;
+    // return `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    // return `${formatter}`;
   };
 
-  React.useEffect(() => {
-    document.addEventListener('keydown', computedArrow);
-    return function cleanup() {
-      document.removeEventListener('keydown', computedArrow);
-    };
-  });
-  //listen to keyboard button press event - end
-
-  //only number
+  // only number
   const onKeyPress = (event: React.KeyboardEvent) => {
     if (name === 'number') {
       const regex = /^[0-9]*\.?[0-9]*$/;
@@ -94,46 +67,51 @@ const BaseInputNumber: React.FC<Props> = ({
     }
   };
 
-  // const validateNumber = (num: string | number) => {
-  //   if (typeof num === 'number') {
-  //     return !Number.isNaN(num);
-  //   }
+  const [price, setPrice] = React.useState(value);
+  //change the value using the buttons of the input itself - start
+  const plusCount = () => {
+    if (Number(price) < max!) {
+      setPrice(Number(price) + step);
+      onChange(Number(price) + step);
+    }
+  };
 
-  //   // Empty
-  //   if (!num) {
-  //     return false;
-  //   }
+  const minusCount = () => {
+    if (Number(price) > min!) {
+      setPrice(Number(price) - step);
+      onChange(Number(price) - step);
+    }
+  };
+  //change the value using the buttons of the input itself - end
 
-  //   return (
-  //     // Normal type: 11.28
-  //     /^\s*-?\d+(\.\d+)?\s*$/.test(num) ||
-  //     // Pre-number: 1.
-  //     /^\s*-?\d+\.\s*$/.test(num) ||
-  //     // Post-number: .1
-  //     /^\s*-?\.\d+\s*$/.test(num)
-  //   );
-  // };
-
-  // const computedValue = (value) => {
-  //   console.log('value: ', value);
-  //   return value;
-  // };
+  //listen to keyboard button press event - start
+  const refInput = React.useRef(null);
+  const computedArrow = (event: React.KeyboardEvent) => {
+    if (event.code === 'ArrowUp') {
+      plusCount();
+    }
+    if (event.code === 'ArrowDown') {
+      minusCount();
+    }
+  };
 
   React.useEffect(() => {
-    console.log('inside value: ', value);
-  }, [value]);
+    if (refInput.onFocus()) {
+      console.log('refInput: ', refInput.onFocus());
+    }
+    document.addEventListener('keydown', computedArrow);
+    return function cleanup() {
+      document.removeEventListener('keydown', computedArrow);
+    };
+  }, [refInput.current]);
+  //listen to keyboard button press event - end
 
-  const [price, setPrice] = React.useState('');
-
-  const toNumber = (value: string | number) => {
-    if (typeof value === 'number') return value;
-    return parseInt(value.replace(/[^\d]+/g, ''));
-  };
-
-  const formatPrice = (value: string | number) => {
-    // return `${value}%`;
-    return `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+  React.useEffect(() => {
+    // console.log('inside value: ', value);
+    // console.log('price: ', price);
+    if (price > max) setPrice(max);
+    if (price <= min || isNaN(Number(price))) setPrice(0);
+  }, [value, price, max, min]);
 
   return (
     <div className={`${styles.BaseInput} ${className}`}>
@@ -141,34 +119,35 @@ const BaseInputNumber: React.FC<Props> = ({
 
       <span className={`${styles.InputWrapper} ${error ? styles.Error : ''}`}>
         <input
-          // value={value}
+          value={formatValue(price)}
+          placeholder={placeholder}
           type={type}
-          className={`${styles.Input}  ${
+          name={name}
+          min={min}
+          max={max}
+          step={step}
+          required={required}
+          autoComplete={autocomplete}
+          onKeyDown={onKeyDown}
+          onKeyPress={onKeyPress}
+          ref={refInput}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setPrice(toNumber(e.target.value));
+            onChange(e.target.value);
+          }}
+          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+            const numberValue = toNumber(e.target.value);
+            setPrice(numberValue);
+            e.target.value = formatValue(numberValue);
+            onChange(e.target.value);
+          }}
+          className={`${styles.Input} ${
             iconPosition === 'right' || type === 'password'
               ? styles.InputIconRight
               : iconPosition === 'left'
               ? styles.InputIconLeft
               : ''
           }`}
-          name={name}
-          min={min}
-          max={max}
-          step={step}
-          placeholder={placeholder}
-          required={required}
-          autoComplete={autocomplete}
-          // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          //   onChange(e.target.value)
-          // }
-          // onKeyDown={onKeyDown}
-          // onKeyPress={onKeyPress}
-          // ref={inputRef}
-          defaultValue={formatPrice(price)}
-          onBlur={(e) => {
-            const numberValue = toNumber(e.target.value);
-            setPrice(numberValue);
-            e.target.value = formatPrice(numberValue);
-          }}
         />
 
         {name === 'number' ? (

@@ -34,7 +34,7 @@ const Input: React.FC<Props> = () => {
     user: '',
     textarea1: '',
     textarea2: '',
-    number: 0,
+    number: 9,
   });
 
   React.useEffect(() => {
@@ -133,11 +133,11 @@ const Input: React.FC<Props> = () => {
 
           <BaseInputNumber
             label="Input number"
-            name="number"
             placeholder="Input number"
             value={value.number}
             onChange={(val: number) => setNewValue(val, 'number')}
             className="mw300"
+            formatter={`$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
           />
         </BaseContainer>
       </div>
