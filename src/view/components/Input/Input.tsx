@@ -22,6 +22,10 @@ interface IValue {
   textarea1: string;
   textarea2: string;
   number: number;
+  default: number;
+  phone: number;
+  currency: string;
+  percent: string;
 }
 
 const Input: React.FC<Props> = () => {
@@ -34,11 +38,16 @@ const Input: React.FC<Props> = () => {
     user: '',
     textarea1: '',
     textarea2: '',
-    number: 9,
+    number: 10,
+    default: 0,
+    phone: 0,
+    currency: '',
+    percent: '',
   });
 
   React.useEffect(() => {
     console.log('outside value: ', value.number);
+    console.log('default: ', value.default);
   }, [value]);
 
   const setNewValue = (val: string | number, key: string) => {
@@ -132,32 +141,54 @@ const Input: React.FC<Props> = () => {
           </div>
 
           <BaseInputNumber
-            label="Input number"
+            label="Default input number"
             placeholder="Input number"
-            value={value.number}
-            // name="phone"
+            value={value.default}
+            type="number"
             min={-10}
-            onChange={(val: number) => setNewValue(val, 'number')}
+            onChange={(val: number) => setNewValue(val, 'default')}
             className="mw300"
-            //phone format "(111) 111-11-11"
-            // formatter={(value) => {
-            //   return value
-            //     .toString()
-            //     .slice(0, 15)
-            //     .replace(/\D/g, '')
-            //     .replace(/(\d{3})(\d)/, '($1) $2')
-            //     .replace(/(\d{3})(\d)/, '$1-$2')
-            //     .replace(/(\d{2})(\d{2})/, '$1-$2');
-            // }}
-            //percent format "100%""
-            // formatter={(value) => `${value}%`}
-            //currency format "$ 100"
+          />
+
+          <BaseInputNumber
+            label="Input phone"
+            placeholder="Input phone"
+            value={value.phone}
+            name="phone"
+            onChange={(val: number) => setNewValue(val, 'phone')}
+            className="mw300"
+            formatter={(value) => {
+              return value
+                .toString()
+                .slice(0, 15)
+                .replace(/\D/g, '')
+                .replace(/(\d{3})(\d)/, '($1) $2')
+                .replace(/(\d{3})(\d)/, '$1-$2')
+                .replace(/(\d{2})(\d{2})/, '$1-$2');
+            }}
+          />
+
+          <BaseInputNumber
+            label="Input with currency"
+            placeholder="Input number"
+            value={value.currency}
+            onChange={(val: string) => setNewValue(val, 'currency')}
+            className="mw300"
             formatter={(value) => {
               return (
                 value.toString().replace(/\D/g, '').replace(/(\d)/, '$ $1') ||
                 '$ '
               );
             }}
+          />
+
+          <BaseInputNumber
+            label="Input with percent"
+            placeholder="Input number"
+            value={value.percent}
+            onChange={(val: string) => setNewValue(val, 'percent')}
+            className="mw300"
+            formatter={(value) => `${value}%`}
           />
         </BaseContainer>
       </div>
