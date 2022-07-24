@@ -23,14 +23,14 @@ interface Props {
   formatter?: (value: string | number) => string | number;
 }
 
-const BaseInputNumber: React.FC<Props> = ({
+const BaseInputNumber2: React.FC<Props> = ({
   value,
   label,
   type = 'text',
   error,
   name = 'number',
-  min = 0,
-  max = 100,
+  min,
+  max,
   step = 1,
   icon,
   iconPosition,
@@ -216,4 +216,4 @@ const BaseInputNumber: React.FC<Props> = ({
     </div>
   );
 };
-export default BaseInputNumber;
+export default BaseInputNumber2;

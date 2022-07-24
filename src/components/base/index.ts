@@ -15,3 +15,5 @@ export { default as BaseRadioButton } from "./BaseRadioButton/BaseRadioButton";
 
 // buttons
 export { default as BaseButton } from "./BaseButton/BaseButton";
+
+export { default as BaseInputNumber2 } from "./BaseInputNumber2/BaseInputNumber2";

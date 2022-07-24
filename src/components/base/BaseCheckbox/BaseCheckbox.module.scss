@@ -8,27 +8,17 @@
 
   &:hover {
     .BaseCheckboxCheck {
-      border: 2px solid $yellow;
-      background: rgba(226, 240, 99, 0.25);
-    }
-    .BaseCheckboxCheck.isActive {
-      background: $yellow;
+      border: 1px solid $blue;
     }
   }
 
-  &:hover {
-    .BaseCheckboxTick {
-      top: 20%;
-      left: 20%;
-    }
-  }
   .BaseCheckboxTitle {
-    font-size: em(19px);
+    font-size: em(14px);
     line-height: 100%;
-    color: $white;
-    margin-left: em(25px);
-    padding-top: em(5px);
+    color: $black;
+    margin-left: em(10px);
   }
+
   .BaseCheckboxInput {
     position: absolute;
     visibility: hidden;
@@ -44,39 +34,35 @@
     box-sizing: border-box;
     width: em(20px);
     height: em(20px);
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10%;
-    background: $input;
     position: relative;
-    @include ifmobile {
-      width: em(18px);
-      height: em(18px);
-    }
+    border: 1px solid $grey;
   }
 
   .BaseCheckboxTick {
     width: em(12px);
     height: em(14px);
     position: absolute;
-    top: 25%;
-    left: 25%;
+    top: 10%;
+    left: 15%;
     visibility: hidden;
     transform: scale(1.5);
-    @include ifmobile {
-      width: em(10px);
-      height: em(12px);
-    }
   }
 
   .isError {
-    border: 2px solid $red;
+    border: 1px solid $red;
   }
 
   .isActive {
+    background: $blue;
+    border: 1px solid $blue;
     .BaseCheckboxTick {
       visibility: visible;
       transform: scale(1);
       transition: transform $speed;
+      path {
+        stroke: $white;
+      }
     }
   }
 }

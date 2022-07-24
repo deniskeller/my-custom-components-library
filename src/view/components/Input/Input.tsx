@@ -3,6 +3,7 @@ import {
   BaseContainer,
   BaseInput,
   BaseInputNumber,
+  BaseInputNumber2,
   BaseSubtitle,
   BaseTextarea,
   BaseTitle,
@@ -21,11 +22,10 @@ interface IValue {
   user: string;
   textarea1: string;
   textarea2: string;
-  number: number;
   default: number;
   phone: number;
-  currency: string;
-  percent: string;
+  currency: number;
+  percent: number;
 }
 
 const Input: React.FC<Props> = () => {
@@ -38,15 +38,13 @@ const Input: React.FC<Props> = () => {
     user: '',
     textarea1: '',
     textarea2: '',
-    number: 10,
     default: 0,
     phone: 0,
-    currency: '',
-    percent: '',
+    currency: 0,
+    percent: 0,
   });
 
   React.useEffect(() => {
-    console.log('outside value: ', value.number);
     console.log('default: ', value.default);
   }, [value]);
 
@@ -145,18 +143,17 @@ const Input: React.FC<Props> = () => {
             placeholder="Input number"
             value={value.default}
             type="number"
-            min={-10}
             onChange={(val: number) => setNewValue(val, 'default')}
             className="mw300"
           />
 
           <BaseInputNumber
             label="Input phone"
-            placeholder="Input phone"
+            className="mw300"
+            placeholder="(999) 999-99-99"
             value={value.phone}
             name="phone"
             onChange={(val: number) => setNewValue(val, 'phone')}
-            className="mw300"
             formatter={(value) => {
               return value
                 .toString()
@@ -172,8 +169,10 @@ const Input: React.FC<Props> = () => {
             label="Input with currency"
             placeholder="Input number"
             value={value.currency}
-            onChange={(val: string) => setNewValue(val, 'currency')}
+            onChange={(val: number) => setNewValue(val, 'currency')}
             className="mw300"
+            step={0.5}
+            max={200000}
             formatter={(value) => {
               return (
                 value.toString().replace(/\D/g, '').replace(/(\d)/, '$ $1') ||
@@ -186,9 +185,25 @@ const Input: React.FC<Props> = () => {
             label="Input with percent"
             placeholder="Input number"
             value={value.percent}
-            onChange={(val: string) => setNewValue(val, 'percent')}
+            onChange={(val: number) => setNewValue(val, 'percent')}
             className="mw300"
             formatter={(value) => `${value}%`}
+          />
+
+          <BaseInputNumber2
+            label="Input with currency2"
+            placeholder="Input number"
+            value={value.currency}
+            onChange={(val: number) => setNewValue(val, 'currency')}
+            className="mw300"
+            step={0.5}
+            max={100000}
+            formatter={(value) => {
+              return (
+                value.toString().replace(/\D/g, '').replace(/(\d)/, '$ $1') ||
+                '$ '
+              );
+            }}
           />
         </BaseContainer>
       </div>
