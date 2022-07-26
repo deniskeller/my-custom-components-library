@@ -65,14 +65,14 @@ const BaseInputNumber2: React.FC<Props> = ({
 
   //change the value using the buttons of the input itself - start
   const plusCount = () => {
-    if (Number(price) < max) {
+    if (Number(price) < max!) {
       setPrice(Number(price) + step);
       onChange(Number(price) + step);
     }
   };
 
   const minusCount = () => {
-    if (Number(price) > min) {
+    if (Number(price) > min!) {
       setPrice(Number(price) - step);
       onChange(Number(price) - step);
     }
