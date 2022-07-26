@@ -24,10 +24,6 @@ const BaseCheckbox: React.FC<Props> = ({
 }) => {
   const handler = !disabled ? onChange : undefined;
 
-  React.useEffect(() => {
-    console.log('checked: ', checked);
-  }, [checked]);
-
   return (
     <span
       className={`${className} ${styles.BaseCheckbox} ${
