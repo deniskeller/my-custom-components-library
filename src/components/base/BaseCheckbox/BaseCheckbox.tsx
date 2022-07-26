@@ -5,44 +5,48 @@ import styles from './BaseCheckbox.module.scss';
 
 interface Props {
   id?: string;
+  checked: boolean;
+  disabled?: boolean;
   className?: string;
   error?: string | boolean;
-  checkboxValue: boolean;
   children?: ReactNode;
-  onClick: (value: boolean) => void;
+  onChange: (e: React.FormEvent) => void;
 }
 
 const BaseCheckbox: React.FC<Props> = ({
-  children,
   id = '',
+  disabled = false,
   className,
   error,
-  checkboxValue,
-  onClick,
+  children,
+  checked,
+  onChange,
 }) => {
-  const [isActive, setIsActive] = React.useState<boolean>(checkboxValue);
+  const handler = !disabled ? onChange : undefined;
 
   React.useEffect(() => {
-    onClick(isActive);
-  }, [isActive]);
+    console.log('checked: ', checked);
+  }, [checked]);
 
   return (
     <span
-      className={`${className} ${styles.BaseCheckbox}`}
-      onClick={() => setIsActive(!isActive)}
+      className={`${className} ${styles.BaseCheckbox} ${
+        disabled ? styles.isDisabled : ''
+      }`}
+      onClick={handler}
     >
       <input
         id={id}
-        checked={isActive}
-        name="name"
+        checked={checked}
         type="checkbox"
         className={styles.BaseCheckboxInput}
-        readOnly
+        disabled={disabled}
+        onChange={handler}
       />
       <span
         className={` ${styles.BaseCheckboxCheck} ${
-          isActive ? styles.isActive : ''
-        } ${error && !isActive ? styles.isError : ''}`}
+          checked ? styles.isActive : ''
+        } ${error && !checked ? styles.isError : ''}`}
       >
         <BaseIcon
           icon={ALL_ICONS.CHECKBOX_CHECK}
@@ -51,7 +55,14 @@ const BaseCheckbox: React.FC<Props> = ({
         />
       </span>
       {children ? (
-        <span className={styles.BaseCheckboxTitle}>{children}</span>
+        <span
+          className={`${styles.BaseCheckboxLabel} ${
+            disabled ? styles.isDisabled : ''
+          }
+      `}
+        >
+          {children}
+        </span>
       ) : null}
     </span>
   );

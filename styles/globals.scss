@@ -6,8 +6,16 @@
   margin: 0 auto;
 }
 
+.df {
+  display: flex;
+}
+
 .Mb20 {
   margin-bottom: em(20px);
+}
+
+.Mr20 {
+  margin-right: em(20px);
 }
 
 .Mr {

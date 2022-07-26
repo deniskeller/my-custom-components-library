@@ -1,45 +1,59 @@
 import React from 'react';
-import { BaseCheckbox, BaseContainer, BaseTitle } from '@base/index';
+import {
+  BaseButton,
+  BaseCheckbox,
+  BaseContainer,
+  BaseTitle,
+} from '@base/index';
 import styles from './Checkbox.module.scss';
 import { LinkToViewCode } from '@nav/index';
 
 interface Props {}
 
-const plainOptions = ['Apple', 'Pear', 'Orange'];
-const defaultCheckedList = ['Apple', 'Orange'];
-
 const Checkbox: React.FC<Props> = () => {
-  const [checkedList, setCheckedList] = React.useState(defaultCheckedList);
-  const [indeterminate, setIndeterminate] = React.useState(true);
-  const [checkAll, setCheckAll] = React.useState(false);
+  const [isDisabled, setIsDisabled] = React.useState<boolean>(false);
 
-  const onChange = (list) => {
-    setCheckedList(list);
-    setIndeterminate(!!list.length && list.length < plainOptions.length);
-    setCheckAll(list.length === plainOptions.length);
+  const [value, setValue] = React.useState({
+    isChecked1: false,
+    isChecked2: true,
+  });
+
+  const setNewValue = (checked: boolean, key: string) => {
+    setValue((prev) => ({ ...prev, [key]: checked }));
   };
 
-  const onCheckAllChange = (e) => {
-    setCheckedList(e.target.checked ? plainOptions : []);
-    setIndeterminate(false);
-    setCheckAll(e.target.checked);
-  };
-
-  const [isChecked, setIsChecked] = React.useState<boolean>(false);
   return (
-    <div className={styles.Checkboxs}>
-      <BaseContainer>
-        <BaseTitle className="Mb20">Checkbox</BaseTitle>
+    <BaseContainer>
+      <BaseTitle className="Mb20">Checkbox</BaseTitle>
 
-        <div className="Headline Mb20">
-          <LinkToViewCode title="Checkbox component." href="" />
+      <div className="Headline Mb20">
+        <LinkToViewCode title="Checkbox component." href="" />
+      </div>
+
+      <div className={styles.Checkboxs}>
+        <div className="df Mb20">
+          <BaseCheckbox
+            checked={value.isChecked1}
+            onChange={() => setNewValue(!value.isChecked1, 'isChecked1')}
+            disabled={isDisabled}
+            className="Mr20"
+          />
+          <BaseButton
+            title="Disable"
+            className="mw300"
+            onClick={() => setIsDisabled(!isDisabled)}
+          />
         </div>
 
-        <BaseCheckbox checkboxValue={isChecked} onClick={setIsChecked}>
+        <BaseCheckbox
+          checked={value.isChecked2}
+          onChange={() => setNewValue(!value.isChecked2, 'isChecked2')}
+          className="Mb20"
+        >
           Checkbox
         </BaseCheckbox>
-      </BaseContainer>
-    </div>
+      </div>
+    </BaseContainer>
   );
 };
 
