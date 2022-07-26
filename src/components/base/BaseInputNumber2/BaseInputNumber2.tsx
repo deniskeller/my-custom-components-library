@@ -65,14 +65,14 @@ const BaseInputNumber2: React.FC<Props> = ({
 
   //change the value using the buttons of the input itself - start
   const plusCount = () => {
-    if (Number(price) < max) {
+    if (Number(price) < max!) {
       setPrice(Number(price) + step);
       onChange(Number(price) + step);
     }
   };
 
   const minusCount = () => {
-    if (Number(price) > min) {
+    if (Number(price) > min!) {
       setPrice(Number(price) - step);
       onChange(Number(price) - step);
     }
@@ -118,8 +118,8 @@ const BaseInputNumber2: React.FC<Props> = ({
     // console.log('inside value: ', value);
     // console.log('blur: ', blur);
     console.log('price: ', price);
-    if (price > max && name != 'phone') setPrice(max);
-    if (price < min && isNaN(Number(price)) && name != 'phone') setPrice(0);
+    if (price > max! && name != 'phone') setPrice(max);
+    if (price < min! && isNaN(Number(price)) && name != 'phone') setPrice(0);
   }, [value, price, max, min, blur, name, type]);
 
   return (
