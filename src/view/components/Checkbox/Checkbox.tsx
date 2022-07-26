@@ -75,7 +75,10 @@ const Checkbox: React.FC<Props> = () => {
         <BaseTitle className="Mb20">Checkbox</BaseTitle>
 
         <div className="Headline Mb20">
-          <LinkToViewCode title="Checkbox component." href="" />
+          <LinkToViewCode
+            title="Checkbox component."
+            href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseCheckbox"
+          />
         </div>
 
         <div className={styles.Checkboxs}>
