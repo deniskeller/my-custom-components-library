@@ -5,7 +5,7 @@ html {
   font-family: $font-Circe;
   font-size: math.div(16, 720) * 100vh;
   min-height: 100%;
-  line-height: 1.8;
+  line-height: normal;
   scroll-behavior: smooth;
 }
 

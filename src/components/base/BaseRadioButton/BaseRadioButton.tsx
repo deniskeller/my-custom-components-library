@@ -1,45 +1,56 @@
-import { ALL_ICONS } from "@constants/icons";
-import React, { ReactNode } from "react";
-import { BaseIcon } from "..";
-import styles from "./BaseRadioButton.module.scss";
+import React, { ReactNode } from 'react';
+import styles from './BaseRadioButton.module.scss';
 
 interface Props {
-  id?: string;
+  value?: string;
   className?: string;
+  name?: string;
   error?: string | boolean;
-  isActive: boolean;
+  checked?: boolean;
+  disabled?: boolean;
   children?: ReactNode;
-  onClick: () => void;
+  type?: string;
+  onChange: (e: React.FormEvent) => void;
 }
 
 const BaseRadioButton: React.FC<Props> = ({
   children,
-  id = "",
+  value = '',
   className,
+  name,
   error,
-  isActive,
-  onClick,
+  checked,
+  disabled = false,
+  type = 'default',
+  onChange,
 }) => {
+  const handler = !disabled ? onChange : undefined;
+
   return (
-    <div className={`${className} ${styles.BaseRadioButton}`} onClick={onClick}>
+    <div
+      className={`${className} ${styles.BaseRadioButton} ${
+        checked && !disabled ? styles.isActive : ''
+      } ${disabled ? styles.Disabled : ''} ${styles['RadioButton_' + type]}`}
+      onClick={handler}
+    >
       <input
-        id={id}
-        checked={isActive}
-        name="name"
+        value={value}
+        checked={checked}
+        disabled={disabled}
+        name={name}
         type="radio"
-        className={styles.BaseRadioButton}
+        className={styles.Input}
         readOnly
+        onChange={handler}
       />
       <div
         className={` ${styles.BaseRadioButtonCheck} ${
-          isActive ? styles.isActive : ""
-        } ${error && !isActive ? styles.isError : ""}`}
+          checked && !disabled ? styles.isActive : ''
+        } ${error && !checked ? styles.isError : ''}`}
       >
         <div className={styles.BaseRadioButtonTick}></div>
       </div>
-      {children ? (
-        <div className={styles.BaseRadioButtonTitle}>{children}</div>
-      ) : null}
+      {children ? <span className={styles.Label}>{children}</span> : null}
     </div>
   );
 };

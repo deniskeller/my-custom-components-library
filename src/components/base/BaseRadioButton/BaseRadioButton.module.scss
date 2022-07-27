@@ -5,30 +5,20 @@
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  font-size: 100%;
 
   &:hover {
     .BaseRadioButtonCheck {
-      background: $yellow;
-    }
-    .BaseRadioButtonCheck.isActive {
-      background: $yellow;
+      border: 1px solid $blue;
     }
   }
 
-  &:hover {
-    .BaseRadioButtonTick {
-      top: 20%;
-      left: 20%;
-    }
+  .Label {
+    font-size: em(16px);
+    color: $black;
+    margin-left: em(10px);
   }
-  .BaseRadioButtonTitle {
-    font-size: em(19px);
-    line-height: 100%;
-    color: $white;
-    margin-left: em(25px);
-    padding-top: em(5px);
-  }
-  .BaseRadioButton {
+  .Input {
     position: absolute;
     visibility: hidden;
     font-size: 0;
@@ -41,28 +31,27 @@
 
   .BaseRadioButtonCheck {
     box-sizing: border-box;
-    width: em(31px);
-    height: em(31px);
+    width: em(20px);
+    height: em(20px);
     border-radius: 50%;
-    background: $input;
     position: relative;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid $grey;
   }
 
   .BaseRadioButtonTick {
-    width: em(11px);
-    height: em(11px);
+    width: em(10px);
+    height: em(10px);
     border-radius: 50%;
     position: absolute;
-    background: $black;
-    top: 35%;
-    left: 35%;
+    background: $blue;
+    top: 22%;
+    left: 22%;
     visibility: hidden;
-    transform: scale(1.5);
+    transform: scale(0.5);
   }
 
   .isError {
-    border: 2px solid $red;
+    border: 1px solid $red;
   }
 
   .isActive {
@@ -70,8 +59,84 @@
       visibility: visible;
       transform: scale(1);
       transition: transform $speed;
-      top: 33%;
-      left: 33%;
+    }
+  }
+}
+
+.isActive {
+  .BaseRadioButtonCheck {
+    border: 1px solid $blue;
+  }
+}
+
+.BaseRadioButton.Disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  .BaseRadioButtonCheck {
+    background-color: #f5f5f5;
+    border-color: #d9d9d9;
+  }
+}
+
+//button style
+.RadioButton_button {
+  min-width: em(80px);
+  padding: em(6px) em(10px);
+  border: 1px solid $grey;
+  @extend %button;
+
+  &:nth-child(even),
+  &:nth-child(odd) {
+    border-right-width: 0px;
+  }
+
+  &:last-child {
+    border-right-width: 1px;
+  }
+
+  .BaseRadioButtonCheck {
+    display: none;
+  }
+
+  .Label {
+    color: $black;
+    margin-left: 0;
+  }
+
+  &:hover {
+    .Label {
+      color: $blue;
+    }
+  }
+
+  &.isActive {
+    background: $blue;
+    border-color: $blue;
+    transition: ease $speed;
+    position: relative;
+    .Label {
+      color: $white;
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      width: 1px;
+      height: calc(100% + 2px);
+      background: $blue;
+      position: absolute;
+      z-index: 1;
+      right: -1px;
+    }
+  }
+
+  &.Disabled {
+    opacity: 1;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+
+    .Label {
+      color: #00000040;
     }
   }
 }

@@ -9,6 +9,9 @@
 .df {
   display: flex;
 }
+.fdc {
+  flex-direction: column;
+}
 
 .Mb20 {
   margin-bottom: em(20px);
