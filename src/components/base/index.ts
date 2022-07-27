@@ -12,6 +12,7 @@ export { default as BaseSearchSelect } from "./BaseSearchSelect/BaseSearchSelect
 export { default as BaseCheckbox } from "./BaseCheckbox/BaseCheckbox";
 export { default as BaseTextarea } from "./BaseTextarea/BaseTextarea";
 export { default as BaseRadioButton } from "./BaseRadioButton/BaseRadioButton";
+export { default as BaseSwitch } from "./BaseSwitch/BaseSwitch";
 
 // buttons
 export { default as BaseButton } from "./BaseButton/BaseButton";

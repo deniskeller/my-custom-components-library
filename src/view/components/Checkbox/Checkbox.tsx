@@ -90,7 +90,7 @@ const Checkbox: React.FC<Props> = () => {
               className="Mr20"
             />
             <BaseButton
-              title="Disable"
+              title="Toggle disabled"
               className="mw300"
               onClick={() => setIsDisabled(!isDisabled)}
             />

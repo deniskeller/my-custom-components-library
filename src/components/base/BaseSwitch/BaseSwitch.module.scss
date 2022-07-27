@@ -1,0 +1,87 @@
+.Wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .Switch {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: em(60px);
+    height: em(30px);
+    background: $grey;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color 0.2s;
+
+    &_Input {
+      position: absolute;
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+    }
+
+    &_Button {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 45%;
+      height: 87%;
+      border-radius: em(45px);
+      transition: 0.2s;
+      background: #fff;
+      box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+    }
+
+    &_CheckedChildren,
+    &_UnCheckedChildren {
+      position: absolute;
+      path {
+        fill: $white;
+      }
+    }
+
+    &_CheckedChildren {
+      left: 20%;
+    }
+    &_UnCheckedChildren {
+      right: 20%;
+    }
+
+    &_Children_String {
+      font-size: em(12px);
+      color: $white;
+    }
+  }
+
+  .Switch:active .Switch_Button {
+    width: 60%;
+  }
+
+  .isChecked .Switch_Button {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
+
+  .isChecked {
+    background: $blue;
+  }
+
+  .isDisabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .Label {
+    font-size: em(14px);
+    color: $black;
+    margin-left: em(20px);
+  }
+}
