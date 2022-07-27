@@ -2,14 +2,12 @@ import React from 'react';
 import {
   BaseButton,
   BaseContainer,
-  BaseIcon,
   BaseSubtitle,
   BaseSwitch,
   BaseTitle,
 } from '@base/index';
 import { LinkToViewCode } from '@nav/index';
 import styles from './Switch.module.scss';
-import { ALL_ICONS } from '@constants/icons';
 
 interface Props {}
 
@@ -32,7 +30,7 @@ const Switch: React.FC<Props> = () => {
         <div className="Headline Mb20">
           <LinkToViewCode
             title="Checkbox component."
-            href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseCheckbox"
+            href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseSwitch"
           />
         </div>
 

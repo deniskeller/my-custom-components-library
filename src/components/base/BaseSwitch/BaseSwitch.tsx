@@ -1,6 +1,4 @@
-import { ALL_ICONS } from '@constants/icons';
 import React, { ReactNode } from 'react';
-import { BaseIcon } from '..';
 import styles from './BaseSwitch.module.scss';
 
 interface Props {
