@@ -18,3 +18,4 @@ export { default as BaseSwitch } from "./BaseSwitch/BaseSwitch";
 export { default as BaseButton } from "./BaseButton/BaseButton";
 
 export { default as BaseInputNumber2 } from "./BaseInputNumber2/BaseInputNumber2";
+export { default as BaseSelect2 } from "./BaseSelect2/BaseSelect2";

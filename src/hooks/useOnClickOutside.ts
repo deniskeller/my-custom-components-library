@@ -14,7 +14,6 @@ const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
 ) => {
   useEffect(() => {
     const listener = (event: Event) => {
-      console.log("listeneer");
       const el = ref?.current;
 
       if (event instanceof MouseEvent) {
