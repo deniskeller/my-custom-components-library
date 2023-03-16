@@ -7,14 +7,23 @@ import { LinkToViewCode } from '@nav/index';
 interface Props {}
 
 const mockData = [
-  { value: 'option1', title: 'option 1' },
-  { value: 'option2', title: 'option 2' },
-  { value: 'option3', title: 'option 3' },
-  { value: 'option4', title: 'option 4' },
-  { value: 'option5', title: 'option 5' },
+  { value: 'Option 1' },
+  { value: 'Option 2' },
+  { value: 'Option 3' },
+  { value: 'Option 4' },
+  { value: 'Option 5' },
+  { value: 'Option 6' },
 ];
 
 const Select: React.FC<Props> = () => {
+  const [values, setValues] = React.useState('');
+  const [values2, setValues2] = React.useState([]);
+
+  React.useEffect(() => {
+    console.log('values outside: ', values);
+    console.log('values2 outside: ', values2);
+  }, [values2, values]);
+
   return (
     <>
       <BaseContainer>
@@ -28,43 +37,21 @@ const Select: React.FC<Props> = () => {
         </div>
 
         <div className={styles.Select}>
-          {/* <BaseSelect
+          <BaseSelect
+            label="kek"
             className={styles.Select}
             placeholder="Choose something"
             options={mockData}
-            onChange={(e) => e}
-          /> */}
+            onChange={setValues}
+          />
 
           <BaseSelect
             className={styles.Select}
             placeholder="Choose something"
-            options={[
-              { value: 'Rock' },
-              { value: 'Paper' },
-              { value: 'Scissors' },
-            ]}
+            options={mockData}
+            onChange={setValues2}
             multiple
           />
-
-          {/* <Select
-            label="React Select"
-            placeholder="Pick one"
-            options={[
-              { value: 'Rock' },
-              { value: 'Paper' },
-              { value: 'Scissors' },
-            ]}
-          />
-          <Select
-            label="React Multiple Select"
-            placeholder="Pick some"
-            options={[
-              { value: 'Rock' },
-              { value: 'Paper' },
-              { value: 'Scissors' },
-            ]}
-            multiple
-          /> */}
         </div>
       </BaseContainer>
     </>

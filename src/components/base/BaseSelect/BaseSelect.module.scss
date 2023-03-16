@@ -1,169 +1,295 @@
-.SelectContainer {
+// .SelectContainer {
+//   position: relative;
+// }
+
+// .SelectHeader {
+//   $size: 12px;
+//   width: 100%;
+//   height: 100%;
+//   background: $input;
+//   font-size: em($size);
+//   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+//   border-radius: em(10px, $size);
+//   padding: 0 em(17px, $size);
+//   position: relative;
+//   cursor: pointer;
+//   display: flex;
+//   align-items: center;
+//   height: em(44px, $size);
+
+//   p {
+//     font-weight: normal;
+//     line-height: 120%;
+//     color: $placeholder;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//   }
+//   .NotEmpty {
+//     color: $black;
+//   }
+// }
+
+// .NotEmpty {
+//   color: $black;
+// }
+
+// .SelectHeaderFocus {
+//   border: 2px solid $yellow;
+// }
+
+// .IconArrow {
+//   width: em(12px);
+//   height: em(12px);
+//   position: absolute;
+//   right: em(19px);
+// }
+
+// .IconArrowTop {
+//   top: calc(45% - em(12px));
+// }
+
+// .IconArrowBottom {
+//   bottom: calc(45% - em(12px));
+//   -webkit-transform: scaleY(-1);
+//   transform: scaleY(-1);
+// }
+
+// .SelectList {
+//   position: absolute;
+//   top: em(50px);
+//   z-index: 1000;
+//   width: 100%;
+//   background: #f2f5f6;
+//   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+//   border-radius: em(10px);
+//   max-height: em(166px);
+//   overflow-y: scroll;
+//   scrollbar-width: none; /* For Firefox */
+//   -ms-overflow-style: none; /* For Internet Explorer and Edge */
+// }
+
+// .SelectList::-webkit-scrollbar {
+//   display: none;
+//   width: 0px; /* For Chrome, Safari, and Opera */
+// }
+
+// .ListItem {
+//   cursor: pointer;
+//   height: em(44px);
+//   list-style: none;
+//   display: flex;
+//   align-items: center;
+//   padding: 0 em(17px);
+//   color: $placeholder;
+
+//   &:first-child {
+//     border-top-left-radius: em(10px);
+//     border-top-right-radius: em(10px);
+//   }
+//   &:last-child {
+//     border-bottom-left-radius: em(10px);
+//     border-bottom-right-radius: em(10px);
+//   }
+//   &:hover {
+//     background: $grey;
+//   }
+
+//   .ListItemTitle {
+//     font-size: em(12px);
+//     font-weight: normal;
+//     line-height: 120%;
+//   }
+// }
+
+// .Error {
+//   border: 2px solid $red;
+// }
+
+// .ErrorText {
+//   display: block;
+//   font-size: em(12px);
+//   line-height: 120%;
+//   color: $red;
+//   margin-top: em(20px);
+// }
+
+// // Обертки для форм в App части
+// .Select_Small {
+//   .SelectHeader {
+//     height: em(49px);
+//     p {
+//       font-size: em(18px);
+//     }
+//   }
+//   .SelectList {
+//     top: em(55px);
+//   }
+//   .ListItem {
+//     height: em(49px);
+//     .ListItemTitle {
+//       font-size: em(17px);
+//     }
+//   }
+//   .IconArrowBottom {
+//     top: calc((100% - em(17px)) / 2);
+//     right: em(15px);
+//   }
+//   .IconArrowTop {
+//     display: none;
+//   }
+// }
+
+// .Select_VerySmall {
+//   .SelectHeader {
+//     height: em(49px);
+//     padding-left: em(20px);
+//     p {
+//       font-size: em(18px);
+//     }
+//   }
+//   .SelectList {
+//     top: em(55px);
+//   }
+//   .ListItem {
+//     height: em(49px);
+//     padding-left: em(20px);
+//     .ListItemTitle {
+//       font-size: em(17px);
+//     }
+//   }
+//   .IconArrowBottom {
+//     top: calc((100% - em(17px)) / 2);
+//     right: em(15px);
+//   }
+//   .IconArrowTop {
+//     display: none;
+//   }
+// }
+
+//select
+$grey-background: #f5f5f5;
+$grey-border: #ddd;
+$grey-text: #898989;
+$grey-dark: #444;
+$main-light: #d9f2fb;
+$main: #00a9e0;
+$main-dark: #007da6;
+$success: #7fd81e;
+$error: #ff5100;
+$warning: #f6c223;
+$body: #081f2c;
+
+.Select {
   position: relative;
-}
+  display: inline-block;
+  width: 320px;
 
-.SelectHeader {
-  $size: 12px;
-  width: 100%;
-  height: 100%;
-  background: $input;
-  font-size: em($size);
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: em(10px, $size);
-  padding: 0 em(17px, $size);
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: em(44px, $size);
+  &:focus {
+    outline: 0;
 
-  p {
-    font-weight: normal;
-    line-height: 120%;
-    color: $placeholder;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .NotEmpty {
-    color: $black;
+    & .Selection {
+      box-shadow: 0 0 1px 1px $main;
+    }
   }
 }
 
-.NotEmpty {
-  color: $black;
-}
-
-.SelectHeaderFocus {
-  border: 2px solid $yellow;
-}
-
-.IconArrow {
-  width: em(12px);
-  height: em(12px);
-  position: absolute;
-  right: em(19px);
-}
-
-.IconArrowTop {
-  top: calc(45% - em(12px));
-}
-
-.IconArrowBottom {
-  bottom: calc(45% - em(12px));
-  -webkit-transform: scaleY(-1);
-  transform: scaleY(-1);
-}
-
-.SelectList {
-  position: absolute;
-  top: em(50px);
-  z-index: 1000;
-  width: 100%;
-  background: #f2f5f6;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  border-radius: em(10px);
-  max-height: em(166px);
-  overflow-y: scroll;
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
-}
-
-.SelectList::-webkit-scrollbar {
-  display: none;
-  width: 0px; /* For Chrome, Safari, and Opera */
-}
-
-.ListItem {
-  cursor: pointer;
-  height: em(44px);
-  list-style: none;
-  display: flex;
-  align-items: center;
-  padding: 0 em(17px);
-  color: $placeholder;
-
-  &:first-child {
-    border-top-left-radius: em(10px);
-    border-top-right-radius: em(10px);
-  }
-  &:last-child {
-    border-bottom-left-radius: em(10px);
-    border-bottom-right-radius: em(10px);
-  }
-  &:hover {
-    background: $grey;
-  }
-
-  .ListItemTitle {
-    font-size: em(12px);
-    font-weight: normal;
-    line-height: 120%;
-  }
-}
-
-.Error {
-  border: 2px solid $red;
-}
-
-.ErrorText {
+.Label {
   display: block;
-  font-size: em(12px);
-  line-height: 120%;
-  color: $red;
-  margin-top: em(20px);
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
-// Обертки для форм в App части
-.Select_Small {
-  .SelectHeader {
-    height: em(49px);
-    p {
-      font-size: em(18px);
-    }
+.Selection {
+  position: relative;
+  padding: 1px 5px;
+  border: 1px solid $grey-border;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Value {
+  position: relative;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.Multiple {
+  padding-right: 30px;
+  margin: 2px 5px 2px 0;
+  background: $main-light;
+  color: $main;
+}
+
+.Delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  padding: 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.Placeholder {
+  padding: 5px 10px;
+  color: $grey-text;
+}
+
+.Arrow {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  padding: 10px;
+  font-size: 10px;
+  color: $grey-text;
+}
+
+.Options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: solid $grey-border;
+  border-width: 0 1px;
+  background: #fff;
+}
+
+.Option {
+  padding: 10px 15px;
+  border-bottom: 1px solid $grey-border;
+  cursor: pointer;
+
+  &.Selected {
+    border: 1px solid $main;
+    margin: -1px -1px 0;
+    background: $main-light;
   }
-  .SelectList {
-    top: em(55px);
-  }
-  .ListItem {
-    height: em(49px);
-    .ListItemTitle {
-      font-size: em(17px);
-    }
-  }
-  .IconArrowBottom {
-    top: calc((100% - em(17px)) / 2);
-    right: em(15px);
-  }
-  .IconArrowTop {
-    display: none;
+
+  &.Focused {
+    background: $grey-background;
   }
 }
 
-.Select_VerySmall {
-  .SelectHeader {
-    height: em(49px);
-    padding-left: em(20px);
-    p {
-      font-size: em(18px);
-    }
-  }
-  .SelectList {
-    top: em(55px);
-  }
-  .ListItem {
-    height: em(49px);
-    padding-left: em(20px);
-    .ListItemTitle {
-      font-size: em(17px);
-    }
-  }
-  .IconArrowBottom {
-    top: calc((100% - em(17px)) / 2);
-    right: em(15px);
-  }
-  .IconArrowTop {
-    display: none;
+.Checkbox {
+  content: '';
+  vertical-align: top;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  border: 1px solid $grey-border;
+  border-radius: 2px;
+  margin: 2px 12px 0 0;
+  color: #fff;
+  font-size: 10px;
+
+  .Selected & {
+    border-color: $main-dark;
+    background: $main;
   }
 }
