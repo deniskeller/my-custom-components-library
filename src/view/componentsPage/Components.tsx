@@ -6,7 +6,7 @@ const Components = () => {
   return (
     <>
       <BaseContainer>
-        <div className="">Компоненты1</div>
+        <div className="">Компоненты12222</div>
       </BaseContainer>
     </>
   );
