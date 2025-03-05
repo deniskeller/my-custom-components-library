@@ -33,17 +33,13 @@ const Navbar: React.FC<Props> = () => {
         <Link href="/">
           <a>
             <div className={styles.NavbarLogo}>
-              <BaseIcon
+              {/* <BaseIcon
                 className={styles.LogoImage}
                 icon={ALL_ICONS.LOGO}
                 viewBox="0 0 60 60"
-              />
+              /> */}
 
-              <div className={styles.LogoTitle}>
-                My custom
-                <br />
-                components lIbrary
-              </div>
+              <div className={styles.LogoTitle}>DK UI components</div>
             </div>
           </a>
         </Link>
