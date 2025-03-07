@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   BaseButton,
+  BaseButton2,
   BaseContainer,
   BaseSubtitle,
   BaseSwitch,
@@ -42,7 +43,7 @@ const Switch: React.FC<Props> = () => {
             className="Mb10"
             disabled={disabled}
           />
-          <BaseButton
+          <BaseButton2
             title="Toggle disabled"
             onClick={() => {
               setDisabled(!disabled);

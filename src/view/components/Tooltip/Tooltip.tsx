@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseButton, BaseContainer, BaseTitle, BaseTooltip } from '@base/index';
+import { BaseButton, BaseButton2, BaseContainer, BaseTitle, BaseTooltip } from '@base/index';
 import styles from './Tooltip.module.scss';
 import { LinkToViewCode } from '@nav/index';
 
@@ -25,7 +25,7 @@ const Tooltip: React.FC<Props> = () => {
 			<div className={styles.Buttons}>
 				<div className={styles.ButtonsTop}>
 					<BaseTooltip title='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum possimus animi voluptates ab explicabo laborum blanditiis accusantium, debitis architecto officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum possimus animi voluptates ab explicabo laborum blanditiis accusantium, debitis architecto officiis!'>
-						<BaseButton title='Top' />
+						<BaseButton2 title='Top' />
 					</BaseTooltip>
 				</div>
 
@@ -34,13 +34,13 @@ const Tooltip: React.FC<Props> = () => {
 						position='left'
 						title='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus modi impedit, et perferendis vitae unde laborum. Ullam at ipsa sit.'
 					>
-						<BaseButton title='left' />
+						<BaseButton2 title='left' />
 					</BaseTooltip>
 					<BaseTooltip
 						position='right'
 						title='Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptatibus? '
 					>
-						<BaseButton title='right' />
+						<BaseButton2 title='right' />
 					</BaseTooltip>
 				</div>
 
@@ -49,7 +49,7 @@ const Tooltip: React.FC<Props> = () => {
 						position='bottom'
 						title='Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptatibus?'
 					>
-						<BaseButton title='bottom' />
+						<BaseButton2 title='bottom' />
 					</BaseTooltip>
 				</div>
 			</div>

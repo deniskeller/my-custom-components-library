@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   BaseButton,
+  BaseButton2,
   BaseCheckbox,
   BaseContainer,
   BaseSubtitle,
@@ -89,7 +90,7 @@ const Checkbox: React.FC<Props> = () => {
               disabled={isDisabled}
               className="Mr20"
             />
-            <BaseButton
+            <BaseButton2
               title="Toggle disabled"
               className="mw300"
               onClick={() => setIsDisabled(!isDisabled)}
