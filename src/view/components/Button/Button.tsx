@@ -67,7 +67,7 @@ const Button: React.FC<Props> = () => {
       </div>
 
       <div className={s.Buttons}>
-        <BaseButton2
+        {/* <BaseButton2
           title="Success button"
           type="success"
           loading={loadings[1]}
@@ -98,7 +98,7 @@ const Button: React.FC<Props> = () => {
             viewBox="0 0 20 30"
             className={s.Icon}
           />
-        </BaseButton2>
+        </BaseButton2> */}
       </div>
     </BaseContainer>
   );
