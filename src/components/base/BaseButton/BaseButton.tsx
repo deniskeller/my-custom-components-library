@@ -19,7 +19,8 @@ const defaultElement = 'button';
 export default function Button<E extends ElementType = typeof defaultElement>({
   children,
   disabled = false,
-  variant = 'primary',
+  variant = 'default',
+  color = 'primary',
   size = 'default',
   className = '',
   onClick,
@@ -30,9 +31,9 @@ export default function Button<E extends ElementType = typeof defaultElement>({
 
   return (
     <TagName
-      className={`${s.Button} ${s['Button_' + variant]} ${
-        s['Button_' + size]
-      } ${className}`}
+      className={`${s.Button} ${s['Button_' + variant + '_variant']} ${
+        s['Button_' + variant + '_color']
+      } ${s['Button_' + size]} ${className}`}
       {...otherProps}
       disabled={disabled}
       onClick={onClick}

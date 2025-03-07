@@ -25,6 +25,10 @@
   margin-right: em(20px);
 }
 
+.Ml20 {
+  margin-left: em(20px);
+}
+
 .Mr {
   margin-right: em(10px);
 }
@@ -32,6 +36,11 @@
 .Headline {
   display: flex;
   align-items: center;
+}
+
+.Block {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Icon {

@@ -16,15 +16,17 @@
   user-select: none;
   text-align: center;
   font-style: normal;
-  line-height: normal;
+  line-height: em(16px);
 
   &_default {
-    padding: em(16px) em(20px);
+    height: em(52px);
+    padding: em(6px) em(20px);
     font-size: em(16px);
   }
 
-  &_mini {
-    padding: em(16px) em(20px);
+  &_small {
+    height: em(42px);
+    padding: em(6px) em(12px);
     font-size: em(16px);
   }
 
@@ -35,22 +37,10 @@
   &:active {
     transform: scale(0.95);
   }
-
-  // @media (hover: hover) {
-  //   &:active {
-  //     transform: scale(0.95);
-  //   }
-  // }
-
-  // @media (hover: none) {
-  //   &:active {
-  //     transform: scale(0.95);
-  //   }
-  // }
 }
 
-//primary
-.Button_primary {
+//default
+.Button_default_variant {
   background: #2a86ff;
 
   @media (hover: hover) {
@@ -67,7 +57,7 @@
 }
 
 //secondary
-.Button_secondary {
+.Button_secondary_variant {
   background: #7bc950;
 
   @media (hover: hover) {
@@ -77,8 +67,8 @@
   }
 }
 
-//empty
-.Button_empty {
+//outlined
+.Button_outlined_variant {
   border: 1px solid #2a86ff;
   background: none;
   color: #2a86ff;
@@ -90,7 +80,7 @@
       color: #fff;
     }
   }
-	
+
   @media (hover: none) {
     &:active {
       border: 1px solid rgb(0, 78, 180);
@@ -101,7 +91,7 @@
 }
 
 // link
-.Button_link {
+.Button_link_variant {
   background: none;
   color: #2a86ff;
   &:hover {

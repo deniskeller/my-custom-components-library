@@ -33,7 +33,7 @@ const Button: React.FC<Props> = () => {
 
   return (
     <BaseContainer>
-      <BaseTitle className="Mb20">Button</BaseTitle>
+      <BaseTitle className="Mb20">Button </BaseTitle>
 
       <div className="Headline Mb20">
         <LinkToViewCode
@@ -43,31 +43,47 @@ const Button: React.FC<Props> = () => {
       </div>
 
       <div className={s.Buttons}>
-        <BaseButton className={s.Button}>Кнопка</BaseButton>
+        <p className="Mb20">Basic button</p>
 
-        <BaseButton variant="secondary" className={s.Button}>
-          Кнопка
-        </BaseButton>
+        <div className="Block">
+          <BaseButton>Default</BaseButton>
 
-        <BaseButton variant="empty" className={s.Button}>
-          Кнопка
-        </BaseButton>
+          <BaseButton className="Ml20" variant="outlined">
+            Outlined
+          </BaseButton>
 
-        <BaseButton disabled className={s.Button}>
-          Кнопка
-        </BaseButton>
-
-        <BaseButton as="a" className={s.Button}>
-          Ссылка
-        </BaseButton>
-
-        <BaseButton as="a" variant="link" className={s.Button}>
-          Ссылка
-        </BaseButton>
+          <BaseButton className="Ml20" as='a'>
+            Link
+          </BaseButton>
+        </div>
       </div>
 
-      <div className={s.Buttons}>
-        {/* <BaseButton2
+      {/* <BaseButton className={s.Button} color="primary" size="small" disabled>
+        Disabled
+      </BaseButton>
+
+      <BaseButton variant="secondary" size="small" className={s.Button}>
+        Secondary variant
+      </BaseButton>
+
+      <BaseButton variant="outlined" className={s.Button}>
+        Outlined variant
+      </BaseButton>
+
+      <BaseButton disabled className={s.Button}>
+        Disabled
+      </BaseButton>
+
+      <BaseButton as="a" className={s.Button}>
+        Type link
+      </BaseButton>
+
+      <BaseButton as="a" variant="link" className={s.Button}>
+        Type link and variant link
+      </BaseButton> */}
+
+      {/* <div className={s.Buttons}>
+        <BaseButton2
           title="Success button"
           type="success"
           loading={loadings[1]}
@@ -98,8 +114,8 @@ const Button: React.FC<Props> = () => {
             viewBox="0 0 20 30"
             className={s.Icon}
           />
-        </BaseButton2> */}
-      </div>
+        </BaseButton2>
+      </div> */}
     </BaseContainer>
   );
 };

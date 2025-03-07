@@ -1,12 +1,9 @@
 .Buttons {
   display: flex;
-	flex-wrap: wrap;
-	gap: em(10px);
+	flex-direction: column;
 	margin-bottom: em(20px);
 }
 .Button {
-  margin-right: em(20px);
-
   .Icon {
     width: em(15px);
     height: em(15px);
