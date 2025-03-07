@@ -1,9 +1,10 @@
 .Buttons {
   display: flex;
+	flex-wrap: wrap;
+	gap: em(10px);
+	margin-bottom: em(20px);
 }
 .Button {
-  // width: em(150px);
-  height: em(40px);
   margin-right: em(20px);
 
   .Icon {

@@ -1,117 +1,138 @@
-//general
 .Button {
+  // global
+  position: relative;
   font-size: 100%;
-  min-width: em(120px);
-  padding: em(8px) em(15px);
-  border-radius: em(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
   @extend %button;
+  border-radius: em(2px);
+  transition: all 0.3s ease;
+  // text
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  user-select: none;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
 
-  .Title {
-    font-size: em(12px);
-
-    font-family: $font-Circe;
-    font-weight: 600;
-    text-transform: uppercase;
+  &_default {
+    padding: em(16px) em(20px);
+    font-size: em(16px);
   }
+
+  &_mini {
+    padding: em(16px) em(20px);
+    font-size: em(16px);
+  }
+
+  &:focus-visible {
+    border: 1px solid black;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // @media (hover: hover) {
+  //   &:active {
+  //     transform: scale(0.95);
+  //   }
+  // }
+
+  // @media (hover: none) {
+  //   &:active {
+  //     transform: scale(0.95);
+  //   }
+  // }
+}
+
+//primary
+.Button_primary {
+  background: #2a86ff;
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgb(0, 78, 180);
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background: rgb(0, 78, 180);
+    }
+  }
+}
+
+//secondary
+.Button_secondary {
+  background: #7bc950;
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgb(68, 150, 40);
+    }
+  }
+}
+
+//empty
+.Button_empty {
+  border: 1px solid #2a86ff;
+  background: none;
+  color: #2a86ff;
+
+  @media (hover: hover) {
+    &:hover {
+      border: 1px solid rgb(0, 78, 180);
+      background: rgb(0, 78, 180);
+      color: #fff;
+    }
+  }
+	
+  @media (hover: none) {
+    &:active {
+      border: 1px solid rgb(0, 78, 180);
+      background: rgb(0, 78, 180);
+      color: #fff;
+    }
+  }
+}
+
+// link
+.Button_link {
+  background: none;
+  color: #2a86ff;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    transform: scale(1);
+  }
+
+  // @media (hover: hover) {
+  //   &:hover {
+  //     text-decoration: underline;
+  //   }
+  // }
+  // @media (hover: none) {
+  //   &:active {
+  //     transform: scale(1);
+  //   }
+  // }
 }
 
 //disabled style
 .Button:disabled,
 .Button:disabled:hover,
 .Button:disabled:active {
-  color: #00000040;
-  border-color: #d9d9d9;
-  background: #f5f5f5;
-  text-shadow: none;
-  box-shadow: none;
-  cursor: not-allowed;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  opacity: 0.5;
 }
 
-//default
-.Button_default {
-  color: $white;
-  background: $blue;
-  box-shadow: 0 em(2px) em(16px) rgba(15, 103, 240, 0.5);
-  transition: box-shadow $speed;
-
-  &:hover {
-    background: darken($blue, 10%);
-    box-shadow: 0 em(4px) em(18px) rgba(15, 103, 240, 1);
-  }
-
-  &:active {
-    background: darken($blue, 20%);
-    box-shadow: none;
-  }
+@media (hover: hover) {
 }
-
-//success
-.Button_success {
-  color: $white;
-  background: $green;
-  box-shadow: 0 em(2px) em(16px) rgba(15, 240, 67, 0.5);
-  transition: box-shadow $speed;
-
-  &:hover {
-    background: darken($green, 10%);
-    box-shadow: 0 em(2px) em(16px) rgba(15, 240, 67, 1);
-  }
-
-  &:active {
-    background: darken($green, 20%);
-    box-shadow: none;
-  }
-}
-
-//cencel
-.Button_cencel {
-  color: $white;
-  background: $red;
-  box-shadow: 0 em(2px) em(16px) rgba(240, 15, 15, 0.5);
-  transition: box-shadow $speed;
-
-  &:hover {
-    background: darken($red, 10%);
-    box-shadow: 0 em(2px) em(16px) rgba(240, 15, 15, 1);
-  }
-
-  &:active {
-    background: darken($red, 20%);
-    box-shadow: none;
-  }
-}
-
-//link
-.Button_link {
-  color: $blue;
-  padding: 0;
-  min-width: auto;
-  height: 100%;
-  border-color: transparent;
-  background: 0 0;
-  box-shadow: none;
-  .Title {
-    text-transform: inherit;
-  }
-  &:hover {
-    color: darken($blue, 10%);
-  }
-  &:active {
-    color: darken($blue, 20%);
-  }
-}
-
-//icon loader
-.IconLoader {
-  width: em(15px);
-  height: em(15px);
-  margin-right: em(10px);
-  animation: rotate 1s linear infinite;
-  transition: all 1s ease;
-}
-//icon loader animation
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
+@media (hover: none) {
 }

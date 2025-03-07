@@ -1,45 +1,43 @@
-import { ALL_ICONS } from '@constants/icons';
-import React, { ReactNode } from 'react';
-import { BaseIcon } from '..';
-import styles from './BaseButton.module.scss';
+import s from './BaseButton.module.scss';
+import { ComponentProps, ElementType, ReactNode } from 'react';
 
-interface Props {
-  children?: ReactNode | ReactNode[];
-  title?: string;
-  onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
-  type?: string;
+type ButtonOwnProps<E extends ElementType = ElementType> = {
+  children: string | ReactNode | ReactNode[];
+  variant?: string;
+  size?: string;
   disabled?: boolean;
   className?: string;
-  loading?: boolean;
-}
-
-const BaseButton: React.FC<Props> = ({
-  title = '',
-  children,
-  onClick,
-  type = 'default',
-  disabled = false,
-  className = '',
-  loading = false,
-}) => {
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`${className} ${styles.Button} ${styles['Button_' + type]}`}
-    >
-      {loading ? (
-        <span className={styles.IconLoader}>
-          <BaseIcon icon={ALL_ICONS.LOADING} viewBox="0 0 38 38" />
-        </span>
-      ) : (
-        ''
-      )}
-
-      {children}
-      <span className={styles.Title}>{title}</span>
-    </button>
-  );
+  onClick?: (ev: React.MouseEvent<HTMLElement>) => void;
+  as?: E;
 };
 
-export default BaseButton;
+type ButtonProps<E extends ElementType> = ButtonOwnProps<E> &
+  Omit<ComponentProps<E>, keyof ButtonOwnProps>;
+
+const defaultElement = 'button';
+
+export default function Button<E extends ElementType = typeof defaultElement>({
+  children,
+  disabled = false,
+  variant = 'primary',
+  size = 'default',
+  className = '',
+  onClick,
+  as,
+  ...otherProps
+}: ButtonProps<E>) {
+  const TagName = as || defaultElement;
+
+  return (
+    <TagName
+      className={`${s.Button} ${s['Button_' + variant]} ${
+        s['Button_' + size]
+      } ${className}`}
+      {...otherProps}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </TagName>
+  );
+}

@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { BaseButton, BaseContainer, BaseIcon, BaseTitle } from '@base/index';
-import styles from './Button.module.scss';
+import {
+  BaseButton,
+  BaseButton2,
+  BaseContainer,
+  BaseIcon,
+  BaseTitle,
+} from '@base/index';
+import s from './Button.module.scss';
 import { ALL_ICONS } from '@constants/icons';
 import { LinkToViewCode } from '@nav/index';
 
@@ -36,45 +42,63 @@ const Button: React.FC<Props> = () => {
         />
       </div>
 
-      <div className={styles.Buttons}>
-        <BaseButton title="Default button" className={styles.Button} />
+      <div className={s.Buttons}>
+        <BaseButton className={s.Button}>Кнопка</BaseButton>
 
-        <BaseButton
+        <BaseButton variant="secondary" className={s.Button}>
+          Кнопка
+        </BaseButton>
+
+        <BaseButton variant="empty" className={s.Button}>
+          Кнопка
+        </BaseButton>
+
+        <BaseButton disabled className={s.Button}>
+          Кнопка
+        </BaseButton>
+
+        <BaseButton as="a" className={s.Button}>
+          Ссылка
+        </BaseButton>
+
+        <BaseButton as="a" variant="link" className={s.Button}>
+          Ссылка
+        </BaseButton>
+      </div>
+
+      <div className={s.Buttons}>
+        <BaseButton2
           title="Success button"
           type="success"
           loading={loadings[1]}
           onClick={() => enterLoading(1)}
-          className={styles.Button}
+          className={s.Button}
         />
 
-        <BaseButton
-          title="Cencel button"
-          type="cencel"
-          className={styles.Button}
-        />
+        <BaseButton2 title="Cencel button" type="cencel" className={s.Button} />
 
-        <BaseButton
+        <BaseButton2
           title="Disabled button"
           disabled={true}
-          className={styles.Button}
+          className={s.Button}
         />
 
-        <BaseButton
+        <BaseButton2
           title="Click me"
           loading={loadings[2]}
           onClick={() => enterLoading(2)}
-          className={styles.Button}
+          className={s.Button}
         />
 
-        <BaseButton title="Link button" type="link" className={styles.Button} />
+        <BaseButton2 title="Link button" type="link" className={s.Button} />
 
-        <BaseButton title="Button with icon" className={styles.Button}>
+        <BaseButton2 title="Button with icon" className={s.Button}>
           <BaseIcon
             icon={ALL_ICONS.FOOTER_FB}
             viewBox="0 0 20 30"
-            className={styles.Icon}
+            className={s.Icon}
           />
-        </BaseButton>
+        </BaseButton2>
       </div>
     </BaseContainer>
   );
