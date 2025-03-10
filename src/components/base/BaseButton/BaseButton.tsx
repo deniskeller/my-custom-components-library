@@ -37,7 +37,9 @@ export default function Button<E extends ElementType = typeof defaultElement>({
     <TagName
       className={`${s.Button} ${s['Button_' + variant + '_variant']} ${
         s['Button_' + variant + '_color']
-      } ${s['Button_' + size]} ${className}`}
+      } ${s['Button_' + size]} ${startIcon ? s.Button_StartIcon : ''} ${
+        endIcon ? s.Button_EndIcon : ''
+      } ${className}`}
       {...otherProps}
       disabled={disabled}
       onClick={onClick}

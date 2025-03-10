@@ -78,10 +78,29 @@ const Button: React.FC<Props> = () => {
         <p className="Mb20">Button with icon</p>
 
         <div className="Block">
-          <BaseButton>Default</BaseButton>
+          <BaseButton
+            startIcon={
+              <BaseIcon
+                viewBox="0 0 18 18"
+                fill="white"
+                icon={ALL_ICONS.SAVE}
+              />
+            }
+          >
+            Default
+          </BaseButton>
 
-          <BaseButton className="Ml20" size="small">
-            Small
+          <BaseButton
+            endIcon={
+              <BaseIcon
+                viewBox="0 0 18 18"
+                fill="white"
+                icon={ALL_ICONS.SAVE}
+              />
+            }
+            className="Ml20"
+          >
+            Default
           </BaseButton>
         </div>
       </div>

@@ -41,6 +41,19 @@
   &:active {
     transform: scale(0.95);
   }
+
+	svg {
+		width: em(18px);
+		height: em(18px);
+	}
+
+	&_StartIcon svg{
+		margin-right: em(10px);
+	}
+
+	&_EndIcon svg{
+		margin-left: em(10px);
+	}
 }
 
 //default
