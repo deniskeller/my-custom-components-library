@@ -102,67 +102,67 @@ const Button: React.FC<Props> = () => {
           >
             Default
           </BaseButton>
+
+          <BaseButton className="Ml20">
+            <BaseIcon viewBox="0 0 18 18" fill="white" icon={ALL_ICONS.USER} />
+          </BaseButton>
         </div>
       </div>
 
-      {/* <BaseButton className={s.Button} color="primary" size="small" disabled>
-        Disabled
-      </BaseButton>
+      <div className={s.Buttons}>
+        <p className="Mb20">Button colors</p>
 
-      <BaseButton variant="secondary" size="small" className={s.Button}>
-        Secondary variant
-      </BaseButton>
+        <div className="Block">
+          <BaseButton>Default</BaseButton>
 
-      <BaseButton variant="outlined" className={s.Button}>
-        Outlined variant
-      </BaseButton>
+          <BaseButton color="secondary" className="Ml20">
+            Secondary
+          </BaseButton>
 
-      <BaseButton disabled className={s.Button}>
-        Disabled
-      </BaseButton>
+          <BaseButton color="success" className="Ml20">
+            Success
+          </BaseButton>
 
-      <BaseButton as="a" className={s.Button}>
-        Type link
-      </BaseButton>
+          <BaseButton color="error" className="Ml20">
+            Error
+          </BaseButton>
 
-      <BaseButton as="a" variant="link" className={s.Button}>
-        Type link and variant link
-      </BaseButton> */}
+          <BaseButton variant="outlined" className="Ml20">
+            Default
+          </BaseButton>
 
-      {/* <div className={s.Buttons}>
-        <BaseButton2
-          title="Success button"
-          type="success"
-          loading={loadings[1]}
-          onClick={() => enterLoading(1)}
-          className={s.Button}
-        />
+          <BaseButton variant="outlined" color="secondary" className="Ml20">
+            Secondary
+          </BaseButton>
 
-        <BaseButton2 title="Cencel button" type="cencel" className={s.Button} />
+          <BaseButton variant="outlined" color="success" className="Ml20">
+            Success
+          </BaseButton>
 
-        <BaseButton2
-          title="Disabled button"
-          disabled={true}
-          className={s.Button}
-        />
+          <BaseButton variant="outlined" color="error" className="Ml20">
+            Error
+          </BaseButton>
+        </div>
+      </div>
 
-        <BaseButton2
-          title="Click me"
-          loading={loadings[2]}
-          onClick={() => enterLoading(2)}
-          className={s.Button}
-        />
+      <div className={s.Buttons}>
+        <p className="Mb20">Button with loading</p>
 
-        <BaseButton2 title="Link button" type="link" className={s.Button} />
+        <div className="Block">
+          <BaseButton loading={loadings[1]} onClick={() => enterLoading(1)}>
+            Default
+          </BaseButton>
 
-        <BaseButton2 title="Button with icon" className={s.Button}>
-          <BaseIcon
-            icon={ALL_ICONS.FOOTER_FB}
-            viewBox="0 0 20 30"
-            className={s.Icon}
-          />
-        </BaseButton2>
-      </div> */}
+          {/* <BaseButton
+            variant="outlined"
+            loading={loadings[2]}
+            onClick={() => enterLoading(2)}
+            className="Ml20"
+          >
+            Default
+          </BaseButton> */}
+        </div>
+      </div>
     </BaseContainer>
   );
 };

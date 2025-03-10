@@ -16,11 +16,10 @@
   user-select: none;
   text-align: center;
   font-style: normal;
-  
 
   &_default {
     $size: 16px;
-		line-height: em($size);
+    line-height: em($size);
     height: em(52px, $size);
     padding: em(6px, $size) em(20px, $size);
     font-size: em($size);
@@ -31,7 +30,7 @@
     height: em(42px, $size);
     padding: em(6px, $size) em(12px, $size);
     font-size: em($size);
-		line-height: em($size);
+    line-height: em($size);
   }
 
   &:focus-visible {
@@ -42,73 +41,180 @@
     transform: scale(0.95);
   }
 
-	svg {
-		width: em(18px);
-		height: em(18px);
-	}
+  svg {
+    width: em(18px);
+    height: em(18px);
+  }
 
-	&_StartIcon svg{
-		margin-right: em(10px);
-	}
+  &_StartIcon svg {
+    margin-right: em(10px);
+  }
 
-	&_EndIcon svg{
-		margin-left: em(10px);
-	}
+  &_EndIcon svg {
+    margin-left: em(10px);
+  }
 }
 
 //default
-.Button_default_variant {
-  background: #2a86ff;
+.Button_Variant_default {
+  &_default {
+    background: #2a86ff;
 
-  @media (hover: hover) {
-    &:hover {
-      background: rgb(0, 78, 180);
+    @media (hover: hover) {
+      &:hover {
+        background: darken(#2a86ff, 10%);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background: darken(#2a86ff, 10%);
+      }
     }
   }
 
-  @media (hover: none) {
-    &:active {
-      background: rgb(0, 78, 180);
+  &_secondary {
+    background: #934fa8;
+
+    @media (hover: hover) {
+      &:hover {
+        background: darken(#934fa8, 10%);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background: darken(#934fa8, 10%);
+      }
     }
   }
-}
 
-//secondary
-.Button_secondary_variant {
-  background: #7bc950;
+  &_success {
+    background: #13de4c;
 
-  @media (hover: hover) {
-    &:hover {
-      background: rgb(68, 150, 40);
+    @media (hover: hover) {
+      &:hover {
+        background: darken(#13de4c, 10%);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background: darken(#13de4c, 10%);
+      }
+    }
+  }
+
+  &_error {
+    background: #ff0004;
+
+    @media (hover: hover) {
+      &:hover {
+        background: darken(#ff0004, 10%);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background: darken(#ff0004, 10%);
+      }
     }
   }
 }
 
 //outlined
-.Button_outlined_variant {
-  border: 1px solid #2a86ff;
-  background: none;
-  color: #2a86ff;
+.Button_Variant_outlined {
+  &_default {
+    border: 1px solid #2a86ff;
+    background: none;
+    color: #2a86ff;
 
-  @media (hover: hover) {
-    &:hover {
-      border: 1px solid rgb(0, 78, 180);
-      background: rgb(0, 78, 180);
-      color: #fff;
+    @media (hover: hover) {
+      &:hover {
+        border: 1px solid darken(#2a86ff, 10%);
+        background: darken(#2a86ff, 10%);
+        color: #fff;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        border: 1px solid darken(#2a86ff, 10%);
+        background: darken(#2a86ff, 10%);
+        color: #fff;
+      }
     }
   }
 
-  @media (hover: none) {
-    &:active {
-      border: 1px solid rgb(0, 78, 180);
-      background: rgb(0, 78, 180);
-      color: #fff;
+  &_secondary {
+    border: 1px solid #934fa8;
+    background: none;
+    color: #934fa8;
+
+    @media (hover: hover) {
+      &:hover {
+        border: 1px solid darken(#934fa8, 10%);
+        background: darken(#934fa8, 10%);
+        color: #fff;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        border: 1px solid darken(#934fa8, 10%);
+        background: darken(#934fa8, 10%);
+        color: #fff;
+      }
+    }
+  }
+
+  &_success {
+    border: 1px solid #13de4c;
+    background: none;
+    color: #13de4c;
+
+    @media (hover: hover) {
+      &:hover {
+        border: 1px solid darken(#13de4c, 10%);
+        background: darken(#13de4c, 10%);
+        color: #fff;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        border: 1px solid darken(#13de4c, 10%);
+        background: darken(#13de4c, 10%);
+        color: #fff;
+      }
+    }
+  }
+
+  &_error {
+    border: 1px solid #ff0004;
+    background: none;
+    color: #ff0004;
+
+    @media (hover: hover) {
+      &:hover {
+        border: 1px solid darken(#ff0004, 10%);
+        background: darken(#ff0004, 10%);
+        color: #fff;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        border: 1px solid darken(#ff0004, 10%);
+        background: darken(#ff0004, 10%);
+        color: #fff;
+      }
     }
   }
 }
 
 // link
-.Button_link_variant {
+.Button_Variant_link {
   background: none;
   color: #2a86ff;
   &:hover {
@@ -128,6 +234,21 @@
   //     transform: scale(1);
   //   }
   // }
+}
+
+//icon loader
+.IconLoader {
+  width: em(18px);
+  height: em(18px);
+  margin-right: em(10px);
+  animation: rotate 1s linear infinite;
+  transition: all 1s ease;
+}
+//icon loader animation
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
 }
 
 //disabled style
