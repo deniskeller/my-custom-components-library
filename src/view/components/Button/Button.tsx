@@ -52,8 +52,36 @@ const Button: React.FC<Props> = () => {
             Outlined
           </BaseButton>
 
-          <BaseButton className="Ml20" as='a'>
+          <BaseButton className="Ml20" as="a">
+            Link as button
+          </BaseButton>
+
+          <BaseButton className="Ml20" variant="link" as="a">
             Link
+          </BaseButton>
+        </div>
+      </div>
+
+      <div className={s.Buttons}>
+        <p className="Mb20">Button size</p>
+
+        <div className="Block">
+          <BaseButton>Default</BaseButton>
+
+          <BaseButton className="Ml20" size="small">
+            Small
+          </BaseButton>
+        </div>
+      </div>
+
+      <div className={s.Buttons}>
+        <p className="Mb20">Button with icon</p>
+
+        <div className="Block">
+          <BaseButton>Default</BaseButton>
+
+          <BaseButton className="Ml20" size="small">
+            Small
           </BaseButton>
         </div>
       </div>

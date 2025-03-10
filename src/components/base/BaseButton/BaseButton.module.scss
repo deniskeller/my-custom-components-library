@@ -16,18 +16,22 @@
   user-select: none;
   text-align: center;
   font-style: normal;
-  line-height: em(16px);
+  
 
   &_default {
-    height: em(52px);
-    padding: em(6px) em(20px);
-    font-size: em(16px);
+    $size: 16px;
+		line-height: em($size);
+    height: em(52px, $size);
+    padding: em(6px, $size) em(20px, $size);
+    font-size: em($size);
   }
 
   &_small {
-    height: em(42px);
-    padding: em(6px) em(12px);
-    font-size: em(16px);
+    $size: 13px;
+    height: em(42px, $size);
+    padding: em(6px, $size) em(12px, $size);
+    font-size: em($size);
+		line-height: em($size);
   }
 
   &:focus-visible {

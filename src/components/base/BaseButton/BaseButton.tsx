@@ -3,6 +3,8 @@ import { ComponentProps, ElementType, ReactNode } from 'react';
 
 type ButtonOwnProps<E extends ElementType = ElementType> = {
   children: string | ReactNode | ReactNode[];
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   variant?: string;
   size?: string;
   disabled?: boolean;
@@ -18,6 +20,8 @@ const defaultElement = 'button';
 
 export default function Button<E extends ElementType = typeof defaultElement>({
   children,
+  startIcon,
+  endIcon,
   disabled = false,
   variant = 'default',
   color = 'primary',
@@ -38,7 +42,9 @@ export default function Button<E extends ElementType = typeof defaultElement>({
       disabled={disabled}
       onClick={onClick}
     >
+      {startIcon}
       {children}
+      {endIcon}
     </TagName>
   );
 }
