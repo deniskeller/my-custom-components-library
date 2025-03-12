@@ -37,6 +37,7 @@ const Tooltip: React.FC<Props> = () => {
 					>
 						<BaseButton2 title='left' />
 					</BaseTooltip>
+					
 					<BaseTooltip
 						position='right'
 						title='Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptatibus? '

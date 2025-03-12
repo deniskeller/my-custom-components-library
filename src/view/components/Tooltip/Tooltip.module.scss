@@ -5,10 +5,11 @@
 .Buttons {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   width: 100%;
   max-width: em(700px);
+	height: 2000px;
   .ButtonsTop,
   .ButtonsMiddle {
     margin-bottom: em(30px);

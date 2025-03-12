@@ -12,8 +12,6 @@
 
 .Title {
   $size: 14px;
-  visibility: hidden;
-  opacity: 0;
   z-index: 100;
   width: max-content;
   min-width: em(120px, $size);
