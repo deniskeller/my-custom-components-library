@@ -1,5 +1,6 @@
 export { default as BaseIcon } from "./BaseIcon/BaseIcon";
 export { default as BaseTooltip } from "./BaseTooltip/BaseTooltip";
+export { default as BasePortal } from "./BasePortal/BasePortal";
 // export { default as BasePopup } from "./BasePopup/BasePopup";
 export { default as BaseContainer } from "./BaseContainer/BaseContainer";
 export { default as BaseInput } from "./BaseInput/BaseInput";

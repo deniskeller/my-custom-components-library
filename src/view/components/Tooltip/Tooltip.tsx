@@ -16,6 +16,7 @@ const Tooltip: React.FC<Props> = () => {
 					href='https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseTooltip'
 				/>
 			</div>
+			
 			<div className={styles.Tooltips}>
 				<BaseTooltip title='some text'>
 					<span>Tooltip will show on mouse enter.</span>
