@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import s from './BaseTooltip.module.scss';
 import BasePortal from '@base/BasePortal/BasePortal';
 
@@ -37,18 +37,22 @@ const BaseTooltip: React.FC<Props> = ({
     setIsVisible(false);
   };
 
+  // useEffect(() => {
+  //   console.log('isVisible: ', isVisible);
+  // }, [isVisible]);
+
   return (
     <div
       className={`${s.Tooltip} ${className}`}
       ref={targetRef}
-      onMouseEnter={showTooltip}
-      onMouseLeave={hideTooltip}
+      onMouseOver={showTooltip}
+      onMouseOut={hideTooltip}
     >
       {isVisible && (
         <BasePortal>
           <p
             data-position={position}
-            className={s.Title}
+            className={isVisible ? s.Title_Hover : s.Title}
             style={{
               top: position.top,
               left: position.left,
