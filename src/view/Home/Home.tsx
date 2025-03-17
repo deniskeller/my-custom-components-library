@@ -8,9 +8,21 @@ const Home = () => {
       <div className={s.Container}>
         <h1>Home</h1>
 
-        <Image src="/unsplash.jpg" width={741} height={1115} alt="default" />
+        <Image
+          src="/unsplash.jpg"
+          width={741}
+          height={1115}
+          alt="default"
+          quality={100}
+        />
 
-        <Image src="/unsplash@2x.jpg" width={741} height={1115} alt="retina" />
+        <Image
+          src="/unsplash@2x.jpg"
+          width={741}
+          height={1115}
+          alt="retina"
+          quality={100}
+        />
       </div>
     </>
   );
