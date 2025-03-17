@@ -54,7 +54,7 @@ const BaseInputNumber2: React.FC<Props> = ({
   // only number
   const onKeyPress = (event: React.KeyboardEvent) => {
     if (name === 'number') {
-      const regex = /^\-?\d*?(\.\d+)?/;
+      const regex = /^-?\d*?(\.\d+)?/;
       if (!regex.test(event.key)) {
         event.preventDefault();
       } else {
@@ -118,8 +118,9 @@ const BaseInputNumber2: React.FC<Props> = ({
     // console.log('inside value: ', value);
     // console.log('blur: ', blur);
     console.log('price: ', price);
-    if (price > max! && name != 'phone') setPrice(max);
-    if (price < min! && isNaN(Number(price)) && name != 'phone') setPrice(0);
+    if (Number(price) > max! && name != 'phone') setPrice(max);
+    if (Number(price) < min! && isNaN(Number(price)) && name != 'phone')
+      setPrice(0);
   }, [value, price, max, min, blur, name, type]);
 
   return (
@@ -146,8 +147,8 @@ const BaseInputNumber2: React.FC<Props> = ({
             iconPosition === 'right' || type === 'password'
               ? styles.InputIconRight
               : iconPosition === 'left'
-              ? styles.InputIconLeft
-              : ''
+                ? styles.InputIconLeft
+                : ''
           }`}
         />
 

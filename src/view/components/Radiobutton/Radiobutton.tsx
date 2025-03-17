@@ -8,8 +8,6 @@ import {
 import { LinkToViewCode } from '@nav/index';
 import styles from './Radiobutton.module.scss';
 
-interface Props {}
-
 const radioItems = [
   { value: 'A', label: 'A' },
   { value: 'B', label: 'B', disabled: true },
@@ -24,7 +22,7 @@ const radioItems2 = [
   { label: 'Orange', value: 'Orange', disabled: true },
 ];
 
-const Radiobutton: React.FC<Props> = () => {
+const Radiobutton: React.FC = () => {
   const [value, setValue] = React.useState('A');
   const [value2, setValue2] = React.useState('Banana');
 
@@ -74,7 +72,7 @@ const Radiobutton: React.FC<Props> = () => {
                   key={item.value}
                   value={item.value}
                   disabled={item.disabled}
-                  type="button"
+                  variant="button"
                   checked={value2 === item.value}
                   onChange={() => setValue2(item.value)}
                   className="Mb20"

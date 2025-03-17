@@ -9,7 +9,8 @@ interface Props {
   checked?: boolean;
   disabled?: boolean;
   children?: ReactNode;
-  type?: string;
+
+  variant?: string;
   onChange: (e: React.FormEvent) => void;
 }
 
@@ -21,16 +22,16 @@ const BaseRadioButton: React.FC<Props> = ({
   error,
   checked,
   disabled = false,
-  type = 'default',
+  variant = 'default',
   onChange,
 }) => {
   const handler = !disabled ? onChange : undefined;
 
   return (
-    <div
+    <label
       className={`${className} ${styles.BaseRadioButton} ${
         checked && !disabled ? styles.isActive : ''
-      } ${disabled ? styles.Disabled : ''} ${styles['RadioButton_' + type]}`}
+      } ${disabled ? styles.Disabled : ''} ${styles['RadioButton_' + variant]}`}
       onClick={handler}
     >
       <input
@@ -51,7 +52,7 @@ const BaseRadioButton: React.FC<Props> = ({
         <div className={styles.BaseRadioButtonTick}></div>
       </div>
       {children ? <span className={styles.Label}>{children}</span> : null}
-    </div>
+    </label>
   );
 };
 

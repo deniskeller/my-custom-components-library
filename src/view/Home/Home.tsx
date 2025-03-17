@@ -1,10 +1,17 @@
 import React from 'react';
-import styles from './Home.module.scss';
+import s from './Home.module.scss';
+import Image from 'next/image';
 
 const Home = () => {
   return (
     <>
-      <div className="Container">Home</div>
+      <div className={s.Container}>
+        <h1>Home</h1>
+
+        <Image src="/unsplash.jpg" width={741} height={1115} alt="default" />
+
+        <Image src="/unsplash@2x.jpg" width={741} height={1115} alt="retina" />
+      </div>
     </>
   );
 };

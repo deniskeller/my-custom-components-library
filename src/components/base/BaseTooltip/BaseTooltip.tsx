@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import s from './BaseTooltip.module.scss';
 import BasePortal from '@base/BasePortal/BasePortal';
+import { useMount } from '@hooks/useMount';
 
 interface Props {
   children?: ReactNode | ReactNode[];
@@ -16,13 +17,14 @@ const BaseTooltip: React.FC<Props> = ({
   className = '',
 }) => {
   const targetRef = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<HTMLParagraphElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
   const showTooltip = () => {
     if (targetRef.current) {
       const rect = targetRef.current.getBoundingClientRect();
-      console.log('rect: ', rect);
+      // console.log('rect: ', rect);
       const scrollY = window.scrollY;
 
       setPosition({
@@ -36,6 +38,15 @@ const BaseTooltip: React.FC<Props> = ({
   const hideTooltip = () => {
     setIsVisible(false);
   };
+
+  const { mounted } = useMount({ opened: isVisible });
+  const [animationIn, setAnimationIn] = useState(mounted);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimationIn(isVisible);
+    }, 10);
+  }, [isVisible]);
 
   // useEffect(() => {
   //   console.log('isVisible: ', isVisible);
@@ -51,8 +62,9 @@ const BaseTooltip: React.FC<Props> = ({
       {isVisible && (
         <BasePortal>
           <p
+            ref={tooltipRef}
             data-position={position}
-            className={isVisible ? s.Title_Hover : s.Title}
+            className={animationIn ? s.Title : s.Title_Hover}
             style={{
               top: position.top,
               left: position.left,

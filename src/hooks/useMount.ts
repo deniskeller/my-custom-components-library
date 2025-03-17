@@ -1,7 +1,6 @@
-//@ts-nocheck
 import { useEffect, useState } from "react";
 
-export const useMount  = ({ opened }) => {
+export const useMount  = ({ opened } : {opened: boolean}) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
