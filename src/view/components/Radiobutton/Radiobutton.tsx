@@ -26,11 +26,6 @@ const Radiobutton: React.FC = () => {
   const [value, setValue] = React.useState('A');
   const [value2, setValue2] = React.useState('Banana');
 
-  React.useEffect(() => {
-    console.log('value: ', value);
-    console.log('value2: ', value2);
-  }, [value, value2]);
-
   return (
     <>
       <BaseContainer>

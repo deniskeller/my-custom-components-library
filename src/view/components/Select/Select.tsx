@@ -19,11 +19,6 @@ const Select: React.FC<Props> = () => {
   const [values, setValues] = React.useState('');
   const [values2, setValues2] = React.useState([]);
 
-  React.useEffect(() => {
-    console.log('values outside: ', values);
-    console.log('values2 outside: ', values2);
-  }, [values2, values]);
-
   return (
     <>
       <BaseContainer>

@@ -1,3 +1,5 @@
+@use './variables.scss' as *;
+
 %fullsize {
   position: absolute;
   top: 0;
@@ -52,7 +54,7 @@
 
 %scroll-bar {
   &::-webkit-scrollbar-track {
-    background-color: $white;
+    background-color: #fff;
   }
 
   &::-webkit-scrollbar {

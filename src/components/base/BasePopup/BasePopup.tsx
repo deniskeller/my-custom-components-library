@@ -22,17 +22,11 @@ const BasePopup: React.FC<Props> = ({
   type = 'default',
 }) => {
   const dispatch = useDispatch();
-  // <<<<<<< HEAD
   const { popup, id } = useSelector((state: EsoqueState) => state.modals);
-  // =======
-  //   const { popup, id } = useSelector((state: RootState) => state.modal);
-  //   console.log('popup: ', popup);
-  // >>>>>>> origin/html
 
   const thisClass = React.useRef<HTMLDivElement>(null);
   const thisModal = React.useRef<HTMLDivElement>(null);
 
-  // console.log("thisClass: ", thisClass.current);
   const clickOutsideHandler = () => {
     hidePopup();
   };
@@ -66,11 +60,6 @@ const BasePopup: React.FC<Props> = ({
     document.removeEventListener('keyup', keyUp);
     dispatch(actionsModals.setPopup({ popup: '', id: 0 }));
   };
-
-  // React.useEffect(() => {
-  //   console.log('thisClass: ', thisClass);
-  //   console.log('popup: ', popup);
-  // }, [thisClass, popup]);
 
   return (
     <div

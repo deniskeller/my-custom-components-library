@@ -115,9 +115,6 @@ const BaseInputNumber: React.FC<Props> = ({
   };
 
   React.useEffect(() => {
-    // console.log('inside value: ', value);
-    // console.log('blur: ', blur);
-    console.log('price: ', price);
     if (Number(price) > max && name != 'phone') setPrice(max);
     if (Number(price) < min && isNaN(Number(price)) && name != 'phone')
       setPrice(0);

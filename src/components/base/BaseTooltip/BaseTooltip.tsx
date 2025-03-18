@@ -24,7 +24,6 @@ const BaseTooltip: React.FC<Props> = ({
   const showTooltip = () => {
     if (targetRef.current) {
       const rect = targetRef.current.getBoundingClientRect();
-      // console.log('rect: ', rect);
       const scrollY = window.scrollY;
 
       setPosition({
@@ -47,10 +46,6 @@ const BaseTooltip: React.FC<Props> = ({
       setAnimationIn(isVisible);
     }, 10);
   }, [isVisible]);
-
-  // useEffect(() => {
-  //   console.log('isVisible: ', isVisible);
-  // }, [isVisible]);
 
   return (
     <div

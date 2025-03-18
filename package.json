@@ -26,7 +26,6 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^16.0.0",
-    "next-images": "^1.8.5",
     "prettier": "^3.5.3",
     "sass": "^1.86.0",
     "typescript": "^5.8.2",

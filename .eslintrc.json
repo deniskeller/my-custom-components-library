@@ -1,5 +1,9 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:react/jsx-runtime"
+  ],
   "rules": {
     "react-hooks/rules-of-hooks": 1,
     "react/no-unknown-property": [
@@ -20,7 +24,8 @@
     "no-var": "error",
     "prefer-const": "warn",
     "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-uses-react": 0,
     "prettier/prettier": [
       "warn",
       {

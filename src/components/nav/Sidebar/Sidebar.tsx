@@ -3,9 +3,9 @@ import styles from './Sidebar.module.scss';
 import { SidebarLink } from '@nav/index';
 import { sidebarLinks } from '@constants/globals/links';
 
-interface Props {}
+const Sidebar: React.FC = () => {
+  console.log('sidebar render');
 
-const Sidebar: React.FC<Props> = () => {
   return (
     <div className={styles.LayoutSidebar}>
       <div className={`${styles.Sidebar} ${styles.Collapsed}`}>

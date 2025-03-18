@@ -30,17 +30,17 @@
 //default
 .Button_default {
   color: $white;
-  background: $blue;
+  background: #1890ff;
   box-shadow: 0 em(2px) em(16px) rgba(15, 103, 240, 0.5);
   transition: box-shadow $speed;
 
   &:hover {
-    background: darken($blue, 10%);
+    background: #116abd;
     box-shadow: 0 em(4px) em(18px) rgba(15, 103, 240, 1);
   }
 
   &:active {
-    background: darken($blue, 20%);
+    background: #0f5ca5;
     box-shadow: none;
   }
 }
@@ -53,12 +53,12 @@
   transition: box-shadow $speed;
 
   &:hover {
-    background: darken($green, 10%);
+    background: #0d9433;
     box-shadow: 0 em(2px) em(16px) rgba(15, 240, 67, 1);
   }
 
   &:active {
-    background: darken($green, 20%);
+    background: #0d9433;
     box-shadow: none;
   }
 }
@@ -71,12 +71,12 @@
   transition: box-shadow $speed;
 
   &:hover {
-    background: darken($red, 10%);
+    background: #a00406;
     box-shadow: 0 em(2px) em(16px) rgba(240, 15, 15, 1);
   }
 
   &:active {
-    background: darken($red, 20%);
+    background: #a00406;
     box-shadow: none;
   }
 }
@@ -94,10 +94,10 @@
     text-transform: inherit;
   }
   &:hover {
-    color: darken($blue, 10%);
+    color: #116abd;
   }
   &:active {
-    color: darken($blue, 20%);
+    color: #0f5ca5;
   }
 }
 

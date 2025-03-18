@@ -19,10 +19,6 @@ const Switch: React.FC<Props> = () => {
   const [checked4, setChecked4] = React.useState<boolean>(true);
   const [disabled, setDisabled] = React.useState<boolean>(false);
 
-  React.useEffect(() => {
-    console.log('checked: ', checked);
-  }, [checked]);
-
   return (
     <>
       <BaseContainer>

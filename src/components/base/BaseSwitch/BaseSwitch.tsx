@@ -21,7 +21,6 @@ const BaseSwitch: React.FC<Props> = ({
   unCheckedChildren,
 }) => {
   const handler = !disabled ? onChange : undefined;
-  console.log('checkedChildren: ', typeof checkedChildren);
 
   return (
     <div className={`${styles.Wrapper} ${className}`}>

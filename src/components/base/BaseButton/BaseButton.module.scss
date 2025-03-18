@@ -62,13 +62,13 @@
 
     @media (hover: hover) {
       &:hover {
-        background: darken(#2a86ff, 10%);
+        background: #105ec5;
       }
     }
 
     @media (hover: none) {
       &:active {
-        background: darken(#2a86ff, 10%);
+        background: #105ec5;
       }
     }
   }
@@ -78,13 +78,13 @@
 
     @media (hover: hover) {
       &:hover {
-        background: darken(#934fa8, 10%);
+        background: #8827a5;
       }
     }
 
     @media (hover: none) {
       &:active {
-        background: darken(#934fa8, 10%);
+        background: #8827a5;
       }
     }
   }
@@ -94,13 +94,13 @@
 
     @media (hover: hover) {
       &:hover {
-        background: darken(#13de4c, 10%);
+        background: #076422;
       }
     }
 
     @media (hover: none) {
       &:active {
-        background: darken(#13de4c, 10%);
+        background: #076422;
       }
     }
   }
@@ -110,13 +110,13 @@
 
     @media (hover: hover) {
       &:hover {
-        background: darken(#ff0004, 10%);
+        background: #970407;
       }
     }
 
     @media (hover: none) {
       &:active {
-        background: darken(#ff0004, 10%);
+        background: #970407;
       }
     }
   }
@@ -131,16 +131,16 @@
 
     @media (hover: hover) {
       &:hover {
-        border: 1px solid darken(#2a86ff, 10%);
-        background: darken(#2a86ff, 10%);
+        border: 1px solid #105ec5;
+        background: #105ec5;
         color: #fff;
       }
     }
 
     @media (hover: none) {
       &:active {
-        border: 1px solid darken(#2a86ff, 10%);
-        background: darken(#2a86ff, 10%);
+        border: 1px solid #105ec5;
+        background: #105ec5;
         color: #fff;
       }
     }
@@ -153,16 +153,16 @@
 
     @media (hover: hover) {
       &:hover {
-        border: 1px solid darken(#934fa8, 10%);
-        background: darken(#934fa8, 10%);
+        border: 1px solid #8827a5;
+        background: #8827a5;
         color: #fff;
       }
     }
 
     @media (hover: none) {
       &:active {
-        border: 1px solid darken(#934fa8, 10%);
-        background: darken(#934fa8, 10%);
+        border: 1px solid #8827a5;
+        background: #8827a5;
         color: #fff;
       }
     }
@@ -175,16 +175,16 @@
 
     @media (hover: hover) {
       &:hover {
-        border: 1px solid darken(#13de4c, 10%);
-        background: darken(#13de4c, 10%);
+        border: 1px solid #076422;
+        background: #076422;
         color: #fff;
       }
     }
 
     @media (hover: none) {
       &:active {
-        border: 1px solid darken(#13de4c, 10%);
-        background: darken(#13de4c, 10%);
+        border: 1px solid #076422;
+        background: #076422;
         color: #fff;
       }
     }
@@ -197,16 +197,16 @@
 
     @media (hover: hover) {
       &:hover {
-        border: 1px solid darken(#ff0004, 10%);
-        background: darken(#ff0004, 10%);
+        border: 1px solid #970407;
+        background: #970407;
         color: #fff;
       }
     }
 
     @media (hover: none) {
       &:active {
-        border: 1px solid darken(#ff0004, 10%);
-        background: darken(#ff0004, 10%);
+        border: 1px solid #970407;
+        background: #970407;
         color: #fff;
       }
     }
