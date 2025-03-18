@@ -2,11 +2,7 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { BaseIcon } from '@base/index';
 import { NavbarLink } from '@nav/index';
-import { ALL_ICONS } from '@constants/icons';
-
-interface Props {}
 
 const links = [
   {
@@ -20,7 +16,7 @@ const links = [
   },
 ];
 
-const Navbar: React.FC<Props> = () => {
+const Navbar: React.FC = () => {
   const router = useRouter();
 
   return (
@@ -31,17 +27,15 @@ const Navbar: React.FC<Props> = () => {
         }`}
       >
         <Link href="/">
-          <a>
-            <div className={styles.NavbarLogo}>
-              {/* <BaseIcon
+          <div className={styles.NavbarLogo}>
+            {/* <BaseIcon
                 className={styles.LogoImage}
                 icon={ALL_ICONS.LOGO}
                 viewBox="0 0 60 60"
               /> */}
 
-              <div className={styles.LogoTitle}>DK UI components</div>
-            </div>
-          </a>
+            <div className={styles.LogoTitle}>DK UI components</div>
+          </div>
         </Link>
 
         <ul className={styles.NavbarNav}>

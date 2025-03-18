@@ -14,14 +14,13 @@ const SidebarLink: React.FC<Props> = ({ href, title, index }) => {
 
   return (
     <li key={index} className={styles.Li}>
-      <Link href={href}>
-        <a
-          className={`${router.pathname === href ? styles.Active : ''} ${
-            styles.Link
-          }`}
-        >
-          {title}
-        </a>
+      <Link
+        href={href}
+        className={`${router.pathname === href ? styles.Active : ''} ${
+          styles.Link
+        }`}
+      >
+        {title}
       </Link>
     </li>
   );

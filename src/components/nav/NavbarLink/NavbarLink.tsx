@@ -14,16 +14,15 @@ const NavbarLink: React.FC<Props> = ({ href, title, index }) => {
 
   return (
     <li key={index} className={styles.Li}>
-      <Link href={href}>
-        <a
-          className={`${
-            router.pathname.split('/')[1] === href.split('/')[1]
-              ? styles.Active
-              : ''
-          } ${styles.Link}`}
-        >
-          {title}
-        </a>
+      <Link
+        href={href}
+        className={`${
+          router.pathname.split('/')[1] === href.split('/')[1]
+            ? styles.Active
+            : ''
+        } ${styles.Link}`}
+      >
+        {title}
       </Link>
     </li>
   );

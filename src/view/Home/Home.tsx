@@ -1,12 +1,19 @@
 import React from 'react';
 import s from './Home.module.scss';
+import useMediaQuery from '@hooks/useMediaQuery';
 // import Image from 'next/image';
 
 const Home = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
     <>
       <div className={s.Container}>
         <h1>Home</h1>
+
+        <h1>
+          Текущее состояние: {isMobile ? 'Мобильное устройство' : 'Десктоп'}
+        </h1>
 
         {/* <Image
           src="/unsplash.jpg"

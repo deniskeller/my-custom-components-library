@@ -13,12 +13,10 @@ const LinkToViewCode: React.FC<Props> = ({ href = '', title = '' }) => {
     <>
       <BaseSubtitle className="Mr">{title}</BaseSubtitle>
       <BaseTooltip title="Open in Github">
-        <Link href={href}>
-          <a target="_blank" rel="noreferrer">
-            <div className="Icon">
-              <BaseIcon icon={ALL_ICONS.GITHUB} />
-            </div>
-          </a>
+        <Link href={href} target="_blank" rel="noreferrer">
+          <div className="Icon">
+            <BaseIcon icon={ALL_ICONS.GITHUB} />
+          </div>
         </Link>
       </BaseTooltip>
     </>
