@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styles from './Main.module.scss';
 
 import { Navbar, Sidebar } from '@nav/index';
 // import { Footer } from "components/footer";
 
 interface Props {
-  children: JSX.Element;
+  children: ReactNode | ReactNode[];
 }
 
 const Main: React.FC<Props> = ({ children }) => {
