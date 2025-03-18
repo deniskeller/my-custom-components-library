@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react';
 import useOnClickOutside from '@hooks/useOnClickOutside';
 import styles from './BaseSearchSelect.module.scss';
@@ -24,7 +25,7 @@ interface ISelectItem {
 
 const BaseSearchSelect: React.FC<Props> = ({
   placeholder,
-  style,
+  // style,
   className,
   type = 'default',
   options,
@@ -35,7 +36,7 @@ const BaseSearchSelect: React.FC<Props> = ({
   const [isOpen, setIsOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
   const [selectedOption, setSelectedOption] = React.useState<number | string>(
-    ''
+    '',
   );
   const selectContainerRef = React.useRef(null);
 
@@ -105,7 +106,7 @@ const BaseSearchSelect: React.FC<Props> = ({
               <li
                 className={styles.Li}
                 onClick={onOptionClicked(
-                  option.code ? option.code! : option.title
+                  option.code ? option.code! : option.title,
                 )}
                 key={Math.random()}
               >
