@@ -2,20 +2,13 @@ import React from 'react';
 import { BaseButton, BaseContainer, BaseTitle, BaseTooltip } from '@base/index';
 import styles from './Tooltip.module.scss';
 import { LinkToViewCode } from '@nav/index';
-import useResizeObserver from '@hooks/useResizeObserver';
 
 const Tooltip: React.FC = () => {
-  const [ref, rect] = useResizeObserver();
-  console.log('rect: ', rect);
-
   return (
     <BaseContainer>
       <BaseTitle className="Mb20">Tooltip</BaseTitle>
 
-      <div
-        className="Headline Mb20"
-        ref={ref as React.RefObject<HTMLDivElement>}
-      >
+      <div className="Headline Mb20">
         <LinkToViewCode
           title="A simple text popup tip."
           href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseTooltip"
