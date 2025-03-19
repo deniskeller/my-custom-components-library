@@ -114,18 +114,37 @@ const BaseTooltip: React.FC<Props> = ({
 
   // Обработка событий для мобильных устройств
   useEffect(() => {
+    const childElement = childRef.current;
+
+    const handleTouchStart = () => {
+      handleShowTooltip();
+    };
+
     const handleTouchEnd = () => {
       handleHideTooltip();
     };
 
-    const childElement = childRef.current;
+    const handleTouchCancel = () => {
+      handleHideTooltip();
+    };
+
+    const handleTouchMove = () => {
+      handleHideTooltip();
+    };
+
     if (childElement) {
+      childElement.addEventListener('touchstart', handleTouchStart);
       childElement.addEventListener('touchend', handleTouchEnd);
+      childElement.addEventListener('touchcancel', handleTouchCancel);
+      childElement.addEventListener('touchmove', handleTouchMove);
     }
 
     return () => {
       if (childElement) {
+        childElement.removeEventListener('touchstart', handleTouchStart);
         childElement.removeEventListener('touchend', handleTouchEnd);
+        childElement.removeEventListener('touchcancel', handleTouchCancel);
+        childElement.removeEventListener('touchmove', handleTouchMove);
       }
     };
   }, []);
