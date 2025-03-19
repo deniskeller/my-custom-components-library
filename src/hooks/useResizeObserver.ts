@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 type ObserverRect = Omit<DOMRectReadOnly, 'toJSON'>;
 
-export default function useResizeObserver(): [
+function useResizeObserver(): [
   React.RefObject<Element | null>,
   ObserverRect | undefined,
 ] {
@@ -29,3 +29,5 @@ export default function useResizeObserver(): [
 
   return [ref, rect];
 }
+
+export default useResizeObserver;

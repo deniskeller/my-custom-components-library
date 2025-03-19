@@ -1,34 +1,53 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './Home.module.scss';
 import useMediaQuery from '@hooks/useMediaQuery';
 import useResizeObserver from '@hooks/useResizeObserver';
 import useIntersectionObserver from '@hooks/useIntersectionObserver';
+import useLocalStorage from '@hooks/useLocalStorage';
 // import Image from 'next/image';
+
+interface User {
+  name: string;
+  age: number;
+  email: string;
+}
 
 const Home = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   const [ref, rect] = useResizeObserver();
-  console.log('rect: ', rect);
+  // console.log('rect: ', rect);
 
   const [targetRef, isIntersecting] = useIntersectionObserver({
     threshold: 0.5,
     triggerOnce: true,
   });
 
+  const [name, setName] = useLocalStorage<string>('name', 'Guest');
+
+  const [user, setUser] = useLocalStorage<User>('user', {
+    name: 'Guest111',
+    age: 0,
+    email: '',
+  });
+
+  useEffect(() => {
+    console.log('user: ', user);
+  }, []);
+
   return (
     <>
       <div className={s.Container}>
         <h1>Home</h1>
-
+        {/* ---------------------------------------------------------------------- */}
         <h1>
           Текущее состояние: {isMobile ? 'Мобильное устройство' : 'Десктоп'}
         </h1>
 
         <hr />
-
+        {/* ---------------------------------------------------------------------- */}
         <div className="" ref={ref as React.RefObject<HTMLDivElement>}>
-          <h1>test useResizeObserver</h1>
+          <h1>тест хука useResizeObserver</h1>
         </div>
         {rect && (
           <div style={{ marginTop: '16px' }}>
@@ -40,8 +59,31 @@ const Home = () => {
         )}
 
         <hr />
+        {/* ---------------------------------------------------------------------- */}
+        <h1>тест хука useLocalStorage</h1>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter your name"
+        />
 
-        {/* тест useIntersectionObserver */}
+        <button
+          onClick={() =>
+            setUser({
+              name: 'denis111',
+              age: 27,
+              email: 'test@test.com',
+            })
+          }
+        >
+          кнопка
+        </button>
+
+        <hr />
+        {/* ---------------------------------------------------------------------- */}
+
+        <h1>тест useIntersectionObserver</h1>
         <div style={{ height: '100vh' }}>
           Скролл для теста useIntersectionObserver
         </div>
@@ -56,6 +98,7 @@ const Home = () => {
         </div>
 
         <hr />
+        {/* ---------------------------------------------------------------------- */}
 
         <h1>тест картинок: обычная и ретина</h1>
         {/* <Image
