@@ -1,6 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import s from './BaseTooltip.module.scss';
-import BasePortal from '@base/BasePortal/BasePortal';
 
 interface Props {
   children: ReactNode | ReactNode[];
@@ -34,6 +33,7 @@ const BaseTooltip: React.FC<Props> = ({
   const handleHideTooltip = () => {
     if (isVisible) {
       setIsVisible(false);
+      setIsAnimating(false); // Сбрасываем состояние анимации
     }
   };
 
@@ -160,18 +160,16 @@ const BaseTooltip: React.FC<Props> = ({
       {children}
 
       {isMounted && (
-        <BasePortal>
-          <div
-            ref={tooltipRef}
-            style={{
-              top: `${tooltipPosition.top}px`,
-              left: `${tooltipPosition.left}px`,
-            }}
-            className={`${s.Tooltip} ${isAnimating && isVisible ? s.Tooltip__Show : s.Tooltip__Hide}`}
-          >
-            {content}
-          </div>
-        </BasePortal>
+        <div
+          ref={tooltipRef}
+          style={{
+            top: `${tooltipPosition.top}px`,
+            left: `${tooltipPosition.left}px`,
+          }}
+          className={`${s.Tooltip} ${isAnimating && isVisible ? s.Tooltip__Show : s.Tooltip__Hide}`}
+        >
+          {content}
+        </div>
       )}
     </div>
   );
