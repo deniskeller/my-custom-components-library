@@ -1,25 +1,7 @@
-// import { useSyncExternalStore } from 'react';
-
-// function useMediaQuery(query: string) {
-//   const getSnapshot = () => window.matchMedia(query).matches;
-
-//   const subscribe = (callback: (event: MediaQueryListEvent) => void) => {
-//     const mediaQueryList = window.matchMedia(query);
-//     mediaQueryList.addEventListener('change', callback);
-
-//     return () => mediaQueryList.removeEventListener('change', callback);
-//   };
-
-//   return useSyncExternalStore(subscribe, getSnapshot);
-// }
-
-// export default useMediaQuery;
-
 import { useSyncExternalStore } from 'react';
 
 function useMediaQuery(query: string) {
   const getSnapshot = () => {
-    // Проверяем, доступен ли window (т.е. выполняем ли мы код в браузере)
     if (typeof window !== 'undefined') {
       return window.matchMedia(query).matches;
     }
@@ -33,7 +15,6 @@ function useMediaQuery(query: string) {
   };
 
   const subscribe = (callback: (event: MediaQueryListEvent) => void) => {
-    // Проверяем, доступен ли window (т.е. выполняем ли мы код в браузере)
     if (typeof window !== 'undefined') {
       const mediaQueryList = window.matchMedia(query);
       mediaQueryList.addEventListener('change', callback);
