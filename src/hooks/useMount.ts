@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-export const useMount  = ({ opened } : {opened: boolean}) => {
+export const useMount = ({ opened }: { opened: boolean }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -15,5 +15,6 @@ export const useMount  = ({ opened } : {opened: boolean}) => {
 
   return {
     mounted,
+    setMounted,
   };
 };

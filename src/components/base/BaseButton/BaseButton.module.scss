@@ -1,7 +1,6 @@
 .Button {
   // global
   position: relative;
-  font-size: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,18 +15,19 @@
   user-select: none;
   text-align: center;
   font-style: normal;
+  text-transform: uppercase;
 
   &_default {
-    $size: 16px;
+    $size: 14px;
     line-height: em($size);
-    height: em(52px, $size);
+    height: em(42px, $size);
     padding: em(6px, $size) em(20px, $size);
     font-size: em($size);
   }
 
   &_small {
-    $size: 13px;
-    height: em(42px, $size);
+    $size: 12px;
+    height: em(32px, $size);
     padding: em(6px, $size) em(12px, $size);
     font-size: em($size);
     line-height: em($size);

@@ -1,6 +1,6 @@
 import BaseIcon from '@base/BaseIcon/BaseIcon';
 import s from './BaseButton.module.scss';
-import { ComponentProps, ElementType, ReactNode } from 'react';
+import React, { ComponentProps, ElementType, ReactNode } from 'react';
 import { ALL_ICONS } from '@constants/icons';
 
 type ButtonOwnProps<E extends ElementType = ElementType> = {

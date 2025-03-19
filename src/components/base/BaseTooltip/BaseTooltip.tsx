@@ -1,75 +1,159 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import s from './BaseTooltip.module.scss';
 import BasePortal from '@base/BasePortal/BasePortal';
-import { useMount } from '@hooks/useMount';
 
 interface Props {
-  children?: ReactNode | ReactNode[];
-  title?: string;
+  children: ReactNode | ReactNode[];
+  content: string;
+  position?: 'top' | 'bottom' | 'left' | 'right';
   className?: string;
-  position?: string;
 }
 
 const BaseTooltip: React.FC<Props> = ({
   children,
-  title = '',
-  // position = 'top',
+  content,
+  position = 'top',
   className = '',
 }) => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const tooltipRef = useRef<HTMLParagraphElement>(null);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const childRef = useRef<HTMLDivElement>(null);
+  const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const showTooltip = () => {
-    if (targetRef.current) {
-      const rect = targetRef.current.getBoundingClientRect();
-      const scrollY = window.scrollY;
-
-      setPosition({
-        top: rect.top + scrollY,
-        left: rect.left + rect.width / 2,
-      });
+  // Показ тултипа
+  const handleShowTooltip = () => {
+    if (!isVisible) {
+      setIsMounted(true);
       setIsVisible(true);
     }
   };
 
-  const hideTooltip = () => {
-    setIsVisible(false);
+  // Скрытие тултипа
+  const handleHideTooltip = () => {
+    if (isVisible) {
+      setIsVisible(false);
+    }
   };
 
-  const { mounted } = useMount({ opened: isVisible });
-  const [animationIn, setAnimationIn] = useState(mounted);
-
+  // Запуск анимации появления после монтирования
   useEffect(() => {
-    setTimeout(() => {
-      setAnimationIn(isVisible);
-    }, 10);
-  }, [isVisible]);
+    if (isMounted && isVisible) {
+      const timeout = setTimeout(() => {
+        setIsAnimating(true);
+      }, 10);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isMounted, isVisible]);
+
+  // Обработка завершения анимации скрытия
+  useEffect(() => {
+    if (!isVisible && isMounted && tooltipRef.current) {
+      const tooltipElement = tooltipRef.current;
+
+      const handleTransitionEnd = () => {
+        setIsMounted(false);
+      };
+
+      tooltipElement.addEventListener('transitionend', handleTransitionEnd, {
+        once: true,
+      });
+
+      return () => {
+        tooltipElement.removeEventListener(
+          'transitionend',
+          handleTransitionEnd,
+        );
+      };
+    }
+  }, [isVisible, isMounted]);
+
+  // Определение положения тултипа
+  useEffect(() => {
+    if (isVisible && tooltipRef.current && childRef.current) {
+      const childRect = childRef.current.getBoundingClientRect();
+      const tooltipRect = tooltipRef.current.getBoundingClientRect();
+
+      let top = 0;
+      let left = 0;
+
+      switch (position) {
+        case 'top':
+          top = childRect.top - tooltipRect.height;
+          left = childRect.left + (childRect.width - tooltipRect.width) / 2;
+          break;
+        case 'bottom':
+          top = childRect.bottom;
+          left = childRect.left + (childRect.width - tooltipRect.width) / 2;
+          break;
+        case 'left':
+          top = childRect.top + (childRect.height - tooltipRect.height) / 2;
+          left = childRect.left - tooltipRect.width;
+          break;
+        case 'right':
+          top = childRect.top + (childRect.height - tooltipRect.height) / 2;
+          left = childRect.right;
+          break;
+        default:
+          break;
+      }
+
+      // Проверка на выход за границы экрана
+      if (top < 0) top = 0;
+      if (left < 0) left = 0;
+      if (top + tooltipRect.height > window.innerHeight)
+        top = window.innerHeight - tooltipRect.height;
+      if (left + tooltipRect.width > window.innerWidth)
+        left = window.innerWidth - tooltipRect.width;
+
+      setTooltipPosition({ top, left });
+    }
+  }, [isVisible, position]);
+
+  // Обработка событий для мобильных устройств
+  useEffect(() => {
+    const handleTouchEnd = () => {
+      handleHideTooltip();
+    };
+
+    const childElement = childRef.current;
+    if (childElement) {
+      childElement.addEventListener('touchend', handleTouchEnd);
+    }
+
+    return () => {
+      if (childElement) {
+        childElement.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, []);
 
   return (
     <div
-      className={`${s.Tooltip} ${className}`}
-      ref={targetRef}
-      onMouseOver={showTooltip}
-      onMouseOut={hideTooltip}
+      ref={childRef}
+      onMouseEnter={handleShowTooltip}
+      onMouseLeave={handleHideTooltip}
+      onTouchStart={handleShowTooltip}
+      className={`${s.Tooltip_Wrapper} ${className}`}
     >
-      {isVisible && (
+      {children}
+
+      {isMounted && (
         <BasePortal>
-          <p
+          <div
             ref={tooltipRef}
-            data-position={position}
-            className={animationIn ? s.Title : s.Title_Hover}
             style={{
-              top: position.top,
-              left: position.left,
+              top: `${tooltipPosition.top}px`,
+              left: `${tooltipPosition.left}px`,
             }}
+            className={`${s.Tooltip} ${isAnimating && isVisible ? s.Tooltip__Show : s.Tooltip__Hide}`}
           >
-            {title}
-          </p>
+            {content}
+          </div>
         </BasePortal>
       )}
-      {children}
     </div>
   );
 };

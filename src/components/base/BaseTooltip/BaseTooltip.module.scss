@@ -1,15 +1,11 @@
 .Tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.Title {
   $size: 14px;
   z-index: 100;
   width: max-content;
   min-width: em(120px, $size);
   max-width: em(200px, $size);
   height: max-content;
+  padding: em(6px, $size) em(8px, $size);
   position: fixed;
   @extend %center;
   font-size: em($size);
@@ -18,45 +14,27 @@
   text-align: center;
   word-wrap: break-word;
   color: $white;
-  padding: em(6px, $size) em(8px, $size);
   background: rgba(0, 0, 0, 0.8);
   border-radius: 2px;
-  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014,
-    0 9px 28px 8px #0000000d;
-  transition: opacity ease 0.5s;
-  opacity: 1;
-}
 
-.Title_Hover {
   opacity: 0;
-}
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 
-// .Title[data-position='top'] {
-//   bottom: calc(100% + em(10px, 14px));
-//   transform: translateX(-50%);
-//   left: 50%;
-// }
+  &__Show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-// .Title[data-position='right'] {
-//   left: calc(100% + em(10px, 14px));
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
+  &__Hide {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 
-// .Title[data-position='bottom'] {
-//   top: calc(100% + em(10px, 14px));
-//   transform: translateX(-50%);
-//   left: 50%;
-// }
-
-// .Title[data-position='left'] {
-//   right: calc(100% + em(10px, 14px));
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-
-@media (hover: hover) {
-}
-
-@media (hover: none) {
+  &_Wrapper {
+    position: relative;
+    display: inline-block;
+  }
 }
