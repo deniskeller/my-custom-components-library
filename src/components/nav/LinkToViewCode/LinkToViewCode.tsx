@@ -12,6 +12,7 @@ const LinkToViewCode: React.FC<Props> = ({ href = '', title = '' }) => {
   return (
     <>
       <BaseSubtitle className="Mr">{title}</BaseSubtitle>
+
       <BaseTooltip content="Open in Github">
         <Link href={href} target="_blank" rel="noreferrer">
           <div className="Icon">

@@ -155,6 +155,7 @@ const BaseTooltip: React.FC<Props> = ({
       onMouseEnter={handleShowTooltip}
       onMouseLeave={handleHideTooltip}
       onTouchStart={handleShowTooltip}
+      onTouchEnd={handleHideTooltip}
       className={`${s.Tooltip_Wrapper} ${className}`}
     >
       {children}
