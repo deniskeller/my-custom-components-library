@@ -1,12 +1,12 @@
 import React from 'react';
-import { BaseButton, BaseContainer, BaseTitle, BaseTooltip } from '@base/index';
+import { BaseButton, BaseContainer, BaseText, BaseTooltip } from '@base/index';
 import styles from './Tooltip.module.scss';
 import { LinkToViewCode } from '@nav/index';
 
 const Tooltip: React.FC = () => {
   return (
     <BaseContainer>
-      <BaseTitle className="Mb20">Tooltip</BaseTitle>
+      <BaseText className="Mb20">Tooltip</BaseText>
 
       <div className="Headline Mb20">
         <LinkToViewCode
@@ -17,7 +17,7 @@ const Tooltip: React.FC = () => {
 
       <div className={styles.Tooltips}>
         <BaseTooltip content="some text">
-          <span>Tooltip will show on mouse enter.</span>
+          <p>Tooltip will show on mouse hover.</p>
         </BaseTooltip>
       </div>
 
