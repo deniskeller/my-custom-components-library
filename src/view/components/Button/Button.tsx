@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
-import {
-  BaseButton,
-  BaseButton2,
-  BaseContainer,
-  BaseIcon,
-  BaseTitle,
-} from '@base/index';
+import { BaseButton, BaseContainer, BaseIcon, BaseTitle } from '@base/index';
 import s from './Button.module.scss';
 import { ALL_ICONS } from '@constants/icons';
 import { LinkToViewCode } from '@nav/index';
 
-interface Props {}
-
-const Button: React.FC<Props> = () => {
+const Button: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = (index: number) => {

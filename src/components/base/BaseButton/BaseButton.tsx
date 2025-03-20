@@ -12,6 +12,7 @@ type ButtonOwnProps<E extends ElementType = ElementType> = {
   disabled?: boolean;
   className?: string;
   loading?: boolean;
+  style?: React.CSSProperties;
   onClick?: (ev: React.MouseEvent<HTMLElement>) => void;
   as?: E;
 };
@@ -21,7 +22,7 @@ type ButtonProps<E extends ElementType> = ButtonOwnProps<E> &
 
 const defaultElement = 'button';
 
-export default function Button<E extends ElementType = typeof defaultElement>({
+function Button<E extends ElementType = typeof defaultElement>({
   children,
   startIcon,
   endIcon,
@@ -31,21 +32,29 @@ export default function Button<E extends ElementType = typeof defaultElement>({
   size = 'default',
   className = '',
   loading = false,
-  onClick,
+  style,
   as,
+  onClick,
   ...otherProps
 }: ButtonProps<E>) {
   const TagName = as || defaultElement;
 
+  const classNames = [
+    s.Button,
+    s['Button_Variant_' + variant],
+    s['Button_Variant_' + variant + '_' + color],
+    s['Button_' + size],
+    startIcon ? s.Button_StartIcon : '',
+    endIcon ? s.Button_EndIcon : '',
+    className,
+  ].join(' ');
+
   return (
     <TagName
-      className={`${s.Button} ${s['Button_Variant_' + variant]} ${
-        s['Button_Variant_' + variant + '_' + color]
-      } ${s['Button_' + size]} ${startIcon ? s.Button_StartIcon : ''} ${
-        endIcon ? s.Button_EndIcon : ''
-      } ${className}`}
+      className={classNames}
       {...otherProps}
       disabled={disabled}
+      style={style}
       onClick={onClick}
     >
       {loading ? (
@@ -60,3 +69,5 @@ export default function Button<E extends ElementType = typeof defaultElement>({
     </TagName>
   );
 }
+
+export default Button;
