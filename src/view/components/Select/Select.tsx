@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { BaseContainer, BaseSelect, BaseTitle } from '@base/index';
+import { BaseContainer, BaseSelect, BaseText, BaseTitle } from '@base/index';
 import styles from './Select.module.scss';
 import { LinkToViewCode } from '@nav/index';
 
@@ -22,7 +22,7 @@ const Select: React.FC<Props> = () => {
   return (
     <>
       <BaseContainer>
-        <BaseTitle className="Mb20">Select</BaseTitle>
+        <BaseText className="Mb20">Select</BaseText>
 
         <div className="Headline Mb20">
           <LinkToViewCode

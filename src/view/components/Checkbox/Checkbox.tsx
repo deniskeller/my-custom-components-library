@@ -5,6 +5,7 @@ import {
   BaseCheckbox,
   BaseContainer,
   BaseSubtitle,
+  BaseText,
   BaseTitle,
 } from '@base/index';
 import styles from './Checkbox.module.scss';
@@ -73,7 +74,7 @@ const Checkbox: React.FC<Props> = () => {
   return (
     <>
       <BaseContainer className="Mb20">
-        <BaseTitle className="Mb20">Checkbox</BaseTitle>
+        <BaseText className="Mb20">Checkbox</BaseText>
 
         <div className="Headline Mb20">
           <LinkToViewCode
@@ -108,7 +109,7 @@ const Checkbox: React.FC<Props> = () => {
       </BaseContainer>
 
       <BaseContainer>
-        <BaseSubtitle className="Mb20">Checkbox groups</BaseSubtitle>
+        <BaseText className="Mb20">Checkbox groups</BaseText>
 
         <div className={styles.Checkboxs}>
           <BaseCheckbox

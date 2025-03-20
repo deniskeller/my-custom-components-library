@@ -5,6 +5,7 @@ import {
   BaseContainer,
   BaseSubtitle,
   BaseSwitch,
+  BaseText,
   BaseTitle,
 } from '@base/index';
 import { LinkToViewCode } from '@nav/index';
@@ -22,7 +23,7 @@ const Switch: React.FC<Props> = () => {
   return (
     <>
       <BaseContainer>
-        <BaseTitle className="Mb20">Checkbox</BaseTitle>
+        <BaseText className="Mb20">Checkbox</BaseText>
 
         <div className="Headline Mb20">
           <LinkToViewCode
@@ -32,7 +33,7 @@ const Switch: React.FC<Props> = () => {
         </div>
 
         <div className={styles.Switch}>
-          <BaseSubtitle className="Mb10">Basic</BaseSubtitle>
+          <BaseText className="Mb10">Basic</BaseText>
           <BaseSwitch
             checked={checked}
             onChange={() => setChecked(!checked)}
@@ -47,7 +48,7 @@ const Switch: React.FC<Props> = () => {
             className="Mb20"
           />
 
-          <BaseSubtitle className="Mb10">With text and icon.</BaseSubtitle>
+          <BaseText className="Mb10">With text and icon.</BaseText>
           <BaseSwitch
             checked={checked2}
             onChange={() => setChecked2(!checked2)}
@@ -89,7 +90,7 @@ const Switch: React.FC<Props> = () => {
             className="Mb20"
           />
 
-          <BaseSubtitle className="Mb10">With label.</BaseSubtitle>
+          <BaseText className="Mb10">With label.</BaseText>
           <BaseSwitch
             checked={checked4}
             onChange={() => setChecked4(!checked4)}

@@ -4,6 +4,7 @@ import {
   BaseInputNumber,
   BaseInputNumber2,
   BaseSubtitle,
+  BaseText,
   BaseTextarea,
   BaseTitle,
 } from '@base/index';
@@ -52,7 +53,7 @@ const Input: React.FC<Props> = () => {
     <>
       <div className={styles.Inputs}>
         <BaseContainer>
-          <BaseTitle className="Mb20">Input</BaseTitle>
+          <BaseText className="Mb20">Input</BaseText>
 
           <div className="Headline Mb20">
             <LinkToViewCode
@@ -216,7 +217,7 @@ const Input: React.FC<Props> = () => {
             />
           </div>
 
-          <BaseSubtitle className="Mb20">For multi-line input.</BaseSubtitle>
+          <BaseText className="Mb20">For multi-line input.</BaseText>
 
           <BaseTextarea
             className="mw400"
@@ -226,7 +227,7 @@ const Input: React.FC<Props> = () => {
           />
         </BaseContainer>
         <BaseContainer>
-          <BaseSubtitle className="Mb20">With character counting</BaseSubtitle>
+          <BaseText className="Mb20">With character counting</BaseText>
 
           <BaseTextarea
             placeholder="Some text"

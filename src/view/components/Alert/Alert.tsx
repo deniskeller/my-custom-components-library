@@ -1,14 +1,12 @@
 import React from 'react';
-import { BaseContainer, BaseTitle } from '@base/index';
+import { BaseContainer, BaseText } from '@base/index';
 import styles from './Alert.module.scss';
 
-interface Props {}
-
-const Alert: React.FC<Props> = () => {
+const Alert: React.FC = () => {
   return (
     <>
       <BaseContainer>
-        <BaseTitle className="Mb20">Soon</BaseTitle>
+        <BaseText className="Mb20">Soon</BaseText>
       </BaseContainer>
     </>
   );

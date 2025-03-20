@@ -3,6 +3,7 @@ import {
   BaseContainer,
   BaseRadioButton,
   BaseSubtitle,
+  BaseText,
   BaseTitle,
 } from '@base/index';
 import { LinkToViewCode } from '@nav/index';
@@ -29,7 +30,7 @@ const Radiobutton: React.FC = () => {
   return (
     <>
       <BaseContainer>
-        <BaseTitle className="Mb20">Radiobutton</BaseTitle>
+        <BaseText className="Mb20">Radiobutton</BaseText>
 
         <div className="Headline Mb20">
           <LinkToViewCode
@@ -57,9 +58,7 @@ const Radiobutton: React.FC = () => {
           </div>
 
           <div>
-            <BaseSubtitle className="Mb20">
-              Solid radio button style.
-            </BaseSubtitle>
+            <BaseText className="Mb20">Solid radio button style.</BaseText>
 
             {radioItems2?.map((item) => {
               return (
