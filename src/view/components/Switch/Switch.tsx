@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  BaseButton,
-  BaseButton2,
-  BaseContainer,
-  BaseSubtitle,
-  BaseSwitch,
-  BaseText,
-  BaseTitle,
-} from '@base/index';
+import { BaseButton2, BaseContainer, BaseSwitch, BaseText } from '@base/index';
 import { LinkToViewCode } from '@nav/index';
 import styles from './Switch.module.scss';
 

@@ -1,12 +1,9 @@
 import React from 'react';
 import {
-  BaseButton,
   BaseButton2,
   BaseCheckbox,
   BaseContainer,
-  BaseSubtitle,
   BaseText,
-  BaseTitle,
 } from '@base/index';
 import styles from './Checkbox.module.scss';
 import { LinkToViewCode } from '@nav/index';

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { BaseContainer, BaseSelect, BaseText, BaseTitle } from '@base/index';
+import { BaseContainer, BaseSelect, BaseText } from '@base/index';
 import styles from './Select.module.scss';
 import { LinkToViewCode } from '@nav/index';
 
