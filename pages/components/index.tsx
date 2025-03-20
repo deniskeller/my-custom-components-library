@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Main } from '@layouts/index';
 import { Components } from '@view/index';
 
