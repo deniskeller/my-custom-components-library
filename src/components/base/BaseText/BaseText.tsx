@@ -1,20 +1,32 @@
-import React, { ReactNode } from 'react';
-import styles from './BaseText.module.scss';
+import React, { ComponentProps, ElementType, ReactNode } from 'react';
+import s from './BaseText.module.scss';
 
-interface Props {
-  children: ReactNode;
-  style?: object;
+type OwnProps<E extends ElementType = ElementType> = {
+  children: ReactNode | ReactNode[];
   className?: string;
-}
-
-const BaseText: React.FC<Props> = ({ children, style, className }) => {
-  return (
-    <span className={className}>
-      <p style={{ ...style }} className={`${styles.Text}`}>
-        {children}
-      </p>
-    </span>
-  );
+  as?: E;
 };
+
+type Props<E extends ElementType> = OwnProps<E> &
+  Omit<ComponentProps<E>, keyof OwnProps>;
+
+const defaultElement = 'h1';
+
+function BaseText<E extends ElementType = typeof defaultElement>({
+  children,
+  className = '',
+  as,
+  ...otherProps
+}: Props<E>) {
+  const TagName = as || defaultElement;
+
+  const classNames = [s.Text, s['Text_' + TagName], className].join(' ');
+
+  return (
+    <TagName className={classNames} {...otherProps}>
+      {children}
+    </TagName>
+  );
+}
 
 export default BaseText;

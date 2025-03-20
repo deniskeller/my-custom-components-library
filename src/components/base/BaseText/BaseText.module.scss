@@ -1,10 +1,23 @@
 .Text {
-  font-size: em(16px);
-  line-height: 120%;
-  font-weight: 400;
-  color: $white;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  transform-style: preserve-3d;
+  line-height: 135%;
+  &_h1 {
+    color: #000;
+    font-size: em(36px);
+    font-weight: 500;
+  }
 
-  @include ifmobile {
-    font-size: em(12px);
+  &_h2 {
+    color: #000;
+    font-size: em(22px);
+    font-weight: 500;
+  }
+
+  &_p {
+    color: rgb(99, 99, 99);
+    font-size: em(16px);
+    font-weight: 500;
   }
 }

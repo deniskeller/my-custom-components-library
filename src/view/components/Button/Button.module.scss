@@ -1,11 +1,5 @@
 .Buttons {
   display: flex;
-	flex-direction: column;
-	margin-bottom: em(20px);
-}
-.Button {
-  .Icon {
-    width: em(15px);
-    height: em(15px);
-  }
+  flex-direction: column;
+  margin-bottom: em(20px);
 }

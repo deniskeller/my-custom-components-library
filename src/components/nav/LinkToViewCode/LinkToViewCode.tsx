@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseIcon, BaseSubtitle, BaseTooltip } from '@base/index';
+import { BaseIcon, BaseText, BaseTooltip } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import Link from 'next/link';
 
@@ -11,7 +11,9 @@ interface Props {
 const LinkToViewCode: React.FC<Props> = ({ href = '', title = '' }) => {
   return (
     <>
-      <BaseSubtitle className="Mr">{title}</BaseSubtitle>
+      <BaseText as="h2" className="Mr10">
+        {title}
+      </BaseText>
 
       <BaseTooltip content="Open in Github">
         <Link href={href} target="_blank" rel="noreferrer">

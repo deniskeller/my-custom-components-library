@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BaseButton, BaseContainer, BaseIcon, BaseTitle } from '@base/index';
+import { BaseButton, BaseContainer, BaseIcon, BaseText } from '@base/index';
 import s from './Button.module.scss';
 import { ALL_ICONS } from '@constants/icons';
 import { LinkToViewCode } from '@nav/index';
@@ -25,17 +25,21 @@ const Button: React.FC = () => {
 
   return (
     <BaseContainer>
-      <BaseTitle className="Mb20">Button </BaseTitle>
+      <BaseText className="Mb20">Button</BaseText>
 
       <div className="Headline Mb20">
         <LinkToViewCode
-          title="Button"
+          title="Base buttons"
           href="https://github.com/deniskeller/my-custom-components-library/tree/main/src/components/base/BaseButton"
         />
       </div>
 
       <div className={s.Buttons}>
-        <p className="Mb20">Basic button</p>
+        <BaseText as="p" className="Mb20">
+          My version of the button component comes in four variations: filled
+          (default), outlined, a link that looks like a button, and an actual
+          link.
+        </BaseText>
 
         <div className="Block">
           <BaseButton>Default</BaseButton>
@@ -55,7 +59,9 @@ const Button: React.FC = () => {
       </div>
 
       <div className={s.Buttons}>
-        <p className="Mb20">Button size</p>
+        <BaseText as="h2" className="Mb20">
+          Button size
+        </BaseText>
 
         <div className="Block">
           <BaseButton>Default</BaseButton>
@@ -67,7 +73,9 @@ const Button: React.FC = () => {
       </div>
 
       <div className={s.Buttons}>
-        <p className="Mb20">Button with icon</p>
+        <BaseText as="h2" className="Mb20">
+          Button with icon
+        </BaseText>
 
         <div className="Block">
           <BaseButton
@@ -102,7 +110,9 @@ const Button: React.FC = () => {
       </div>
 
       <div className={s.Buttons}>
-        <p className="Mb20">Button colors</p>
+        <BaseText as="h2" className="Mb20">
+          Button colors
+        </BaseText>
 
         <div className="Block">
           <BaseButton>Default</BaseButton>
@@ -138,7 +148,9 @@ const Button: React.FC = () => {
       </div>
 
       <div className={s.Buttons}>
-        <p className="Mb20">Button with loading</p>
+        <BaseText as="h2" className="Mb20">
+          Button with loading
+        </BaseText>
 
         <div className="Block">
           <BaseButton loading={loadings[1]} onClick={() => enterLoading(1)}>
