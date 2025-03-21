@@ -1,51 +1,50 @@
 import React, { useEffect } from 'react';
 import s from './Home.module.scss';
-import useMediaQuery from '@hooks/useMediaQuery';
-import useResizeObserver from '@hooks/useResizeObserver';
-import useIntersectionObserver from '@hooks/useIntersectionObserver';
-import useLocalStorage from '@hooks/useLocalStorage';
+// import useResizeObserver from '@hooks/useResizeObserver';
+// import useIntersectionObserver from '@hooks/useIntersectionObserver';
+// import useLocalStorage from '@hooks/useLocalStorage';
 // import Image from 'next/image';
+import useMediaQuery from '@hooks/useMediaQuery';
 
-interface User {
-  name: string;
-  age: number;
-  email: string;
-}
+// interface User {
+//   name: string;
+//   age: number;
+//   email: string;
+// }
 
 const Home = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const { isMobile, isTablet, isDesktop } = useMediaQuery();
 
-  const [ref, rect] = useResizeObserver();
-  // console.log('rect: ', rect);
+  // const [ref, rect] = useResizeObserver();
 
-  const [targetRef, isIntersecting] = useIntersectionObserver({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
+  // const [targetRef, isIntersecting] = useIntersectionObserver({
+  //   threshold: 0.5,
+  //   triggerOnce: true,
+  // });
 
-  const [name, setName] = useLocalStorage<string>('name', 'Guest');
+  // const [name, setName] = useLocalStorage<string>('name', 'Guest');
 
-  const [user, setUser] = useLocalStorage<User>('user', {
-    name: 'Guest111',
-    age: 0,
-    email: '',
-  });
+  // const [user, setUser] = useLocalStorage<User>('user', {
+  //   name: 'Guest111',
+  //   age: 0,
+  //   email: '',
+  // });
 
-  useEffect(() => {
-    console.log('user: ', user);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
       <div className={s.Container}>
         <h1>Home</h1>
-        {/* ---------------------------------------------------------------------- */}
         <h1>
-          Текущее состояние: {isMobile ? 'Мобильное устройство' : 'Десктоп'}
+          <div>
+            {isMobile && <p>Mobile view</p>}
+            {isTablet && <p>Tablet view</p>}
+            {isDesktop && <p>Desktop view</p>}
+          </div>
         </h1>
 
-        <hr />
-        {/* ---------------------------------------------------------------------- */}
+        {/* <hr />
         <div className="" ref={ref as React.RefObject<HTMLDivElement>}>
           <h1>тест хука useResizeObserver</h1>
         </div>
@@ -59,7 +58,6 @@ const Home = () => {
         )}
 
         <hr />
-        {/* ---------------------------------------------------------------------- */}
         <h1>тест хука useLocalStorage</h1>
         <input
           type="text"
@@ -81,7 +79,6 @@ const Home = () => {
         </button>
 
         <hr />
-        {/* ---------------------------------------------------------------------- */}
 
         <h1>тест useIntersectionObserver</h1>
         <div style={{ height: '100vh' }}>
@@ -98,9 +95,8 @@ const Home = () => {
         </div>
 
         <hr />
-        {/* ---------------------------------------------------------------------- */}
 
-        <h1>тест картинок: обычная и ретина</h1>
+        <h1>тест картинок: обычная и ретина</h1> */}
         {/* <Image
           src="/unsplash.jpg"
           width={741}
