@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import s from './Home.module.scss';
+import Image from 'next/image';
+import { BaseButton } from '@base/index';
 // import useResizeObserver from '@hooks/useResizeObserver';
 // import useIntersectionObserver from '@hooks/useIntersectionObserver';
 // import useLocalStorage from '@hooks/useLocalStorage';
-// import Image from 'next/image';
-import useMediaQuery from '@hooks/useMediaQuery';
+// import useCopyToClipboard from '@hooks/useCopyToClipboard';
+// import useMediaQuery from '@hooks/useMediaQuery';
 
 // interface User {
 //   name: string;
@@ -13,7 +15,7 @@ import useMediaQuery from '@hooks/useMediaQuery';
 // }
 
 const Home = () => {
-  const { isMobile, isTablet, isDesktop } = useMediaQuery();
+  // const { isMobile, isTablet, isDesktop } = useMediaQuery();
 
   // const [ref, rect] = useResizeObserver();
 
@@ -29,6 +31,12 @@ const Home = () => {
   //   age: 0,
   //   email: '',
   // });
+  // const addDefaultImage = event => {
+  // 	event.target.src = 'https://placehold.co/600x400?text=no+image';
+  // };
+
+  // const [isCopied, copyToClipboard] = useCopyToClipboard();
+  // const textToCopy = 'Hello, World!';
 
   useEffect(() => {}, []);
 
@@ -36,16 +44,17 @@ const Home = () => {
     <>
       <div className={s.Container}>
         <h1>Home</h1>
-        <h1>
+
+        {/* <h1>
           <div>
             {isMobile && <p>Mobile view</p>}
             {isTablet && <p>Tablet view</p>}
             {isDesktop && <p>Desktop view</p>}
           </div>
         </h1>
+        <hr /> */}
 
-        {/* <hr />
-        <div className="" ref={ref as React.RefObject<HTMLDivElement>}>
+        {/* <div className='' ref={ref as React.RefObject<HTMLDivElement>}>
           <h1>тест хука useResizeObserver</h1>
         </div>
         {rect && (
@@ -56,14 +65,14 @@ const Home = () => {
             <p>Лево: {rect.left}px</p>
           </div>
         )}
+        <hr /> */}
 
-        <hr />
-        <h1>тест хука useLocalStorage</h1>
+        {/* <h1>тест хука useLocalStorage</h1>
         <input
-          type="text"
+          type='text'
           value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
+          onChange={e => setName(e.target.value)}
+          placeholder='Enter your name'
         />
 
         <button
@@ -71,16 +80,15 @@ const Home = () => {
             setUser({
               name: 'denis111',
               age: 27,
-              email: 'test@test.com',
+              email: 'test@test.com'
             })
           }
         >
           кнопка
         </button>
+        <hr /> */}
 
-        <hr />
-
-        <h1>тест useIntersectionObserver</h1>
+        {/* <h1>тест useIntersectionObserver</h1>
         <div style={{ height: '100vh' }}>
           Скролл для теста useIntersectionObserver
         </div>
@@ -88,28 +96,36 @@ const Home = () => {
           ref={targetRef as React.RefObject<HTMLDivElement>}
           style={{
             height: '100vh',
-            background: isIntersecting ? 'green' : 'red',
+            background: isIntersecting ? 'green' : 'red'
           }}
         >
           {isIntersecting ? 'Visible' : 'Not Visible'}
         </div>
+        <hr /> */}
 
-        <hr />
+        {/* <h1>тест хука useCopyToClipboard</h1>
+        <BaseButton onClick={() => copyToClipboard(textToCopy)}>
+          {isCopied ? 'Copied!' : 'Copy to Clipboard'}
+        </BaseButton>
+        <hr /> */}
 
-        <h1>тест картинок: обычная и ретина</h1> */}
-        {/* <Image
-          src="/unsplash.jpg"
+        {/* <h1>тест картинок: обычная и ретина</h1>
+        <Image
+          // src='/unsplash.jpg'
+          src=''
           width={741}
           height={1115}
-          alt="default"
+          alt='default'
           quality={100}
+          onError={addDefaultImage}
+          style={{ background: 'grey' }}
         />
 
         <Image
-          src="/unsplash@2x.jpg"
+          src='/unsplash@2x.jpg'
           width={741}
           height={1115}
-          alt="retina"
+          alt='retina'
           quality={100}
         /> */}
       </div>
