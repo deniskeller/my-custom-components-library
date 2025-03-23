@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import s from './Home.module.scss';
 import Image from 'next/image';
 import { BaseButton } from '@base/index';
+// import useScrollbarWidth from '@hooks/useScrollbarWidth';
 // import useResizeObserver from '@hooks/useResizeObserver';
 // import useIntersectionObserver from '@hooks/useIntersectionObserver';
 // import useLocalStorage from '@hooks/useLocalStorage';
@@ -38,12 +39,20 @@ const Home = () => {
   // const [isCopied, copyToClipboard] = useCopyToClipboard();
   // const textToCopy = 'Hello, World!';
 
+  // const scrollbarWidth = useScrollbarWidth();
+
   useEffect(() => {}, []);
 
   return (
     <>
       <div className={s.Container}>
         <h1>Home</h1>
+
+        {/* <h1>тест хука useScrollbarWidth</h1>
+        <div>
+          <p>Ширина скроллбара: {scrollbarWidth}px</p>
+        </div>
+        <hr /> */}
 
         {/* <h1>
           <div>
