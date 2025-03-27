@@ -22,14 +22,14 @@
   transition-duration: 0.2s;
 }
 
-.registrationForm
-  :is(input:not(.radios__control, .checkbox__control), button, textarea):is(
-    :hover,
-    :focus
-  ),
-.registrationForm :is(.radios__label, .checkbox__label):hover {
-  background-color: wheat;
-}
+// .registrationForm
+//   :is(input:not(.radios__control, .checkbox__control), button, textarea):is(
+//     :hover,
+//     :focus
+//   ),
+// .registrationForm :is(.radios__label, .checkbox__label):hover {
+//   background-color: wheat;
+// }
 
 .registrationForm :is(input, button, select, textarea):focus {
   outline: none;
@@ -131,4 +131,7 @@
 
 .formActions button[type='button']:hover {
   background-color: #5a6268;
+}
+.formActions button[type='submit']:hover {
+  background-color: red;
 }
